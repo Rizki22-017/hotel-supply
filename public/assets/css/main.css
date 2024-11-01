@@ -18,7 +18,7 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
+:root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #2c4964; /* Color for headings, subheadings and title throughout the website */
@@ -1012,6 +1012,16 @@ section,
   font-size: 15px;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
+
+.hero .btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--contrast-color);
+    padding: 0.75rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
 
 /*--------------------------------------------------------------
 # About Section
