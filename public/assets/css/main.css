@@ -1071,48 +1071,41 @@ section,
 /*--------------------------------------------------------------
 # Stats Section
 --------------------------------------------------------------*/
-.stats i {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
-  width: 54px;
-  height: 54px;
-  font-size: 24px;
-  border-radius: 50px;
-  border: 2px solid var(--background-color);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-
 .stats .stats-item {
-  background-color: var(--surface-color);
-  margin-top: -27px;
-  padding: 30px 30px 25px 30px;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  box-shadow: 0px 2px 35px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  z-index: 0;
-}
+    padding: 30px;
+    width: 100%;
+  }
 
-.stats .stats-item span {
-  font-size: 32px;
-  display: block;
-  margin: 10px 0;
-  font-weight: 700;
-  color: var(--heading-color);
-}
+  .stats .stats-item span {
+    color: var(--heading-color);
+    font-size: 48px;
+    display: block;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
 
-.stats .stats-item p {
-  padding: 0;
-  margin: 0;
-  font-family: var(--heading-font);
-  font-size: 16px;
-}
+  .stats .stats-item span:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--accent-color);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  .stats .stats-item p {
+    color: color-mix(in srgb, var(--default-color), transparent 40%);
+    padding: 0;
+    margin: 0;
+    font-family: var(--heading-font);
+    font-weight: 500;
+  }
 
 /*--------------------------------------------------------------
 # Services Section
@@ -1736,4 +1729,92 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/*--------------------------------------------------------------
+# Portfolio Section
+--------------------------------------------------------------*/
+.portfolio .portfolio-filters {
+    padding: 0 0 20px 0;
+    margin: 0 auto;
+    list-style: none;
+    text-align: center;
+  }
+
+  .portfolio .portfolio-filters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 10px;
+    line-height: 1;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .portfolio .portfolio-filters li:hover,
+  .portfolio .portfolio-filters li.filter-active {
+    color: var(--accent-color);
+  }
+
+  .portfolio .portfolio-filters li:first-child {
+    margin-left: 0;
+  }
+
+  .portfolio .portfolio-filters li:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: 575px) {
+    .portfolio .portfolio-filters li {
+      font-size: 14px;
+      margin: 0 5px;
+    }
+  }
+
+  .portfolio .portfolio-content {
+    background-color: var(--surface-color);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .portfolio .portfolio-content img {
+    transition: 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .portfolio .portfolio-content .portfolio-info {
+    background-color: var(--background-color);
+    border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    padding: 25px 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .portfolio .portfolio-content .portfolio-info h4 {
+    font-size: 18px;
+    font-weight: 600;
+    padding-right: 50px;
+  }
+
+  .portfolio .portfolio-content .portfolio-info h4 a {
+    color: var(--heading-color);
+    transition: 0.3s;
+  }
+
+  .portfolio .portfolio-content .portfolio-info h4 a:hover {
+    color: var(--accent-color);
+  }
+
+  .portfolio .portfolio-content .portfolio-info p {
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    font-size: 14px;
+    margin-bottom: 0;
+    padding-right: 50px;
+  }
+
+  .portfolio .portfolio-content:hover img {
+    transform: scale(1.1);
 }
