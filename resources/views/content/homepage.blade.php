@@ -39,42 +39,111 @@
       </section><!-- /Hero Section -->
 
 
-      <!-- Stats Section -->
-    <section id="stats" class="stats section light-background">
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="row gy-4">
+        <div class="row gy-4">
 
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
-              <i class="fa-solid fa-user-doctor"></i>
-              <div class="stats-item">
-                <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Clients</p>
-              </div>
-            </div><!-- End Stats Item -->
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Clients</p>
+            </div>
+          </div><!-- End Stats Item -->
 
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
-              <i class="fa-regular fa-hospital"></i>
-              <div class="stats-item">
-                <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Product</p>
-              </div>
-            </div><!-- End Stats Item -->
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Projects</p>
+            </div>
+          </div><!-- End Stats Item -->
 
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
-              <i class="fas fa-flask"></i>
-              <div class="stats-item">
-                <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Material</p>
-              </div>
-            </div><!-- End Stats Item -->
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Hours Of Support</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Workers</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section light-background">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Product Range</h2>
+          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+          <div class=" "  data-layout="masonry" data-sort="original-order">
+
+            <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
+
+              <div class="col-lg-3 col-md-4 portfolio-item    ">
+                <div class="portfolio-content h-100">
+                  <a href="assets/img/departments-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/departments-1.jpg" class="img-fluid" alt=""></a>
+                  <div class="portfolio-info">
+                    <h4><a href="portfolio-details.html" title="More Details">Bedroom</a></h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+
+              <div class="col-lg-3 col-md-4 portfolio-item    ">
+                <div class="portfolio-content h-100">
+                  <a href="assets/img/departments-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/departments-2.jpg" class="img-fluid" alt=""></a>
+                  <div class="portfolio-info">
+                    <h4><a href="portfolio-details.html" title="More Details">Bathroom</a></h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+
+              <div class="col-lg-3 col-md-4 portfolio-item    ">
+                <div class="portfolio-content h-100">
+                  <a href="assets/img/departments-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/departments-3.jpg" class="img-fluid" alt=""></a>
+                  <div class="portfolio-info">
+                    <h4><a href="portfolio-details.html" title="More Details">Dining & Kitchen</a></h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+
+              <div class="col-lg-3 col-md-4 portfolio-item    ">
+                <div class="portfolio-content h-100">
+                  <a href="assets/img/departments-4.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/departments-4.jpg" class="img-fluid" alt=""></a>
+                  <div class="portfolio-info">
+                    <h4><a href="portfolio-details.html" title="More Details">Spa & Fitness</a></h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+
+
+
+            </div><!-- End Portfolio Container -->
 
           </div>
 
         </div>
 
-      </section><!-- /Stats Section -->
+    </section><!-- /Portfolio Section -->
 
 
 
