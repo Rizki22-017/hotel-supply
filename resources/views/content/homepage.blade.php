@@ -182,92 +182,221 @@
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Products</h2>
-            <p>We provide a wide range of customized linen and towel products with various specification and
-                requirements.<br></p>
+            <p>We provide a wide range of customized linen and towel products with various specification and requirements.<br></p>
         </div><!-- End Section Title -->
 
         <div class="container">
+            <!-- Container Carousel -->
+            <div class="carousel-wrapper" style="position: relative; overflow: visible;">
 
-            <div class="row gy-4">
+                <!-- Tombol Navigasi Kiri -->
+                <button id="prev-btn" class="btn-carousel">&laquo;</button>
 
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="pricing-tem">
-                        <h3 style="color: #20c997;">Free Plan</h3>
-                        <div class="price"><sup>$</sup>0<span> / mo</span></div>
-                        <div class="icon">
-                            <i class="bi bi-box" style="color: #20c997;"></i>
+                <!-- Kontainer Card -->
+                <div class="pricing-carousel" style="display: flex; gap: 20px; transition: transform 0.3s ease;">
+
+                    <!-- Card Item 1 -->
+                    <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="pricing-tem">
+                            <h3 style="color: #20c997;">Free Plan</h3>
+                            <div class="price"><sup>$</sup>0<span> / mo</span></div>
+                            <div class="icon">
+                                <i class="bi bi-box" style="color: #20c997;"></i>
+                            </div>
+                            <ul>
+                                <li>Aida dere</li>
+                                <li>Nec feugiat nisl</li>
+                                <li>Nulla at volutpat dola</li>
+                                <li class="na">Pharetra massa</li>
+                                <li class="na">Massa ultricies mi</li>
+                            </ul>
+                            <a href="#" class="btn-buy">Buy Now</a>
                         </div>
-                        <ul>
-                            <li>Aida dere</li>
-                            <li>Nec feugiat nisl</li>
-                            <li>Nulla at volutpat dola</li>
-                            <li class="na">Pharetra massa</li>
-                            <li class="na">Massa ultricies mi</li>
-                        </ul>
-                        <a href="#" class="btn-buy">Buy Now</a>
                     </div>
-                </div><!-- End Pricing Item -->
 
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="pricing-tem">
-                        <span class="featured">Featured</span>
-                        <h3 style="color: #0dcaf0;">Starter Plan</h3>
-                        <div class="price"><sup>$</sup>19<span> / mo</span></div>
-                        <div class="icon">
-                            <i class="bi bi-send" style="color: #0dcaf0;"></i>
+                    <!-- Card Item 2 -->
+                    <div class="pricing-item" data-index="1" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="pricing-tem">
+                            <span class="featured">Featured</span>
+                            <h3 style="color: #0dcaf0;">Starter Plan</h3>
+                            <div class="price"><sup>$</sup>19<span> / mo</span></div>
+                            <div class="icon">
+                                <i class="bi bi-send" style="color: #0dcaf0;"></i>
+                            </div>
+                            <ul>
+                                <li>Aida dere</li>
+                                <li>Nec feugiat nisl</li>
+                                <li>Nulla at volutpat dola</li>
+                                <li>Pharetra massa</li>
+                                <li class="na">Massa ultricies mi</li>
+                            </ul>
+                            <a href="#" class="btn-buy">Buy Now</a>
                         </div>
-                        <ul>
-                            <li>Aida dere</li>
-                            <li>Nec feugiat nisl</li>
-                            <li>Nulla at volutpat dola</li>
-                            <li>Pharetra massa</li>
-                            <li class="na">Massa ultricies mi</li>
-                        </ul>
-                        <a href="#" class="btn-buy">Buy Now</a>
                     </div>
-                </div><!-- End Pricing Item -->
 
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="pricing-tem">
-                        <h3 style="color: #fd7e14;">Business Plan</h3>
-                        <div class="price"><sup>$</sup>29<span> / mo</span></div>
-                        <div class="icon">
-                            <i class="bi bi-airplane" style="color: #fd7e14;"></i>
+                    <!-- Card Item 3 -->
+                    <div class="pricing-item" data-index="2" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="pricing-tem">
+                            <h3 style="color: #fd7e14;">Business Plan</h3>
+                            <div class="price"><sup>$</sup>29<span> / mo</span></div>
+                            <div class="icon">
+                                <i class="bi bi-airplane" style="color: #fd7e14;"></i>
+                            </div>
+                            <ul>
+                                <li>Aida dere</li>
+                                <li>Nec feugiat nisl</li>
+                                <li>Nulla at volutpat dola</li>
+                                <li>Pharetra massa</li>
+                                <li>Massa ultricies mi</li>
+                            </ul>
+                            <a href="#" class="btn-buy">Buy Now</a>
                         </div>
-                        <ul>
-                            <li>Aida dere</li>
-                            <li>Nec feugiat nisl</li>
-                            <li>Nulla at volutpat dola</li>
-                            <li>Pharetra massa</li>
-                            <li>Massa ultricies mi</li>
-                        </ul>
-                        <a href="#" class="btn-buy">Buy Now</a>
                     </div>
-                </div><!-- End Pricing Item -->
 
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="pricing-tem">
-                        <h3 style="color: #0d6efd;">Ultimate Plan</h3>
-                        <div class="price"><sup>$</sup>49<span> / mo</span></div>
-                        <div class="icon">
-                            <i class="bi bi-rocket" style="color: #0d6efd;"></i>
+                    <!-- Card Item 4 -->
+                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="pricing-tem">
+                            <h3 style="color: #0d6efd;">Ultimate Plan</h3>
+                            <div class="price"><sup>$</sup>49<span> / mo</span></div>
+                            <div class="icon">
+                                <i class="bi bi-rocket" style="color: #0d6efd;"></i>
+                            </div>
+                            <ul>
+                                <li>Aida dere</li>
+                                <li>Nec feugiat nisl</li>
+                                <li>Nulla at volutpat dola</li>
+                                <li>Pharetra massa</li>
+                                <li>Massa ultricies mi</li>
+                            </ul>
+                            <a href="#" class="btn-buy">Buy Now</a>
                         </div>
-                        <ul>
-                            <li>Aida dere</li>
-                            <li>Nec feugiat nisl</li>
-                            <li>Nulla at volutpat dola</li>
-                            <li>Pharetra massa</li>
-                            <li>Massa ultricies mi</li>
-                        </ul>
-                        <a href="#" class="btn-buy">Buy Now</a>
                     </div>
-                </div><!-- End Pricing Item -->
 
-            </div><!-- End pricing row -->
+                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="pricing-tem">
+                            <h3 style="color: #0d6efd;">Ultimate Plan</h3>
+                            <div class="price"><sup>$</sup>49<span> / mo</span></div>
+                            <div class="icon">
+                                <i class="bi bi-rocket" style="color: #0d6efd;"></i>
+                            </div>
+                            <ul>
+                                <li>Aida dere</li>
+                                <li>Nec feugiat nisl</li>
+                                <li>Nulla at volutpat dola</li>
+                                <li>Pharetra massa</li>
+                                <li>Massa ultricies mi</li>
+                            </ul>
+                            <a href="#" class="btn-buy">Buy Now</a>
+                        </div>
+                    </div>
 
+                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="pricing-tem">
+                            <h3 style="color: #0d6efd;">Ultimate Plan</h3>
+                            <div class="price"><sup>$</sup>49<span> / mo</span></div>
+                            <div class="icon">
+                                <i class="bi bi-rocket" style="color: #0d6efd;"></i>
+                            </div>
+                            <ul>
+                                <li>Aida dere</li>
+                                <li>Nec feugiat nisl</li>
+                                <li>Nulla at volutpat dola</li>
+                                <li>Pharetra massa</li>
+                                <li>Massa ultricies mi</li>
+                            </ul>
+                            <a href="#" class="btn-buy">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Tambahkan card lain sesuai kebutuhan di sini -->
+
+                </div><!-- End pricing-carousel -->
+
+                <!-- Tombol Navigasi Kanan -->
+                <button id="next-btn" class="btn-carousel">&raquo;</button>
+            </div>
         </div>
 
-    </section><!-- /Pricing Section -->
+    </section>
+
+    <script>
+    const carousel = document.querySelector('.pricing-carousel');
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const cards = document.querySelectorAll('.pricing-item'); // Select all cards
+    const cardWidth = document.querySelector('.pricing-item').offsetWidth + 20; // Tambah gap antar card
+    let currentPosition = 0;
+    let autoSlideInterval;
+    let remainingTime = 5000; // Time remaining for auto slide
+
+    function updateCardOpacity() {
+        cards.forEach((card, index) => {
+            if (index < Math.abs(currentPosition / cardWidth) || index >= Math.abs(currentPosition / cardWidth) + 4) {
+                card.style.opacity = '0.5'; // Redupkan card yang tidak terlihat
+            } else {
+                card.style.opacity = '1'; // Kembalikan opasitas card yang terlihat
+            }
+        });
+    }
+
+    function slideToNext() {
+        const maxPosition = -(carousel.children.length - 4) * cardWidth;
+        currentPosition -= cardWidth;
+
+        if (currentPosition < maxPosition) {
+            currentPosition = 0; // Kembali ke awal jika sudah habis
+        }
+
+        carousel.style.transform = `translateX(${currentPosition}px)`;
+        updateCardOpacity();
+    }
+
+    function slideToPrev() {
+        currentPosition += cardWidth;
+
+        if (currentPosition > 0) {
+            currentPosition = -(carousel.children.length - 4) * cardWidth; // Kembali ke akhir
+        }
+
+        carousel.style.transform = `translateX(${currentPosition}px)`;
+        updateCardOpacity();
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            slideToNext();
+        }, remainingTime);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    nextBtn.addEventListener('click', () => {
+        slideToNext();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        slideToPrev();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+
+    // Add event listeners to each card to pause on hover
+    cards.forEach(card => {
+        card.addEventListener('mouseover', stopAutoSlide); // Stop auto sliding on hover
+        card.addEventListener('mouseout', startAutoSlide); // Resume auto sliding when not hovering
+    });
+
+    // Inisialisasi opasitas saat halaman dimuat
+    updateCardOpacity();
+
+    // Auto slide setiap 5 detik
+    startAutoSlide();
+    </script>
+
 
     <!-- About Section -->
     <section id="about" class="about section light-background">
@@ -707,5 +836,5 @@
 
     </section><!-- /Contact Section -->
 
-    
+
 @endsection

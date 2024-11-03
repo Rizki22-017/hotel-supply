@@ -26,3 +26,8 @@ Route::get('/testimonials', function () {
 Route::get('/about', function () {
     return view('admin.about');
 });
+
+Route::get('/product', function () {
+    return view('content.product');
+});
+
