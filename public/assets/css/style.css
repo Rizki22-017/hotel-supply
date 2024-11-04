@@ -1243,8 +1243,8 @@ h6 {
 .scrollable {
     display: block;             /* Memungkinkan elemen untuk dibatasi ukurannya */
     max-width: auto;           /* Batasi lebar maksimal */
-    max-height: 100px;
-    min-height: 100px;         /* Batasi tinggi maksimal */
+    max-height: 117px;
+    min-height: 117px;         /* Batasi tinggi maksimal */
     overflow: auto;             /* Tambahkan scroll jika diperlukan */
     padding: 10px;
     /* border: 1px solid #ddd; */

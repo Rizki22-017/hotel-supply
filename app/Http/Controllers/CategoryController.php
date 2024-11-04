@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -73,40 +74,41 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
-            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'category_name' => 'required|string|max:255',
+            'category_description' => 'required|string',
+            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $category = Category::findOrFail($id);
-        $category->nama = $request->nama;
-        $category->deskripsi = $request->deskripsi;
+        $category->category_name = $request->category_name;
+        $category->category_description = $request->category_description;
 
-        if ($request->hasFile('gambar')) {
-            $filename = time() . '.' . $request->gambar->extension();
-            $request->gambar->move(public_path('images/categories'), $filename);
-            $category->gambar = $filename;
+        // Update image if a new one is uploaded
+        if ($request->hasFile('category_image')) {
+            $imagePath = $request->file('category_image')->store('categories', 'public');
+            $category->category_image = $imagePath;
         }
 
         $category->save();
-
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil diupdate.');
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $category = Category::findOrFail($id);
-        if ($category->gambar && file_exists(public_path('images/categories/' . $category->gambar))) {
-            unlink(public_path('images/categories/' . $category->gambar));
-        }
-        $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus.');
+        // Hapus gambar dari storage jika ada
+        if ($category->category_image) {
+            Storage::disk('public')->delete($category->category_image);
+        }
+
+        $category->delete();
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
     }
 }
