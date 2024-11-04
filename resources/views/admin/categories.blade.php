@@ -4,9 +4,9 @@
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
                 <h5 class="card-title2">Categories Data</h5>
-                <a href="/add-category" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
                     <i class="bi bi-plus"></i> Add category
-                </a>
+                </button>
             </div>
             <!-- Table with stripped rows -->
             <table class="table datatable">
@@ -19,20 +19,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Bathrobe</td>
-                        <td class="scrollable">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            temporincididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
-                        <td><img src="assets/img/logo360.png" alt="" class="responsive-img"></td>
-                        <td>
-                            <button class="btn btn-warning">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
+                    @foreach ($categories as $category)
+                        <tr>
+                            <td>{{ $category->category_name }}</td>
+                            <td class="scrollable">{{ $category->category_description }}</td>
+                            <td>
+                                @if ($category->category_image)
+                                    <img src="{{ asset('storage/' . $category->category_image) }}" alt="Category Image"
+                                        class="responsive-img">
+                                @else
+                                    <span>No Image</span>
+                                @endif
+                            </td>
+                            <td>
+                                <button class="btn btn-warning">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
             <!-- End Table with stripped rows -->
@@ -42,7 +46,7 @@
     <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="addCategoryModalLabel">Add Category</h5>

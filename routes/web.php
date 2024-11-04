@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('content.homepage');
@@ -30,4 +31,6 @@ Route::get('/about', function () {
 Route::get('/product', function () {
     return view('content.product');
 });
+
+Route::resource('categories', CategoryController::class);
 
