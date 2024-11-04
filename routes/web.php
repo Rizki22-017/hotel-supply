@@ -32,5 +32,9 @@ Route::get('/product', function () {
     return view('content.product');
 });
 
+Route::get('/product-detail', function () {
+    return view('content.product-detail');
+});
+
 Route::resource('categories', CategoryController::class);
 
