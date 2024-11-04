@@ -47,7 +47,7 @@
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
-                        <li><a href="#hero" class="active">Home<br></a></li>
+                        <li><a href="/" class="active">Home<br></a></li>
                         <li><a href="/product">Products</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#clients">Our Client</a></li>
