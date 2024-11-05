@@ -1,41 +1,14 @@
 @extends('layout.app')
 @section('content')
     <!-- Hero Section -->
-    <section id="hero" class="hero section light-background">
+<section id="hero" class="hero section dark-background">
+    <div class="container position-relative">
+      <h2>Welcome to Moderna</h2>
+      <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+      <a href="#stats" class="btn-get-started">Read More</a>
+    </div>
+  </section><!-- /Hero Section -->
 
-        <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
-
-        <div class="container position-relative">
-
-
-
-            <div class="content row gy-4">
-
-
-                <div class="col-lg-8 d-flex align-items-stretch">
-                    <div class="d-flex flex-column justify-content-center">
-                        <div class="row gy-4">
-
-                            <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
-
-                                <h1 class="mb-4">
-                                    Everything you need <br>
-                                    For hotel linen
-                                </h1>
-
-                                <div class="hero-buttons">
-                                    <a href="#about" class="btn btn-primary me-0 me-sm-2 mx-1">Browse Now!</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div><!-- End  Content-->
-
-        </div>
-
-    </section><!-- /Hero Section -->
 
 
     <!-- Stats Section -->
