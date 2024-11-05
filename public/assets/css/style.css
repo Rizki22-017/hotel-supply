@@ -283,14 +283,18 @@ h6 {
   border: 1px solid #ebeef4;
 }
 
+.accordion-button {
+    font-weight: bold;
+}
+
 .accordion-button:focus {
   outline: 0;
   box-shadow: none;
 }
 
 .accordion-button:not(.collapsed) {
-  color: #012970;
-  background-color: #f6f9ff;
+  color: #ffffff;
+  background-color: #24a8a7;
 }
 
 .accordion-flush .accordion-button {
