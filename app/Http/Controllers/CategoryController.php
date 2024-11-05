@@ -35,7 +35,7 @@ class CategoryController extends Controller
         $request->validate([
             'category_name' => 'required|string|max:255',
             'category_description' => 'required|string',
-            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
 
         $category = new Category();
@@ -79,7 +79,7 @@ class CategoryController extends Controller
         $request->validate([
             'category_name' => 'required|string|max:255',
             'category_description' => 'required|string',
-            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
 
         $category = Category::findOrFail($id);
