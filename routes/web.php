@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
@@ -25,9 +26,7 @@ Route::get('/testimonials', function () {
     return view('admin.testimonials');
 });
 
-Route::get('/about', function () {
-    return view('admin.about');
-});
+
 
 Route::get('/product', function () {
     return view('content.product');
@@ -49,3 +48,5 @@ Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name(
 Route::resource('products', ProductController::class);
 Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+
+Route::resource('abouts', AboutController::class);

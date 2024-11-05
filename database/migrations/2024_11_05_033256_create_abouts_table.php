@@ -13,23 +13,25 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->highligt();
-            $table->about_desc();
-            $table->about_poin();
-            $table->leader_pict();
-            $table->leader_name();
-            $table->phone();
-            $table->history();
-            $table->brand();
-            $table->address();
-            $table->wa_sumatera();
-            $table->wa_jawa();
-            $table->email();
-            $table->operational();
-            $table->twitter();
-            $table->facebook();
-            $table->instagram();
-            $table->linkedin();
+            $table->string('highlight'); // Perbaiki 'highligt' menjadi 'highlight'
+            $table->text('about_desc'); // Ubah jika 'about_desc' adalah teks
+            $table->json('about_poin'); // Menggunakan tipe json untuk menyimpan array
+            $table->string('leader_pict'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->string('leader_name'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->string('phone'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->text('history'); // Ubah jika 'history' adalah teks
+            $table->json('brand'); // Menggunakan tipe json untuk menyimpan array
+            $table->string('vision');
+            $table->json('mission');
+            $table->string('address'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->string('wa_sumatera'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->string('wa_jawa'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->string('email'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->string('operational'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->string('twitter'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->string('facebook'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->string('instagram'); // Pastikan untuk menentukan tipe data yang sesuai
+            $table->string('linkedin'); // Pastikan untuk menentukan tipe data yang sesuai
 
             $table->timestamps();
         });
