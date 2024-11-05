@@ -36,6 +36,10 @@ Route::get('/product-detail', function () {
     return view('content.product-detail');
 });
 
+Route::get('/login', function () {
+    return view('login.login');
+});
+
 Route::resource('categories', CategoryController::class);
 Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
