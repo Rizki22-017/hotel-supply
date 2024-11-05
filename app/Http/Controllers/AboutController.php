@@ -16,11 +16,18 @@ class AboutController extends Controller
 
     public function create()
     {
+        if (About::exists()) {
+            return redirect()->back()->withErrors(['error' => 'Hanya boleh ada satu data About. Silahkan pilih edit']);
+        }
         return view('admin.about.create');
     }
 
     public function store(Request $request)
     {
+        if (About::exists()) {
+            return redirect()->back()->withErrors(['error' => 'Hanya boleh ada satu data About, silahkan pilih edit']);
+        }
+
         $request->validate([
             'highlight' => 'required|string',
             'about_desc' => 'required|string',
@@ -70,13 +77,13 @@ class AboutController extends Controller
         return redirect()->route('abouts.index')->with('success', 'Data About berhasil disimpan.');
     }
 
-    public function edit($id)
+    public function edit()
     {
-        $about = About::findOrFail($id);
-        return view('abouts.edit', compact('about'));
+        $about = About::firstOrFail();
+        return view('admin.about.edit', compact('about'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $request->validate([
             'highlight' => 'required|string',
@@ -100,7 +107,7 @@ class AboutController extends Controller
             'linkedin' => 'required|string',
         ]);
 
-        $about = About::findOrFail($id);
+        $about = About::firstOrFail();
 
         if ($request->file('leader_pict')) {
             if ($about->leader_pict) {
@@ -134,5 +141,20 @@ class AboutController extends Controller
         ]);
 
         return redirect()->route('abouts.index')->with('success', 'Data About berhasil diperbarui.');
+    }
+
+    public function destroy()
+    {
+        $about = About::firstOrFail(); // Mengambil record About pertama
+
+        // Hapus gambar pemimpin jika ada
+        if ($about->leader_pict) {
+            Storage::delete($about->leader_pict);
+        }
+
+        // Hapus record About
+        $about->delete();
+
+        return redirect()->route('abouts.index')->with('success', 'Data About berhasil dihapus.');
     }
 }

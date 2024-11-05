@@ -36,13 +36,12 @@
 
                 <div class="col-12 mb-3">
                     <label for="about_poin" class="col-sm-2 col-form-label">About Points</label>
-                    <div class="col-12">
-
-                        <input type="text" class="form-control mb-2" name="about_poin[]" value="{{ $point ?? '' }}" required>
-
-
-                        <small class="form-text text-muted">Add or remove points as needed.</small>
+                    <div class="col-12" id="about-points-container">
+                        @for ($i = 0; $i < 6; $i++)
+                            <input type="text" class="form-control mb-2" name="about_poin[]" required>
+                        @endfor
                     </div>
+                    <small class="form-text text-muted">Total 6 input untuk About Points.</small>
                 </div>
 
                 <div class="col-12 mb-3">
@@ -76,14 +75,12 @@
 
                 <div class="col-12 mb-3">
                     <label for="brand" class="col-sm-2 col-form-label">Special Offers</label>
-                    <div class="col-12">
-
-                            <input type="text" class="form-control mb-2" name="brand[]" value="{{ $offer ?? '' }}" required>
-
-
-
-                        <small class="form-text text-muted">Add or remove offers as needed.</small>
+                    <div class="col-12" id="offers-container">
+                        @for ($i = 0; $i < 6; $i++)
+                            <input type="text" class="form-control mb-2" name="brand[]" required>
+                        @endfor
                     </div>
+                    <small class="form-text text-muted">Total 6 input untuk Special Offers.</small>
                 </div>
 
                 <div class="col-12 mb-3">

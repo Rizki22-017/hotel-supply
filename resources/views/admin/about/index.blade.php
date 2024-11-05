@@ -11,6 +11,21 @@
         })
     </script>
     @endif
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                html: `
+                        @foreach ($errors->all() as $error)
+                            {{ $error }}
+                        @endforeach
+                `,
+                showConfirmButton: true
+            });
+        </script>
+    @endif
+
 
     <div class="card">
         <div class="card-body">
@@ -19,6 +34,18 @@
                 <a href="{{route('abouts.create')}}" class="btn btn-primary">
                     <i class="bi bi-plus"></i>Add About
                 </a>
+                <a href="{{route('abouts.edit')}}" class="btn btn-primary">
+                    <i class="bi bi-pencil"></i>Edit
+                </a>
+                <div class="d-flex justify-content-between mt-2">
+                    <form action="{{ route('abouts.destroy') }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Delete
+                        </button>
+                    </form>
+                </div>
             </div>
             @foreach ($abouts as $about)
 
@@ -49,16 +76,20 @@
                   </div>
                 </div>
                 <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      About Points
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"  >
-                    <div class="accordion-body">
-                      {{$about->about_poin}}
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            About Points
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (explode(',', $about->about_poin) as $point)
+                                    <li>{{ trim($point) }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
-                  </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading4">
@@ -110,14 +141,18 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading8">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
-                        Special Offers
-                      </button>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                            Special Offers
+                        </button>
                     </h2>
-                    <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8"  >
-                      <div class="accordion-body">
-                        {{$about->special_offers}}
-                      </div>
+                    <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (explode(',', $about->brand) as $brand)
+                                    <li>{{ trim($brand) }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="accordion-item">

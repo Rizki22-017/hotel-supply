@@ -49,4 +49,10 @@ Route::resource('products', ProductController::class);
 Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
 
-Route::resource('abouts', AboutController::class);
+Route::get('abouts', [AboutController::class, 'index'])->name('abouts.index');
+Route::get('abouts/create', [AboutController::class, 'create'])->name('abouts.create');
+Route::post('abouts', [AboutController::class, 'store'])->name('abouts.store');
+Route::get('abouts/edit', [AboutController::class, 'edit'])->name('abouts.edit'); // tanpa {about}
+Route::put('abouts', [AboutController::class, 'update'])->name('abouts.update');
+Route::delete('abouts', [AboutController::class, 'destroy'])->name('abouts.destroy');
+
