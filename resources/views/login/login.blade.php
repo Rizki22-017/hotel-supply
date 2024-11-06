@@ -33,7 +33,7 @@
                 @enderror
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="#">
                         @csrf
 
                         <div class="mb-3">
@@ -48,7 +48,7 @@
 
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
-                    <p>Belum punya akun? <a href="{{ route('register') }}">Daftar di sini</a></p>
+                    <p>Belum punya akun? <a href="#">Daftar di sini</a></p>
                 </div>
             </div>
         </div>

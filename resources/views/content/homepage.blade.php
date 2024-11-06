@@ -3,7 +3,7 @@
     <!-- Hero Section -->
 <section id="hero" class="hero section dark-background">
     <div class="container position-relative">
-      <h2>Welcome to Moderna</h2>
+      <h2>Welcome to 360 Hotel Supply</h2>
       <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
       <a href="#stats" class="btn-get-started">Read More</a>
     </div>
