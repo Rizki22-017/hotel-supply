@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TestimonialController;
 
 Route::get('/', function () {
     return view('content.homepage');
@@ -40,6 +42,12 @@ Route::get('/login', function () {
     return view('login.login');
 });
 
+Route::get('/tes', function () {
+    return view('admin.tes');
+});
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.index');
+
 Route::resource('categories', CategoryController::class);
 Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
@@ -56,3 +64,4 @@ Route::get('abouts/edit', [AboutController::class, 'edit'])->name('abouts.edit')
 Route::put('abouts', [AboutController::class, 'update'])->name('abouts.update');
 Route::delete('abouts', [AboutController::class, 'destroy'])->name('abouts.destroy');
 
+Route::resource('testimonials', TestimonialController::class);

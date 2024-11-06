@@ -23,10 +23,10 @@
             <table class="table datatable">
                 <thead>
                     <tr>
-                        <th style="width: 5%"></th>
+                        <th style="width: 7%">No.</th>
                         <th style="width: 15%;">Name</th>
-                        <th style="width: 45%;">Description</th>
-                        <th style="width: 20%;">Image</th>
+                        <th style="width: 48%;">Description</th>
+                        <th style="width: 15%;">Image</th>
                         <th style="width: 15%;">Action</th>
                     </tr>
                 </thead>
