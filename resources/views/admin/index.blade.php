@@ -17,7 +17,7 @@
                                             <i class="bi bi-grid-3x3-gap-fill"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>5</h6>
+                                            <h6>{{ $totalCategories }}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@
                                             <i class="bi bi-box"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>15</h6>
+                                            <h6>{{ $totalProducts }}</h6>
                                         </div>
                                     </div>
                                 </div>

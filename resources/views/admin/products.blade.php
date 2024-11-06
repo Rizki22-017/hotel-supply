@@ -24,19 +24,21 @@
             <table class="table datatable">
                 <thead>
                     <tr>
-                        <th style="width: 10%;">Name</th>
-                        <th style="width: 10%;">Category</th>
+                        <th style="width: 6%;">No</th>
+                        <th style="width: 13%;">Name</th>
+                        <th style="width: 12%;">Category</th>
                         <th style="width: 10%;">Color</th>
-                        <th style="width: 10%;">Material</th>
-                        <th style="width: 30%;">Description</th>
-                        <th style="width: 12%;">Size Chart</th>
-                        <th style="width: 13%;">Image</th>
-                        <th style="width: 15%;">Action</th>
+                        <th style="width: 11%;">Material</th>
+                        <th style="width: 27%;">Description</th>
+                        <th style="width: 10%;">Size Chart</th>
+                        <th style="width: 10%;">Image</th>
+                        <th style="width: 10%;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
+                    @foreach ($products as $index => $product)
                         <tr>
+                            <td>{{ $index + 1 }}</td>
                             <td>{{ $product->product_name }}</td>
                             <td>{{ $product->category->category_name }}</td>
                             <td>{{ $product->product_color }}</td>
@@ -52,7 +54,7 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="javascript:void(0)" class="btn btn-warning"
+                                <a href="javascript:void(0)" class="btn btn-warning mb-2"
                                     data-product="{{ json_encode($product) }}">Edit</a>
                                 <form action="{{ route('products.destroy', $product->id) }}" method="POST"
                                     style="display:inline;">
