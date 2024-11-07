@@ -1,13 +1,15 @@
 @extends('layout.app')
 @section('content')
     <!-- Hero Section -->
-<section id="hero" class="hero section dark-background">
-    <div class="container position-relative">
-      <h2>Welcome to 360 Hotel Supply</h2>
-      <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-      <a href="#stats" class="btn-get-started">Read More</a>
-    </div>
-  </section><!-- /Hero Section -->
+    <section id="hero" class="hero section dark-background">
+        <div class="container position-relative">
+            <h2>Welcome to 360 Hotel Supply</h2>
+            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam.
+                Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
+                vel. Minus et tempore modi architecto.</p>
+            <a href="#stats" class="btn-get-started">Read More</a>
+        </div>
+    </section><!-- /Hero Section -->
 
 
 
@@ -77,7 +79,7 @@
                                 class="glightbox"><img src="assets/img/departments-1.jpg" class="img-fluid"
                                     alt=""></a>
                             <div class="portfolio-info">
-                                <h4><a href="portfolio-details.html" title="More Details">Bedroom</a></h4>
+                                <h4><a href="/product-detail" title="More Details">Bedroom</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
                             </div>
                         </div>
@@ -89,7 +91,7 @@
                                 class="glightbox"><img src="assets/img/departments-2.jpg" class="img-fluid"
                                     alt=""></a>
                             <div class="portfolio-info">
-                                <h4><a href="portfolio-details.html" title="More Details">Bathroom</a></h4>
+                                <h4><a href="/product-detail" title="More Details">Bathroom</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
                             </div>
                         </div>
@@ -101,7 +103,7 @@
                                 class="glightbox"><img src="assets/img/departments-3.jpg" class="img-fluid"
                                     alt=""></a>
                             <div class="portfolio-info">
-                                <h4><a href="portfolio-details.html" title="More Details">Dining & Kitchen</a></h4>
+                                <h4><a href="/product-detail" title="More Details">Dining & Kitchen</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
                             </div>
                         </div>
@@ -113,7 +115,7 @@
                                 class="glightbox"><img src="assets/img/departments-4.jpg" class="img-fluid"
                                     alt=""></a>
                             <div class="portfolio-info">
-                                <h4><a href="portfolio-details.html" title="More Details">Spa & Fitness</a></h4>
+                                <h4><a href="/product-detail" title="More Details">Spa & Fitness</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
                             </div>
                         </div>
@@ -155,7 +157,8 @@
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Products</h2>
-            <p>We provide a wide range of customized linen and towel products with various specification and requirements.<br></p>
+            <p>We provide a wide range of customized linen and towel products with various specification and
+                requirements.<br></p>
         </div><!-- End Section Title -->
 
         <div class="container">
@@ -169,7 +172,8 @@
                 <div class="pricing-carousel" style="display: flex; gap: 20px; transition: transform 0.3s ease;">
 
                     <!-- Card Item 1 -->
-                    <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
+                        data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-tem">
                             <h3 style="color: #20c997;">Free Plan</h3>
                             <div class="price"><sup>$</sup>0<span> / mo</span></div>
@@ -188,7 +192,8 @@
                     </div>
 
                     <!-- Card Item 2 -->
-                    <div class="pricing-item" data-index="1" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="pricing-item" data-index="1" style="flex: 0 0 25%; box-sizing: border-box;"
+                        data-aos="zoom-in" data-aos-delay="200">
                         <div class="pricing-tem">
                             <span class="featured">Featured</span>
                             <h3 style="color: #0dcaf0;">Starter Plan</h3>
@@ -208,7 +213,8 @@
                     </div>
 
                     <!-- Card Item 3 -->
-                    <div class="pricing-item" data-index="2" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="pricing-item" data-index="2" style="flex: 0 0 25%; box-sizing: border-box;"
+                        data-aos="zoom-in" data-aos-delay="300">
                         <div class="pricing-tem">
                             <h3 style="color: #fd7e14;">Business Plan</h3>
                             <div class="price"><sup>$</sup>29<span> / mo</span></div>
@@ -227,7 +233,8 @@
                     </div>
 
                     <!-- Card Item 4 -->
-                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
+                        data-aos="zoom-in" data-aos-delay="400">
                         <div class="pricing-tem">
                             <h3 style="color: #0d6efd;">Ultimate Plan</h3>
                             <div class="price"><sup>$</sup>49<span> / mo</span></div>
@@ -245,7 +252,8 @@
                         </div>
                     </div>
 
-                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
+                        data-aos="zoom-in" data-aos-delay="400">
                         <div class="pricing-tem">
                             <h3 style="color: #0d6efd;">Ultimate Plan</h3>
                             <div class="price"><sup>$</sup>49<span> / mo</span></div>
@@ -263,7 +271,8 @@
                         </div>
                     </div>
 
-                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
+                        data-aos="zoom-in" data-aos-delay="400">
                         <div class="pricing-tem">
                             <h3 style="color: #0d6efd;">Ultimate Plan</h3>
                             <div class="price"><sup>$</sup>49<span> / mo</span></div>
@@ -293,81 +302,82 @@
     </section>
 
     <script>
-    const carousel = document.querySelector('.pricing-carousel');
-    const nextBtn = document.getElementById('next-btn');
-    const prevBtn = document.getElementById('prev-btn');
-    const cards = document.querySelectorAll('.pricing-item'); // Select all cards
-    const cardWidth = document.querySelector('.pricing-item').offsetWidth + 20; // Tambah gap antar card
-    let currentPosition = 0;
-    let autoSlideInterval;
-    let remainingTime = 5000; // Time remaining for auto slide
+        const carousel = document.querySelector('.pricing-carousel');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const cards = document.querySelectorAll('.pricing-item'); // Select all cards
+        const cardWidth = document.querySelector('.pricing-item').offsetWidth + 20; // Tambah gap antar card
+        let currentPosition = 0;
+        let autoSlideInterval;
+        let remainingTime = 5000; // Time remaining for auto slide
 
-    function updateCardOpacity() {
-        cards.forEach((card, index) => {
-            if (index < Math.abs(currentPosition / cardWidth) || index >= Math.abs(currentPosition / cardWidth) + 4) {
-                card.style.opacity = '0.5'; // Redupkan card yang tidak terlihat
-            } else {
-                card.style.opacity = '1'; // Kembalikan opasitas card yang terlihat
+        function updateCardOpacity() {
+            cards.forEach((card, index) => {
+                if (index < Math.abs(currentPosition / cardWidth) || index >= Math.abs(currentPosition /
+                        cardWidth) + 4) {
+                    card.style.opacity = '0.5'; // Redupkan card yang tidak terlihat
+                } else {
+                    card.style.opacity = '1'; // Kembalikan opasitas card yang terlihat
+                }
+            });
+        }
+
+        function slideToNext() {
+            const maxPosition = -(carousel.children.length - 4) * cardWidth;
+            currentPosition -= cardWidth;
+
+            if (currentPosition < maxPosition) {
+                currentPosition = 0; // Kembali ke awal jika sudah habis
             }
-        });
-    }
 
-    function slideToNext() {
-        const maxPosition = -(carousel.children.length - 4) * cardWidth;
-        currentPosition -= cardWidth;
-
-        if (currentPosition < maxPosition) {
-            currentPosition = 0; // Kembali ke awal jika sudah habis
+            carousel.style.transform = `translateX(${currentPosition}px)`;
+            updateCardOpacity();
         }
 
-        carousel.style.transform = `translateX(${currentPosition}px)`;
-        updateCardOpacity();
-    }
+        function slideToPrev() {
+            currentPosition += cardWidth;
 
-    function slideToPrev() {
-        currentPosition += cardWidth;
+            if (currentPosition > 0) {
+                currentPosition = -(carousel.children.length - 4) * cardWidth; // Kembali ke akhir
+            }
 
-        if (currentPosition > 0) {
-            currentPosition = -(carousel.children.length - 4) * cardWidth; // Kembali ke akhir
+            carousel.style.transform = `translateX(${currentPosition}px)`;
+            updateCardOpacity();
         }
 
-        carousel.style.transform = `translateX(${currentPosition}px)`;
-        updateCardOpacity();
-    }
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                slideToNext();
+            }, remainingTime);
+        }
 
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        nextBtn.addEventListener('click', () => {
             slideToNext();
-        }, remainingTime);
-    }
+            stopAutoSlide();
+            startAutoSlide();
+        });
 
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
+        prevBtn.addEventListener('click', () => {
+            slideToPrev();
+            stopAutoSlide();
+            startAutoSlide();
+        });
 
-    nextBtn.addEventListener('click', () => {
-        slideToNext();
-        stopAutoSlide();
+        // Add event listeners to each card to pause on hover
+        cards.forEach(card => {
+            card.addEventListener('mouseover', stopAutoSlide); // Stop auto sliding on hover
+            card.addEventListener('mouseout', startAutoSlide); // Resume auto sliding when not hovering
+        });
+
+        // Inisialisasi opasitas saat halaman dimuat
+        updateCardOpacity();
+
+        // Auto slide setiap 5 detik
         startAutoSlide();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        slideToPrev();
-        stopAutoSlide();
-        startAutoSlide();
-    });
-
-    // Add event listeners to each card to pause on hover
-    cards.forEach(card => {
-        card.addEventListener('mouseover', stopAutoSlide); // Stop auto sliding on hover
-        card.addEventListener('mouseout', startAutoSlide); // Resume auto sliding when not hovering
-    });
-
-    // Inisialisasi opasitas saat halaman dimuat
-    updateCardOpacity();
-
-    // Auto slide setiap 5 detik
-    startAutoSlide();
     </script>
 
 
@@ -935,6 +945,4 @@
         </div>
 
     </section><!-- /Contact Section -->
-
-
 @endsection

@@ -48,8 +48,11 @@
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
-                        <li><a href="/" class="active">Home<br></a></li>
-                        <li><a href="/product">Products</a></li>
+                        <li><a href="/"
+                                class="{{ str_contains(request()->path(), '/') ? 'active' : '' }}">Home<br></a></li>
+                        <li><a href="/product"
+                                class="{{ str_contains(request()->path(), 'product') ? 'active' : '' }}">Products</a>
+                        </li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#clients">Our Client</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -136,14 +139,14 @@
 
     <!-- Scroll Top -->
 
-        <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-        <div class="whatsapp-float">
-            <a href="https://wa.me/1234567890" target="_blank">
-                <i class="bi bi-whatsapp"></i>
-            </a>
-        </div>
+    <div class="whatsapp-float">
+        <a href="https://wa.me/1234567890" target="_blank">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+    </div>
 
     <!-- Preloader -->
     <div id="preloader"></div>
