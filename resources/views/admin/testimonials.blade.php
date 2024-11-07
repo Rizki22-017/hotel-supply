@@ -47,12 +47,15 @@
                             <td>
                                 <button class="btn btn-warning" onclick="editTestimonial({{ $testimoni }})"
                                     data-bs-toggle="modal" data-bs-target="#editTestimonialModal">Edit</button>
-                                <form action="{{ route('testimonials.destroy', $testimoni->id) }}" method="POST"
-                                    style="display:inline;">
+                                <button type="button" class="btn btn-danger"
+                                    onclick="confirmDeleteTestimonial({{ $testimoni->id }})">Delete</button>
+
+                                <!-- Form Hapus -->
+                                <form id="delete-testimonial-form-{{ $testimoni->id }}"
+                                    action="{{ route('testimonials.destroy', $testimoni->id) }}" method="POST"
+                                    style="display: none;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"
-                                        onclick="return confirm('Are you sure you want to delete this review?')">Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -147,6 +150,23 @@
             if (testimonial.customer_logo) {
                 document.getElementById('editTestimonialLogo').required = false;
             }
+        }
+    </script>
+    <script>
+        function confirmDeleteTestimonial(testimonialId) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you really want to delete this review? This action cannot be undone!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(`delete-testimonial-form-${testimonialId}`).submit();
+                }
+            });
         }
     </script>
 @endsection

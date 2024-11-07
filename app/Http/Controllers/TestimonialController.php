@@ -33,7 +33,7 @@ class TestimonialController extends Controller
     {
         $request->validate([
             'customer_name' => 'required|string|max:255',
-            'customer_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'customer_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'customer_review' => 'required|string',
         ]);
 
@@ -76,7 +76,7 @@ class TestimonialController extends Controller
     {
         $request->validate([
             'customer_name' => 'required|string|max:255',
-            'customer_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'customer_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'customer_review' => 'required|string',
         ]);
 

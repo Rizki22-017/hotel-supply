@@ -103,6 +103,11 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
+        // Cek apakah ada produk terkait dengan kategori ini
+        if ($category->products()->count() > 0) {
+            return redirect()->route('categories.index')->with('error', 'Cannot delete category with associated products.');
+        }
+
         // Hapus gambar dari storage jika ada
         if ($category->category_image) {
             Storage::disk('public')->delete($category->category_image);

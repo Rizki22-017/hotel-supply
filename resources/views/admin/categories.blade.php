@@ -51,14 +51,15 @@
                                     data-category-name="{{ $category->category_name }}"
                                     data-category-description="{{ $category->category_description }}"
                                     data-category-image="{{ $category->category_image }}">Edit</button>
-                                <form action="{{ route('categories.destroy', $category->id) }}" method="POST"
-                                    style="display:inline;">
+                                <button type="button" class="btn btn-danger"
+                                    onclick="confirmDelete({{ $category->id }}, {{ $category->products->count() }})">Delete</button>
+
+                                <form id="delete-form-{{ $category->id }}"
+                                    action="{{ route('categories.destroy', $category->id) }}" method="POST"
+                                    style="display: none;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"
-                                        onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
                                 </form>
-
                             </td>
                         </tr>
                     @endforeach
@@ -152,5 +153,31 @@
             document.getElementById('editCategoryName').value = name;
             document.getElementById('editCategoryDescription').value = description;
         });
+    </script>
+    <script>
+        function confirmDelete(categoryId, productCount) {
+            if (productCount > 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Cannot Delete',
+                    text: 'This category has related products and cannot be deleted.',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "This action cannot be undone!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById(`delete-form-${categoryId}`).submit();
+                    }
+                });
+            }
+        }
     </script>
 @endsection

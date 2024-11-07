@@ -56,12 +56,14 @@
                             <td>
                                 <a href="javascript:void(0)" class="btn btn-warning mb-2"
                                     data-product="{{ json_encode($product) }}">Edit</a>
-                                <form action="{{ route('products.destroy', $product->id) }}" method="POST"
-                                    style="display:inline;">
+                                <button type="button" class="btn btn-danger"
+                                    onclick="confirmDeleteProduct({{ $product->id }})">Delete</button>
+
+                                <form id="delete-form-{{ $product->id }}"
+                                    action="{{ route('products.destroy', $product->id) }}" method="POST"
+                                    style="display: none;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"
-                                        onclick="return confirm('Are you sure you want to delete this Product?')">Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -215,5 +217,22 @@
                 });
             });
         });
+    </script>
+    <script>
+        function confirmDeleteProduct(productId) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you really want to delete this product? This action cannot be undone!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(`delete-form-${productId}`).submit();
+                }
+            });
+        }
     </script>
 @endsection
