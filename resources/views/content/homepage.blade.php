@@ -511,11 +511,11 @@
     </section><!-- /More Section -->
 
     <!-- Clients Section -->
-    <section id="clients" class="clients section light-background">
+    <section id="clients" class="clients section light-background" data-aos="fade-up">
 
         <div class="container">
             <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
+            <div class="container section-title" >
                 <h2>Client</h2>
                 <p>We provide a wide range of customized linen and towel products with various specification and
                     requirements.<br></p>
@@ -710,12 +710,12 @@
     <section id="testimonials" class="testimonials section light-background">
 
         <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
+        <div class="container section-title" >
             <h2>Testimonials</h2>
             <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
         </div><!-- End Section Title -->
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" >
 
             <div class="swiper init-swiper">
                 <script type="application/json" class="swiper-config">
@@ -857,17 +857,17 @@
     </section><!-- /Testimonials Section -->
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section id="contact" class="contact section" data-aos="fade-up">
 
         <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
+        <div class="container section-title" >
             <h2>Contact</h2>
             <p>Contact Us</p>
         </div><!-- End Section Title -->
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" >
 
-            <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="mb-4" >
                 <iframe style="border:0; width: 100%; height: 270px;"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d848.8060930852565!2d100.35448614208599!3d-0.9602719585945575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b99172a0656d%3A0xb37fc6694d5be585!2s360%20Hotel%20Supply!5e0!3m2!1sid!2sid!4v1730566115705!5m2!1sid!2sid"
                     frameborder="0" allowfullscreen="" loading="lazy"
@@ -877,7 +877,7 @@
             <div class="row gy-4">
 
                 <div class="col-lg-4">
-                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-item d-flex" >
                         <i class="bi bi-geo-alt flex-shrink-0"></i>
                         <div>
                             <h3>Address</h3>
@@ -885,7 +885,7 @@
                         </div>
                     </div><!-- End Info Item -->
 
-                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                    <div class="info-item d-flex" >
                         <i class="bi bi-telephone flex-shrink-0"></i>
                         <div>
                             <h3>Call Us on WhatsApp</h3>
@@ -894,7 +894,7 @@
                         </div>
                     </div><!-- End Info Item -->
 
-                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+                    <div class="info-item d-flex" >
                         <i class="bi bi-envelope flex-shrink-0"></i>
                         <div>
                             <h3>Email Us</h3>
@@ -905,8 +905,7 @@
                 </div>
 
                 <div class="col-lg-8">
-                    <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-                        data-aos-delay="200">
+                    <form action="forms/contact.php" method="post" class="php-email-form" >
                         <div class="row gy-4">
 
                             <div class="col-md-6">
