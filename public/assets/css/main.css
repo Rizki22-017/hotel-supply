@@ -1699,13 +1699,29 @@ section,
 .pricing .pricing-tem {
     background-color: var(--surface-color);
     box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
-    padding: 40px 20px;
+    padding: 0;
     text-align: center;
     border-radius: 4px;
     position: relative;
     overflow: hidden;
     transition: 0.3s;
     height: 100%;
+}
+
+.pricing .pricing-item {
+    position: relative; /* Menambahkan posisi relatif untuk card */
+    transition: transform 0.3s ease; opacity: 0.3s ease; /* Transisi untuk efek hover */
+    margin: 0 -15px; /* Mengatur margin negatif untuk tumpang tindih */
+}
+
+.pricing .pricing-item:hover {
+    transform: scale(1.1); /* Memperbesar card yang di-hover */
+    z-index: 2; /* Mengatur z-index agar card yang di-hover berada di atas */
+    opacity: 1;
+}
+
+.pricing .pricing-item:not(:hover) {
+    opacity: 0.5; /* Card yang tidak di-hover menjadi setengah transparan */
 }
 
 @media (min-width: 1200px) {
@@ -1716,11 +1732,30 @@ section,
     }
 }
 
-.pricing h3 {
+.pricing .pricing-tem {
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.title-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Background transparan */
+    padding: 10px 0;
+    text-align: center;
+    z-index: 2;
+}
+
+.title-wrapper h3 {
+    margin: 0; /* Hilangkan margin default */
+    color: #fd7e14; /* Warna teks */
     font-weight: 700;
     font-size: 18px;
-    margin-bottom: 15px;
 }
+
 
 .pricing .price {
     font-size: 36px;
@@ -1790,8 +1825,8 @@ section,
 .pricing .featured {
     width: 200px;
     position: absolute;
-    top: 18px;
-    right: -68px;
+    top: 35px;
+    right: -48px;
     transform: rotate(45deg);
     z-index: 1;
     font-size: 14px;
@@ -1800,8 +1835,70 @@ section,
     color: var(--contrast-color);
 }
 
+.pricing-item .pricing-tem .pricing-info {
+    opacity: 0;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: -100%;
+    z-index: 3;
+    transition: all ease-in-out 0.5s;
+    background: color-mix(in srgb, var(--background-color), transparent 10%);
+    padding: 15px;
+  }
+
+  .pricing-item .pricing-tem .pricing-info h4 {
+    font-size: 18px;
+    font-weight: 600;
+    padding-right: 50px;
+  }
+
+  .pricing-item .pricing-tem .pricing-info p {
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    font-size: 14px;
+    margin-bottom: 0;
+    padding-right: 50px;
+  }
+
+  .pricing-item .pricing-tem .pricing-info .preview-link,
+  .pricing-item .pricing-tem .pricing-info .details-link {
+    position: absolute;
+    right: 50px;
+    font-size: 24px;
+    top: calc(50% - 14px);
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    transition: 0.3s;
+    line-height: 0;
+  }
+
+  .pricing-item .pricing-tem .pricing-info .preview-link:hover,
+  .pricing-item .pricing-tem .pricing-info .details-link:hover {
+    color: var(--accent-color);
+  }
+
+  .pricing-item .pricing-tem .pricing-info .details-link {
+    right: 14px;
+    font-size: 28px;
+  }
+
+  .pricing-item .pricing-tem:hover .pricing-info {
+    opacity: 1;
+    bottom: 0;
+  }
+
+
+
 .pricing-carousel {
     transition: transform 0.5s ease; /* Menambahkan transisi halus saat menggeser */
+    display: flex;
+    gap: 0;
+}
+
+.pricing-item .pricing-tem img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
 }
 
 /* Tombol Navigasi */

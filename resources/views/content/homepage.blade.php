@@ -175,19 +175,13 @@
                     <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
                         data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-tem">
-                            <h3 style="color: #20c997;">Free Plan</h3>
-                            <div class="price"><sup>$</sup>0<span> / mo</span></div>
-                            <div class="icon">
-                                <i class="bi bi-box" style="color: #20c997;"></i>
+                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
+                            <div class="pricing-info">
+                                <h4>App 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
-                            <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li class="na">Pharetra massa</li>
-                                <li class="na">Massa ultricies mi</li>
-                            </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
                         </div>
                     </div>
 
@@ -196,19 +190,13 @@
                         data-aos="zoom-in" data-aos-delay="200">
                         <div class="pricing-tem">
                             <span class="featured">Featured</span>
-                            <h3 style="color: #0dcaf0;">Starter Plan</h3>
-                            <div class="price"><sup>$</sup>19<span> / mo</span></div>
-                            <div class="icon">
-                                <i class="bi bi-send" style="color: #0dcaf0;"></i>
+                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
+                            <div class="pricing-info">
+                                <h4>App 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
-                            <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li class="na">Massa ultricies mi</li>
-                            </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
                         </div>
                     </div>
 
@@ -216,19 +204,16 @@
                     <div class="pricing-item" data-index="2" style="flex: 0 0 25%; box-sizing: border-box;"
                         data-aos="zoom-in" data-aos-delay="300">
                         <div class="pricing-tem">
-                            <h3 style="color: #fd7e14;">Business Plan</h3>
-                            <div class="price"><sup>$</sup>29<span> / mo</span></div>
-                            <div class="icon">
-                                <i class="bi bi-airplane" style="color: #fd7e14;"></i>
+                            {{-- <div class="title-wrapper">
+                                <h3 style="color: #fd7e14;">Business Plan</h3>
+                            </div> --}}
+                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
+                            <div class="pricing-info">
+                                <h4>App 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
-                            <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li>Massa ultricies mi</li>
-                            </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
                         </div>
                     </div>
 
@@ -236,57 +221,39 @@
                     <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
                         data-aos="zoom-in" data-aos-delay="400">
                         <div class="pricing-tem">
-                            <h3 style="color: #0d6efd;">Ultimate Plan</h3>
-                            <div class="price"><sup>$</sup>49<span> / mo</span></div>
-                            <div class="icon">
-                                <i class="bi bi-rocket" style="color: #0d6efd;"></i>
+                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
+                            <div class="pricing-info">
+                                <h4>App 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
-                            <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li>Massa ultricies mi</li>
-                            </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
                         </div>
                     </div>
 
                     <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
                         data-aos="zoom-in" data-aos-delay="400">
                         <div class="pricing-tem">
-                            <h3 style="color: #0d6efd;">Ultimate Plan</h3>
-                            <div class="price"><sup>$</sup>49<span> / mo</span></div>
-                            <div class="icon">
-                                <i class="bi bi-rocket" style="color: #0d6efd;"></i>
+                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
+                            <div class="pricing-info">
+                                <h4>App 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
-                            <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li>Massa ultricies mi</li>
-                            </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
                         </div>
                     </div>
 
                     <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
                         data-aos="zoom-in" data-aos-delay="400">
                         <div class="pricing-tem">
-                            <h3 style="color: #0d6efd;">Ultimate Plan</h3>
-                            <div class="price"><sup>$</sup>49<span> / mo</span></div>
-                            <div class="icon">
-                                <i class="bi bi-rocket" style="color: #0d6efd;"></i>
+                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
+                            <div class="pricing-info">
+                                <h4>App 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
-                            <ul>
-                                <li>Aida dere</li>
-                                <li>Nec feugiat nisl</li>
-                                <li>Nulla at volutpat dola</li>
-                                <li>Pharetra massa</li>
-                                <li>Massa ultricies mi</li>
-                            </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
                         </div>
                     </div>
 
