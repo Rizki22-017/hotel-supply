@@ -42,9 +42,14 @@ Route::get('/login', function () {
     return view('login.login');
 });
 
+// untuk tes
 Route::get('/tes', function () {
     return view('admin.tes');
 });
+Route::get('/tes2', function () {
+    return view('admin.tes2');
+});
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.index');
 
