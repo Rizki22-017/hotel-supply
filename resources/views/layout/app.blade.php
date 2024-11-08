@@ -53,14 +53,14 @@
                         <li><a href="/product"
                                 class="{{ str_contains(request()->path(), 'product') ? 'active' : '' }}">Products</a>
                         </li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#clients">Our Client</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#clients">Our Client</a></li>
+                        <li><a href="/#contact">Contact</a></li>
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
 
-                <a class="cta-btn d-none d-sm-block" href="/login">Login</a>
+                <a class="cta-btn d-none d-sm-block" href="https://wa.me/6282" target="_blank">Order Now</a>
 
             </div>
 
