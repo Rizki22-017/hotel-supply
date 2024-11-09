@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestimonialController;
 
@@ -38,9 +39,11 @@ Route::get('/product-detail', function () {
     return view('content.product-detail');
 });
 
-Route::get('/login', function () {
-    return view('login.login');
-});
+//login-logout
+Route::get('admin', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('admin', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
 
 // untuk tes
 Route::get('/tes', function () {

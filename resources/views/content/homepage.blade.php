@@ -2,13 +2,48 @@
 @section('content')
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
-        <div class="container position-relative">
-            <h2>Welcome to 360 Hotel Supply</h2>
-            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam.
-                Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                vel. Minus et tempore modi architecto.</p>
-            <a href="#stats" class="btn-get-started">Read More</a>
+
+        <div class="image-container">
+
+            <img src="assets/img/tes1.jpg" alt="" data-aos="fade-in">
+
+            <!-- Label untuk setiap elemen -->
+            <div class="label pillow">
+                <div class="label-box">
+                    <div class="label-text">Pillow</div>
+                </div>
+            </div>
+
+            <div class="label duvet-cover">
+                <div class="label-box">
+                    <div class="label-text">Duvet Cover</div>
+                </div>
+            </div>
+
+            <div class="label blanket">
+                <div class="label-box">
+                    <div class="label-text">Blanket</div>
+                </div>
+            </div>
+
+            <div class="label natural-linen-blanket">
+                <div class="label-box">
+                    <div class="label-text">Natural Linen Blanket</div>
+                </div>
+            </div>
+
+            <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="row justify-content-center">
+                  <div class="col-lg-8">
+                    <h2>Welcome to 360 Hotel Supply</h2>
+                    <p>We are team of talented hotel suppliers</p>
+                    <a href="#about" class="btn-get-started">Get Started</a>
+                  </div>
+                </div>
+            </div>
+
         </div>
+
     </section><!-- /Hero Section -->
 
 

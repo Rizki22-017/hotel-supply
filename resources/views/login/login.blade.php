@@ -1,20 +1,7 @@
 @extends('layout.app')
 @section('content')
 
-<div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
-    <div class="container position-relative">
-      <h1>Login</h1>
-      <p>Masuk dulu yuk!</p>
-      <nav class="breadcrumbs">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li class="current">Login</li>
-        </ol>
-      </nav>
-    </div>
-</div><!-- End Page Title -->
-
-<div class="container my-5">
+<div class="container my-5" style="padding: 50px">
     <div class="row justify-content-center">
         <div class="col-md-6">
             @if ($message = Session::get('success'))
@@ -33,7 +20,7 @@
                 @enderror
 
                 <div class="card-body">
-                    <form method="POST" action="#">
+                    <form method="POST" action="{{route('login')}}">
                         @csrf
 
                         <div class="mb-3">
@@ -48,7 +35,6 @@
 
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
-                    <p>Belum punya akun? <a href="#">Daftar di sini</a></p>
                 </div>
             </div>
         </div>
