@@ -99,7 +99,13 @@
                     </h2>
                     <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"  >
                       <div class="accordion-body">
-                        {{$about->leader_pict}}
+                        {{-- {{$about->leader_pict}} --}}
+                        @if ($about->leader_pict)
+                            <img src="{{ asset('assets/img/' . $about->leader_pict) }}" alt="Leader Image"
+                                class="responsive-img">
+                        @else
+                            <span>No Image</span>
+                        @endif
                       </div>
                     </div>
                 </div>
