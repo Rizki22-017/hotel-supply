@@ -146,11 +146,11 @@
                 <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($products as $product)
                     <div class="col-lg-3 col-md-4 portfolio-item">
-                        <a href="/product-detail">
+                        <a href="{{ route('detail.product', $product->id) }}">
                         <div class="portfolio-content h-100">
                            <img src="{{asset('storage/' . $product->product_image)}}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <h4><a href="/product-detail">{{$product->product_name}}</a></h4>
+                                <h4><a href="#">{{$product->product_name}}</a></h4>
                                 <p>{{$product->product_description}}</p>
                             </div>
                         </div>

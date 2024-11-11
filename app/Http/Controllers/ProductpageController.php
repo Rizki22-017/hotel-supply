@@ -18,16 +18,14 @@ class ProductpageController extends Controller
         return view('content.product', compact('categories', 'products'));
     }
 
-    public function detail_product()
+    public function detail_product($id)
     {
-        // Ambil semua data produk
-        $products = Product::all();
+        $product = Product::find($id);
 
-        // Ambil 4 data produk secara acak
         $randomProducts = Product::inRandomOrder()->take(4)->get();
 
         // Kirim data ke view
-        return view('content.product-detail', compact('products', 'randomProducts'));
+        return view('content.product-detail', compact('product', 'randomProducts'));
     }
 
     //search cari

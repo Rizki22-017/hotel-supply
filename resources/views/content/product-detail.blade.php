@@ -6,11 +6,9 @@
             <div class="col-lg-4">
                 <div id="productGalleryCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        @foreach ($products as $product)
                         <div class="carousel-item active">
                             <img src="assets/img/departments-1.jpg" class="d-block w-100" alt="Image 1">
                         </div>
-                        @endforeach
                         <!-- Example Static Images -->
                         <div class="carousel-item">
                             <img src="assets/img/departments-2.jpg" class="d-block w-100" alt="Image 2">
@@ -36,7 +34,7 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        @foreach ($products as $product)
+
                         <h4 class="card-title"><b>{{$product->product_name}}</b></h4>
                         <p style="padding-bottom:15px">{{$product->product_description}}</p>
 
@@ -70,7 +68,7 @@
                             </tbody>
                         </table>
                         <!-- End Table with stripped rows -->
-                        @endforeach
+
 
                         <!-- Order Now and Share buttons -->
                         <div class="d-flex align-items-center mt-3">
@@ -99,13 +97,13 @@
 
         <div class="container">
             <div class="row gy-4" data-layout="masonry" data-sort="original-order" data-aos="fade-up" data-aos-delay="200">
-                @foreach ($randomProducts as $randomprod)
+                @foreach ($randomProducts as $randomProduct)
                 <div class="col-lg-3 col-md-4 portfolio-item">
                     <div class="portfolio-content h-100">
-                        <img src="{{asset('storage/' . $randomprod->product_image)}}" class="img-fluid" alt="">
+                        <img src="{{asset('storage/' . $randomProduct->product_image)}}" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                            <h4><a href="/product-detail">{{$randomprod->product_name}}</a></h4>
-                            <p>{{$randomprod->product_description}}</p>
+                            <h4><a href="/product-detail">{{$randomProduct->product_name}}</a></h4>
+                            <p>{{$randomProduct->product_description}}</p>
                         </div>
                     </div>
                 </div><!-- End Portfolio Item -->

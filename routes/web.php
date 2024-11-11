@@ -12,7 +12,7 @@ use App\Http\Controllers\TestimonialController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/product', [ProductpageController::class, 'home_product'])->name('home_product');
-Route::get('/product-detail', [ProductpageController::class, 'detail_product'])->name('detail_product');
+Route::get('/product-detail/{id}', [ProductpageController::class, 'detail_product'])->name('detail.product');
 
 
 
