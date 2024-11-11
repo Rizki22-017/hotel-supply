@@ -225,7 +225,8 @@ h6 {
   color: var(--default-color);
   transition: all 0.5s;
   z-index: 997;
-  background-color: var(--background-color);
+  /* background-color: var(--background-color);*/
+  background-color: #2e3336;
 }
 
 .header .topbar {
@@ -279,6 +280,12 @@ h6 {
 .header .branding {
   min-height: 60px;
   padding: 10px 0;
+}
+.header .branding2 {
+  min-height: 40px;
+  padding: 10px 0;
+  background: linear-gradient(to right, #78c7c4 50%, #24a8a7 100%);
+
 }
 
 .header .logo {
@@ -372,7 +379,8 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-color);
+    /* color: var(--nav-color); */
+    color: #fff;
     font-size: 15px;
     padding: 0 2px;
     font-family: var(--nav-font);
@@ -606,8 +614,10 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .footer {
-  color: var(--default-color);
-  background-color: var(--background-color);
+  /* color: var(--default-color); */
+  color: white;
+  /* background-color: var(--background-color); */
+  background-color: #2e3336;
   border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 75%);
   font-size: 14px;
   position: relative;
@@ -628,7 +638,8 @@ h6 {
 }
 
 .footer .footer-about .logo span {
-  color: var(--heading-color);
+  /* color: var(--heading-color); */
+  color: white;
   font-family: var(--heading-font);
   font-size: 26px;
   font-weight: 700;
@@ -649,7 +660,8 @@ h6 {
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  /* color: color-mix(in srgb, var(--default-color), transparent 20%);*/
+  color: color-mix(in srgb, #ffffff, transparent 20%);
   margin-right: 10px;
   transition: 0.3s;
 }
@@ -693,7 +705,9 @@ h6 {
 }
 
 .footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  /* color: color-mix(in srgb, var(--default-color), transparent 30%); */
+  color: color-mix(in srgb, #ffffff, transparent 30%);
+
   display: inline-block;
   line-height: 1;
 }
@@ -976,6 +990,32 @@ section,
     height: auto;
   }
 
+  /* Google Translate */
+  /* Menambahkan styling untuk elemen Google Translate */
+    .google-translate {
+        position: absolute; /* Memungkinkan posisi absolut di dalam container */
+        top: 8px; /* Memberikan jarak dari atas */
+        right: 20px; /* Memberikan jarak dari sisi kanan */
+        z-index: 9999; /* Pastikan berada di atas elemen lainnya */
+    }
+
+    /* Styling untuk dropdown Google Translate */
+    #google_translate_element select {
+        padding: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+    @media (max-width: 768px) {
+        .google-translate {
+            top: 4px; /* Kurangi jarak atas pada layar kecil */
+            right: 10px; /* Sesuaikan jarak kanan untuk layar kecil */
+        }
+    }
+
+
+
   /* Gaya label */
   .label {
     position: absolute;
@@ -991,7 +1031,7 @@ section,
     padding: 50px;
     padding-bottom: 30px;
     position: relative;
-    border-radius: 5px;
+    /* border-radius: 5px; */
   }
 
   /* Kotak teks di bawah label */

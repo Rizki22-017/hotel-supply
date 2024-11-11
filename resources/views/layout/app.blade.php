@@ -36,13 +36,18 @@
 <body class="index-page">
 
     <header id="header" class="header sticky-top">
-
+        <div class="branding2">
+            <!-- Tempatkan Google Translate di Kanan -->
+            <div class="google-translate">
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
         <div class="branding d-flex align-items-center">
 
             <div class="container position-relative d-flex align-items-center justify-content-between">
                 <a href="/" class="logo d-flex align-items-center me-auto">
                     <!-- Uncomment the line below if you also wish to use an image logo -->
-                    <img src="{{asset('assets/img/logo360.png') }}" alt="">
+                    <img src="{{ asset('assets/img/logo360.png') }}" alt="">
                     {{-- <h1 class="sitename">Medilab</h1> --}}
                 </a>
 
@@ -59,6 +64,9 @@
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
+
+
+
 
                 <a class="cta-btn d-none d-sm-block" href="https://wa.me/6282" target="_blank">Order Now</a>
 
@@ -80,7 +88,7 @@
             <div class="row gy-4">
                 <div class="col-lg-3 col-md-6 footer-about">
                     <a href="index.html" class="logo d-flex align-items-center">
-                        <img src="{{asset('assets/img/logo360.png') }}" alt="">
+                        <img src="{{ asset('assets/img/logo360.png') }}" alt="">
                         {{-- <span class="sitename">360 Hotel Supply</span> --}}
                     </a>
                     <div class="footer-contact pt-3">
@@ -163,6 +171,20 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    {{-- google translate --}}
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', // Bahasa sumber website Anda (ubah jika perlu)
+                includedLanguages: 'en,id,es,fr,de,it', // Bahasa target yang didukung, tambahkan bahasa lain jika perlu
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
 
 </body>
 
