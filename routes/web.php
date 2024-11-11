@@ -4,13 +4,17 @@ use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductpageController;
 use App\Http\Controllers\TestimonialController;
 
-Route::get('/', function () {
-    return view('content.homepage');
-});
+Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/product', [ProductpageController::class, 'home_product'])->name('home_product');
+Route::get('/product-detail', [ProductpageController::class, 'detail_product'])->name('detail_product');
+
+
 
 
 Route::get('/dashboard', function () {
@@ -29,15 +33,9 @@ Route::get('/testimonials', function () {
     return view('admin.testimonials');
 });
 
+//cari
+Route::get('/search', [ProductpageController::class, 'search'])->name('search');
 
-
-Route::get('/product', function () {
-    return view('content.product');
-});
-
-Route::get('/product-detail', function () {
-    return view('content.product-detail');
-});
 
 //login-logout
 Route::get('admin', [LoginController::class, 'showLoginForm'])->name('login');

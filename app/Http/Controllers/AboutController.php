@@ -14,6 +14,12 @@ class AboutController extends Controller
         return view('admin.about.index', compact('abouts'));
     }
 
+    public function home()
+    {
+        $abouts = About::all();
+        return view('content.homepage', compact('abouts'));
+    }
+
     public function create()
     {
         if (About::exists()) {

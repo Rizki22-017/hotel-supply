@@ -98,8 +98,8 @@
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Product Range</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <h2>Product Category</h2>
+            <p>Find everything you need here</p>
         </div><!-- End Section Title -->
 
         <div class="container">
@@ -107,57 +107,19 @@
             <div class=" " data-layout="masonry" data-sort="original-order">
 
                 <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
-
+                    @foreach ($categories as $category)
                     <div class="col-lg-3 col-md-4 portfolio-item    ">
                         <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-1.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-1.jpg" class="img-fluid"
+                            <a href="{{asset('storage/' . $category->category_image)}}" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="{{asset('storage/' . $category->category_image)}}" class="img-fluid"
                                     alt=""></a>
                             <div class="portfolio-info">
-                                <h4><a href="/product-detail" title="More Details">Bedroom</a></h4>
+                                <h4><a href="/product-detail" title="More Details">{{$category->category_name}}</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
                             </div>
                         </div>
                     </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-2.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-2.jpg" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail" title="More Details">Bathroom</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-3.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-3.jpg" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail" title="More Details">Dining & Kitchen</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-4.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-4.jpg" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail" title="More Details">Spa & Fitness</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-
-
+                    @endforeach
                 </div><!-- End Portfolio Container -->
 
             </div>
@@ -175,10 +137,9 @@
             <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
                 <div class="col-xl-10">
                     <div class="text-center">
-                        <h3>We are one of</h3>
-                        <p>The largest and most well-known towel & linen suppliers <br>
-                            in Indonesia</p>
-                        <a class="cta-btn" href="#">Discover more!</a>
+                        <h3>Discover what you need with us</h3>
+                        <p>{{$about->highlight}}</p>
+                        <a class="cta-btn" href="/#about">Browse more!</a>
                     </div>
                 </div>
             </div>
@@ -207,92 +168,20 @@
                 <div class="pricing-carousel" style="display: flex; gap: 20px; transition: transform 0.3s ease;">
 
                     <!-- Card Item 1 -->
+                    @foreach ($products as $product)
                     <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
                         data-aos="zoom-in" data-aos-delay="100">
+                        <a href="/product-detail">
                         <div class="pricing-tem">
-                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
+                            <img src="{{asset('storage/' . $product->product_image)}}" class="img-fluid" alt="">
                             <div class="pricing-info">
-                                <h4>App 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                <h4>{{$product->product_name}}</h4>
+                                <p>{{$product->product_description}}</p>
                             </div>
                         </div>
+                        </a>
                     </div>
-
-                    <!-- Card Item 2 -->
-                    <div class="pricing-item" data-index="1" style="flex: 0 0 25%; box-sizing: border-box;"
-                        data-aos="zoom-in" data-aos-delay="200">
-                        <div class="pricing-tem">
-                            <span class="featured">Featured</span>
-                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
-                            <div class="pricing-info">
-                                <h4>App 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Item 3 -->
-                    <div class="pricing-item" data-index="2" style="flex: 0 0 25%; box-sizing: border-box;"
-                        data-aos="zoom-in" data-aos-delay="300">
-                        <div class="pricing-tem">
-                            {{-- <div class="title-wrapper">
-                                <h3 style="color: #fd7e14;">Business Plan</h3>
-                            </div> --}}
-                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
-                            <div class="pricing-info">
-                                <h4>App 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Item 4 -->
-                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
-                        data-aos="zoom-in" data-aos-delay="400">
-                        <div class="pricing-tem">
-                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
-                            <div class="pricing-info">
-                                <h4>App 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
-                        data-aos="zoom-in" data-aos-delay="400">
-                        <div class="pricing-tem">
-                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
-                            <div class="pricing-info">
-                                <h4>App 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
-                        data-aos="zoom-in" data-aos-delay="400">
-                        <div class="pricing-tem">
-                            <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
-                            <div class="pricing-info">
-                                <h4>App 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
-                                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tambahkan card lain sesuai kebutuhan di sini -->
+                    @endforeach
 
                 </div><!-- End pricing-carousel -->
 
@@ -393,9 +282,7 @@
                 <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
                     <span class="about-meta">MORE ABOUT US</span>
                     <h2 class="about-title">360 Hotel Supply</h2>
-                    <p class="about-description">"360 Hotel Supply is dedicated to providing comprehensive solutions for
-                        the hospitality and service industries, prioritizing user comfort and enhancing every guest
-                        experience through premium products."</p>
+                    <p class="about-description">"{{$about->about_desc}}"</p>
 
                     <div class="row feature-list-wrapper">
                         <div class="col-md-6">
@@ -418,9 +305,9 @@
                         <div class="row gy-4">
                             <div class="col-lg-5">
                                 <div class="profile d-flex align-items-center gap-3">
-                                    <img src="assets/img/avatar-1.webp" alt="CEO Profile" class="profile-image">
+                                    <img src="{{asset('storage/' . $about->leader_pict)}}" alt="CEO Profile" class="profile-image">
                                     <div>
-                                        <h4 class="profile-name">Mario Smith</h4>
+                                        <h4 class="profile-name">{{$about->leader_name}}</h4>
                                         <p class="profile-position">CEO &amp; Founder</p>
                                     </div>
                                 </div>
@@ -430,7 +317,7 @@
                                     <i class="bi bi-telephone-fill"></i>
                                     <div>
                                         <p class="contact-label">Call us anytime</p>
-                                        <p class="contact-number">+123 456-789</p>
+                                        <p class="contact-number">{{$about->phone}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -447,8 +334,8 @@
                                 class="img-fluid small-image rounded-4">
                         </div>
                         <div class="experience-badge floating">
-                            <h3>15+ <span>Years</span></h3>
-                            <p>Of experience in business service</p>
+                            <h3>50+<span>Supplies</span></h3>
+                            <p>are waiting for you</p>
                         </div>
                     </div>
                 </div>
@@ -475,9 +362,7 @@
                     data-aos-delay="200">
                     <h3>We work for you</h3>
                     <p>
-                        Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas deleniti. Sit
-                        quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti totam ut eius incidunt
-                        reiciendis veritatis asperiores placeat.
+                        {{$about->history}}
                     </p>
                     <ul>
                         <li>
@@ -746,8 +631,9 @@
               }
             </script>
                 <div class="swiper-wrapper">
-
+                    @foreach ($testimonials as $testimonial)
                     <div class="swiper-slide">
+
                         <div class="testimonial-item">
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
@@ -755,100 +641,17 @@
                                     class="bi bi-star-fill"></i>
                             </div>
                             <p>
-                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
-                                Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                {{$testimonial->customer_review}}
                             </p>
                             <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
+                                <img src="{{asset('storage/' . $testimonial->customer_logo)}}" class="testimonial-img"
                                     alt="">
-                                <h3>Saul Goodman</h3>
-                                <h4>Ceo &amp; Founder</h4>
+                                <h3>{{$testimonial->customer_name}}</h3>
+                                {{-- <h4>Designer</h4> --}}
                             </div>
                         </div>
                     </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum
-                                eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim
-                                culpa.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
-                                    alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis
-                                minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
-                                    alt="">
-                                <h3>Jena Karlis</h3>
-                                <h4>Store Owner</h4>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim
-                                velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum
-                                veniam.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
-                                    alt="">
-                                <h3>Matt Brandon</h3>
-                                <h4>Freelancer</h4>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam
-                                enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore
-                                nisi cillum quid.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img"
-                                    alt="">
-                                <h3>John Larson</h3>
-                                <h4>Entrepreneur</h4>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
+                    @endforeach
 
                 </div>
                 <div class="swiper-pagination"></div>
@@ -864,7 +667,7 @@
         <!-- Section Title -->
         <div class="container section-title" >
             <h2>Contact</h2>
-            <p>Contact Us</p>
+            <p>Get in touch with us</p>
         </div><!-- End Section Title -->
 
         <div class="container" >
@@ -877,13 +680,12 @@
             </div><!-- End Google Maps -->
 
             <div class="row gy-4">
-
                 <div class="col-lg-4">
                     <div class="info-item d-flex" >
                         <i class="bi bi-geo-alt flex-shrink-0"></i>
                         <div>
                             <h3>Address</h3>
-                            <p>Jl. HOS Cokroaminoto No. 100, Padang, Indonesia 25118</p>
+                            <p>{{$about->address}}</p>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -891,8 +693,8 @@
                         <i class="bi bi-telephone flex-shrink-0"></i>
                         <div>
                             <h3>Call Us on WhatsApp</h3>
-                            <p>Sumatera : +62 820 0000 0000</p>
-                            <p>Jawa & Bali : +62 820 0000 0000</p>
+                            <p>Sumatera : {{$about->wa_sumatera}}</p>
+                            <p>Jawa & Bali : {{$about->wa_jawa}}</p>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -900,7 +702,7 @@
                         <i class="bi bi-envelope flex-shrink-0"></i>
                         <div>
                             <h3>Email Us</h3>
-                            <p>info@example.com</p>
+                            <p>{{$about->email}}</p>
                         </div>
                     </div><!-- End Info Item -->
 

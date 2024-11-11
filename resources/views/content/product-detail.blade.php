@@ -6,9 +6,12 @@
             <div class="col-lg-4">
                 <div id="productGalleryCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
+                        @foreach ($products as $product)
                         <div class="carousel-item active">
                             <img src="assets/img/departments-1.jpg" class="d-block w-100" alt="Image 1">
                         </div>
+                        @endforeach
+                        <!-- Example Static Images -->
                         <div class="carousel-item">
                             <img src="assets/img/departments-2.jpg" class="d-block w-100" alt="Image 2">
                         </div>
@@ -33,36 +36,30 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title"><b>Bed Sheet</b></h4>
-                        <p style="padding-bottom:15px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsa
-                            repudiandae, dicta ut porro accusamus quisquam impedit non excepturi assumenda quis veniam nulla
-                            ratione
-                            praesentium provident quia. Earum, porro amet.</p>
+                        @foreach ($products as $product)
+                        <h4 class="card-title"><b>{{$product->product_name}}</b></h4>
+                        <p style="padding-bottom:15px">{{$product->product_description}}</p>
 
                         <!-- Table with stripped rows -->
                         <table class="table table-striped" style="width: 100%; table-layout: fixed;">
                             <tbody>
                                 <tr>
                                     <th>Available colors</th>
-                                    <td>Plain white</td>
-                                    <td>Stripe 3cm</td>
-                                    <td>Square/Checker 9cm</td>
+                                    <td>{{$product->product_color}}</td>
                                 </tr>
                                 <tr>
                                     <th>Dimension</th>
-                                    <td colspan="3">Customizeable</td>
+                                    <td colspan="3">{{$product->product_size_chart}}</td>
                                 </tr>
                                 <tr>
                                     <th>Description</th>
-                                    <td colspan="3">Bed sheets come in two main varieties: flat and fitted...</td>
+                                    <td colspan="3">{{$product->product_description}}</td>
                                 </tr>
                                 <tr>
                                     <th>Materials</th>
                                     <td colspan="3">
                                         <ul style="list-style-type: none; padding-left: 0;">
-                                            <li>CVC</li>
-                                            <li>Full Cotton</li>
-                                            <li>Dobby/Satin Jacquard</li>
+                                            <li>{{$product->product_material}}</li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -73,6 +70,7 @@
                             </tbody>
                         </table>
                         <!-- End Table with stripped rows -->
+                        @endforeach
 
                         <!-- Order Now and Share buttons -->
                         <div class="d-flex align-items-center mt-3">
@@ -100,65 +98,20 @@
         </div><!-- End Section Title -->
 
         <div class="container">
-
-            <div class=" " data-layout="masonry" data-sort="original-order">
-
-                <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
-
-                    <div class="col-lg-3 col-md-4 portfolio-item">
-                        <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-1.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-1.jpg" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail">Bedroom</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            </div>
+            <div class="row gy-4" data-layout="masonry" data-sort="original-order" data-aos="fade-up" data-aos-delay="200">
+                @foreach ($randomProducts as $randomprod)
+                <div class="col-lg-3 col-md-4 portfolio-item">
+                    <div class="portfolio-content h-100">
+                        <img src="{{asset('storage/' . $randomprod->product_image)}}" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4><a href="/product-detail">{{$randomprod->product_name}}</a></h4>
+                            <p>{{$randomprod->product_description}}</p>
                         </div>
-                    </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-2.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-2.jpg" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail">Bathroom</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-3.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-3.jpg" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail">Kitchen</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-2.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-2.jpg" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail">Bathroom</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                </div><!-- End Portfolio Container -->
-
-            </div>
-
+                    </div>
+                </div><!-- End Portfolio Item -->
+                @endforeach
+            </div><!-- End Portfolio Container -->
         </div>
-
     </section><!-- /Related Product Section -->
 
     <!-- Include Font Awesome for social media icons -->

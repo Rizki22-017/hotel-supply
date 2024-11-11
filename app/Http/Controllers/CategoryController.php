@@ -17,6 +17,12 @@ class CategoryController extends Controller
         return view('admin.categories', compact('categories')); // Panggil 'admin.categories'
     }
 
+    public function home()
+    {
+        $categories = Category::inRandomOrder()->take(4)->get();
+        return view('content.homepage', compact('categories'));
+    }
+
 
 
     /**

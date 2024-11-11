@@ -19,6 +19,13 @@ class ProductController extends Controller
         return view('admin.products', compact('products', 'categories'));
     }
 
+    public function home()
+    {
+        $categories = Category::all(); // Mengambil semua kategori
+        $products = Product::with('category')->get();
+        return view('content.homepage', compact('products', 'categories'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

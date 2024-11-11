@@ -5,7 +5,7 @@
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
         <h2>Category</h2>
-        <p>Here's oru category product for your lovely hotel supply<br></p>
+        <p>Here's our category product for your lovely hotel supply<br></p>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -19,90 +19,19 @@
             <div class="pricing-carousel" style="display: flex; gap: 20px; transition: transform 0.3s ease;">
 
                 <!-- Card Item 1 -->
+                @foreach ($categories as $category)
                 <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
                     data-aos="zoom-in" data-aos-delay="100">
                     <div class="pricing-tem">
-                        <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('storage/' . $category->category_image)}}" class="img-fluid" alt="">
                         <div class="pricing-info">
-                            <h4>App 1</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div>
-                </div>
+                            <h4>{{$category->category_name}}</h4>
+                            <p>{{$category->category_description}}</p>
 
-                <!-- Card Item 2 -->
-                <div class="pricing-item" data-index="1" style="flex: 0 0 25%; box-sizing: border-box;"
-                    data-aos="zoom-in" data-aos-delay="200">
-                    <div class="pricing-tem">
-                        <span class="featured">Featured</span>
-                        <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
-                        <div class="pricing-info">
-                            <h4>App 1</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Card Item 3 -->
-                <div class="pricing-item" data-index="2" style="flex: 0 0 25%; box-sizing: border-box;"
-                    data-aos="zoom-in" data-aos-delay="300">
-                    <div class="pricing-tem">
-                        {{-- <div class="title-wrapper">
-                            <h3 style="color: #fd7e14;">Business Plan</h3>
-                        </div> --}}
-                        <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
-                        <div class="pricing-info">
-                            <h4>App 1</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card Item 4 -->
-                <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
-                    data-aos="zoom-in" data-aos-delay="400">
-                    <div class="pricing-tem">
-                        <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
-                        <div class="pricing-info">
-                            <h4>App 1</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
-                    data-aos="zoom-in" data-aos-delay="400">
-                    <div class="pricing-tem">
-                        <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
-                        <div class="pricing-info">
-                            <h4>App 1</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pricing-item" data-index="3" style="flex: 0 0 25%; box-sizing: border-box;"
-                    data-aos="zoom-in" data-aos-delay="400">
-                    <div class="pricing-tem">
-                        <img src="assets/img/product-5.jpg" class="img-fluid" alt="">
-                        <div class="pricing-info">
-                            <h4>App 1</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
                 <!-- Tambahkan card lain sesuai kebutuhan di sini -->
 
@@ -196,67 +125,40 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
-
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Products</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <p>The Best Solution for Your Hotel Supplies</p>
         </div><!-- End Section Title -->
 
-        <div class="container">
+        <div class="container" id="product">
+            <div class="d-flex justify-content-end mb-4" style="padding-right:2.2rem">
+                <form action="{{ route('search') }}#product" method="GET" class="d-flex w-100">
+                    <input type="text" name="query" class="form-control" placeholder="Search product..." aria-label="Search">
+                    <button type="submit" class="btn btn-outline-secondary ms-2">Search</button>
+                </form>
+            </div>
+
+
 
             <div class=" " data-layout="masonry" data-sort="original-order">
 
                 <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
-
+                    @foreach ($products as $product)
                     <div class="col-lg-3 col-md-4 portfolio-item">
+                        <a href="/product-detail">
                         <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-1.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-1.jpg" class="img-fluid"
-                                    alt=""></a>
+                           <img src="{{asset('storage/' . $product->product_image)}}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <h4><a href="/product-detail">Bedroom</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                <h4><a href="/product-detail">{{$product->product_name}}</a></h4>
+                                <p>{{$product->product_description}}</p>
                             </div>
                         </div>
+                        </a>
                     </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-2.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-2.jpg" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail">Bathroom</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-3.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-3.jpg" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail">Kitchen</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="assets/img/departments-4.jpg" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="assets/img/departments-4.jpg" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail">Spa & Fitness</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
+                    @endforeach
                 </div><!-- End Portfolio Container -->
+
 
             </div>
 
