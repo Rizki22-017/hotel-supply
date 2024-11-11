@@ -110,8 +110,8 @@
                     @foreach ($categories as $category)
                     <div class="col-lg-3 col-md-4 portfolio-item    ">
                         <div class="portfolio-content h-100">
-                            <a href="{{asset('storage/' . $category->category_image)}}" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="{{asset('storage/' . $category->category_image)}}" class="img-fluid"
+                            <a href="{{asset($category->category_image)}}" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="{{asset($category->category_image)}}" class="img-fluid"
                                     alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="/product-detail" title="More Details">{{$category->category_name}}</a></h4>
@@ -173,7 +173,7 @@
                         data-aos="zoom-in" data-aos-delay="100">
                         <a href="/product-detail">
                         <div class="pricing-tem">
-                            <img src="{{asset('storage/' . $product->product_image)}}" class="img-fluid" alt="">
+                            <img src="{{asset($product->product_image)}}" class="img-fluid" alt="">
                             <div class="pricing-info">
                                 <h4>{{$product->product_name}}</h4>
                                 <p>{{$product->product_description}}</p>
