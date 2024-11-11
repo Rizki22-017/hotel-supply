@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>360 Hotel Supply</title>
+    <title>Admin | 360 Hotel Supply</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/360-icon.png" rel="360-hotel-supply">
-    <link href="assets/img/360-icon.png" rel="360-hotel-supply">
+    <link href="assets/img/logo.png" rel="icon">
+    <link href="assets/img/logo.png" rel="360-hotelsupply">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">

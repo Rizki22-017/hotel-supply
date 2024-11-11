@@ -37,14 +37,14 @@ class AboutController extends Controller
         $request->validate([
             'highlight' => 'required|string',
             'about_desc' => 'required|string',
-            'about_poin' => 'required',
+            'about_poin' => 'required|array',
             'leader_pict' => 'image|nullable',
             'leader_name' => 'required|string',
             'phone' => 'required|string',
             'history' => 'required|string',
             'vision' => 'required|string',
-            'mission' => 'required',
-            'brand' => 'required',
+            'mission' => 'required|array',
+            'brand' => 'required|array',
             'address' => 'required|string',
             'wa_sumatera' => 'required|string',
             'wa_jawa' => 'required|string',
@@ -56,7 +56,7 @@ class AboutController extends Controller
             'linkedin' => 'required|string',
         ]);
 
-        $leader_img_path = $request->file('leader_pict') ? $request->file('leader_pict')->store('leader_images') : null;
+        $leader_img_path = $request->file('leader_pict') ? $request->file('leader_pict')->store('abouts', 'public') : null;
 
         About::create([
             'highlight' => $request->highlight,
@@ -94,14 +94,14 @@ class AboutController extends Controller
         $request->validate([
             'highlight' => 'required|string',
             'about_desc' => 'required|string',
-            'about_poin' => 'required',
+            'about_poin' => 'required|array',
             'leader_pict' => 'image|nullable',
             'leader_name' => 'required|string',
             'phone' => 'required|string',
             'history' => 'required|string',
             'vision' => 'required|string',
-            'mission' => 'required',
-            'brand' => 'required',
+            'mission' => 'required|array',
+            'brand' => 'required|array',
             'address' => 'required|string',
             'wa_sumatera' => 'required|string',
             'wa_jawa' => 'required|string',
@@ -115,11 +115,11 @@ class AboutController extends Controller
 
         $about = About::firstOrFail();
 
-        if ($request->file('leader_pict')) {
+        if ($request->hasFile('leader_pict')) {
             if ($about->leader_pict) {
                 Storage::delete($about->leader_pict);
             }
-            $leader_img_path = $request->file('leader_pict')->store('leader_images');
+            $leader_img_path = $request->file('leader_pict')->store('abouts', 'public');
         } else {
             $leader_img_path = $about->leader_pict;
         }
