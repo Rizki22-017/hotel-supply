@@ -17,7 +17,8 @@ class AboutSeeder extends Seeder
         DB::table('abouts')->insert([
             'highlight' => 'The largest and most well-known towel & linen suppliers in Indonesia',
             'about_desc' => '360 Hotel Supply is dedicated to providing comprehensive solutions for the hospitality and service industries, prioritizing user comfort and enhancing every guest experience through premium products.',
-            'about_poin' => json_encode(['Point 1', 'Point 2', 'Point 3']),
+            'about_poin1' => json_encode(['Point 1', 'Point 2', 'Point 3']),
+            'about_poin2' => json_encode(['Point 1', 'Point 2', 'Point 3']),
             'leader_pict' => 'abouts/testimonials-5.jpg',
             'leader_name' => 'Full Name',
             'phone' => '62821',

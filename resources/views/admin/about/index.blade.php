@@ -84,9 +84,22 @@
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
                         <div class="accordion-body">
                             <ul>
-                                @foreach (explode(',', $about->about_poin) as $point)
-                                    <li>{{ trim($point) }}</li>
-                                @endforeach
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>Left</p>
+                                        @foreach (json_decode($about->about_poin1) as $point1)
+                                            <li>{{ $point1 }}</li>
+                                        @endforeach
+
+                                    </div>
+                                    <div class="col-6">
+                                        <p>Right</p>
+                                        @foreach (json_decode($about->about_poin2) as $point2)
+                                            <li>{{ $point2 }}</li>
+                                        @endforeach
+
+                                    </div>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -154,8 +167,8 @@
                     <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8">
                         <div class="accordion-body">
                             <ul>
-                                @foreach (explode(',', $about->brand) as $brand)
-                                    <li>{{ trim($brand) }}</li>
+                                @foreach (json_decode($about->brand) as $brand)
+                                    <li>{{ $brand }}</li>
                                 @endforeach
                             </ul>
                         </div>
@@ -181,7 +194,9 @@
                     </h2>
                     <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10"  >
                       <div class="accordion-body">
-                        {{$about->mission}}
+                        @foreach (json_decode($about->mission) as $mission)
+                            <li>{{ $mission }}</li>
+                        @endforeach
                       </div>
                     </div>
                 </div>

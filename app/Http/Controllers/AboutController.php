@@ -37,7 +37,8 @@ class AboutController extends Controller
         $request->validate([
             'highlight' => 'required|string',
             'about_desc' => 'required|string',
-            'about_poin' => 'required|array',
+            'about_poin1' => 'required|array',
+            'about_poin2' => 'required|array',
             'leader_pict' => 'image|nullable',
             'leader_name' => 'required|string',
             'phone' => 'required|string',
@@ -61,7 +62,8 @@ class AboutController extends Controller
         About::create([
             'highlight' => $request->highlight,
             'about_desc' => $request->about_desc,
-            'about_poin' => json_encode($request->about_poin),
+            'about_poin1' => json_encode($request->about_poin1),
+            'about_poin2' => json_encode($request->about_poin2),
             'leader_pict' => $leader_img_path,
             'leader_name' => $request->leader_name,
             'phone' => $request->phone,
@@ -94,7 +96,8 @@ class AboutController extends Controller
         $request->validate([
             'highlight' => 'required|string',
             'about_desc' => 'required|string',
-            'about_poin' => 'required|array',
+            'about_poin1' => 'required|array',
+            'about_poin2' => 'required|array',
             'leader_pict' => 'image|nullable',
             'leader_name' => 'required|string',
             'phone' => 'required|string',
@@ -127,7 +130,8 @@ class AboutController extends Controller
         $about->update([
             'highlight' => $request->highlight,
             'about_desc' => $request->about_desc,
-            'about_poin' => json_encode($request->about_poin),
+            'about_poin1' => json_encode($request->about_poin1),
+            'about_poin2' => json_encode($request->about_poin2),
             'leader_pict' => $leader_img_path,
             'leader_name' => $request->leader_name,
             'phone' => $request->phone,

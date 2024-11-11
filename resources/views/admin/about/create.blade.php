@@ -35,11 +35,18 @@
                 </div>
 
                 <div class="col-12 mb-3">
-                    <label for="about_poin" class="col-sm-2 col-form-label">About Points</label>
-                    <div class="col-12" id="about-points-container">
-                        @for ($i = 0; $i < 6; $i++)
-                            <input type="text" class="form-control mb-2" name="about_poin[]" required>
-                        @endfor
+                    <label class="col-sm-2 col-form-label">About Points</label>
+                    <div class="row">
+                        <div class="col-6" id="about-points-container">
+                            @for ($i = 0; $i < 3; $i++)
+                                <input type="text" class="form-control mb-2" name="about_poin1[]" for="about_poin1" required>
+                            @endfor
+                        </div>
+                        <div class="col-6" id="about-points-container">
+                            @for ($i = 0; $i < 3; $i++)
+                                <input type="text" class="form-control mb-2" name="about_poin2[]" for="about_poin1" required>
+                            @endfor
+                        </div>
                     </div>
                     <small class="form-text text-muted">Total 6 input untuk About Points.</small>
                 </div>
@@ -93,7 +100,9 @@
                 <div class="col-12 mb-3">
                     <label for="mission" class="col-sm-2 col-form-label">Mission</label>
                     <div class="col-12">
-                        <textarea class="form-control" style="height: 100px" name="mission" required></textarea>
+                        @for ($i = 0; $i < 3; $i++)
+                            <input type="text" class="form-control mb-2" name="mission[]" required>
+                        @endfor
                     </div>
                 </div>
 

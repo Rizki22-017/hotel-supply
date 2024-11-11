@@ -37,12 +37,18 @@
     </div>
 
     <div class="col-12 mb-3">
-        <label for="about_poin" class="col-sm-2 col-form-label">About Points</label>
-        <div class="col-12">
-            @for ($i = 0; $i < 6; $i++)
-                <input type="text" class="form-control mb-2" name="about_poin[]" value="{{ old('about_poin.' . $i, $about->about_points[$i] ?? '') }}" required>
-            @endfor
-            <small class="form-text text-muted">Add or remove points as needed.</small>
+        <label class="col-sm-2 col-form-label">About Points</label>
+        <div class="row">
+            <div class="col-6" for="about_poin1">
+                @for ($i = 0; $i < 3; $i++)
+                    <input type="text" class="form-control mb-2" name="about_poin1[]" value="{{ old('about_poin1.' . $i, json_decode($about->about_poin1)[$i] ?? '') }}" required>
+                @endfor
+            </div>
+            <div class="col-6" for="about_poin2">
+                @for ($i = 0; $i < 3; $i++)
+                    <input type="text" class="form-control mb-2" name="about_poin2[]" value="{{ old('about_poin2.' . $i, json_decode($about->about_poin2)[$i] ?? '') }}" required>
+                @endfor
+            </div>
         </div>
     </div>
 
@@ -79,10 +85,10 @@
     <div class="col-12 mb-3">
         <label for="brand" class="col-sm-2 col-form-label">Special Offers</label>
         <div class="col-12">
-            @for ($i = 0; $i < 6; $i++)
-                <input type="text" class="form-control mb-2" name="brand[]" value="{{ old('brand.' . $i, $about->special_offers[$i] ?? '') }}" required>
+            @for ($i = 0; $i < 3; $i++)
+                <input type="text" class="form-control mb-2" name="brand[]" value="{{ old('brand.' . $i,json_decode($about->brand)[$i] ?? '') }}" required>
             @endfor
-            <small class="form-text text-muted">Add or remove offers as needed.</small>
+
         </div>
     </div>
 
@@ -97,7 +103,9 @@
     <div class="col-12 mb-3">
         <label for="mission" class="col-sm-2 col-form-label">Mission</label>
         <div class="col-12">
-            <textarea class="form-control" style="height: 100px" name="mission" required>{{ old('mission', $about->mission) }}</textarea>
+            @for ($i = 0; $i < 3; $i++)
+                <input type="text" class="form-control mb-2" name="mission[]" value="{{ old('mission.' . $i, json_decode($about->mission)[$i] ?? '') }}" required>
+            @endfor
         </div>
     </div>
 
