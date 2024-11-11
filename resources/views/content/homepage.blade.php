@@ -53,43 +53,42 @@
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="row gy-4">
+            <div class="row gy-4 text-center">
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Clients</p>
+                    <div class="stats-item">
+                        <h2><strong>2</strong> <span class="small-text">YEARS</span></h2>
+                        <p>Established since 2022</p>
                     </div>
-                </div><!-- End Stats Item -->
+                </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Projects</p>
+                    <div class="stats-item">
+                        <h2><strong>14</strong> <span class="small-text">DAYS</span></h2>
+                        <p>Fast Delivery</p>
                     </div>
-                </div><!-- End Stats Item -->
+                </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Hours Of Support</p>
+                    <div class="stats-item">
+                        <h2><strong>Fast</strong></h2>
+                        <p>Response</p>
                     </div>
-                </div><!-- End Stats Item -->
+                </div>
+
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Workers</p>
+                    <div class="stats-item">
+                        <h2><strong>Free</strong><span class="small-text">LABEL TAG</span></h2>
+                        <p>Can be customized</p>
                     </div>
-                </div><!-- End Stats Item -->
+                </div>
 
             </div>
 
+
         </div>
+
 
     </section><!-- /Stats Section -->
 
@@ -108,17 +107,19 @@
 
                 <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($categories as $category)
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="{{asset($category->category_image)}}" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="{{asset($category->category_image)}}" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail" title="More Details">{{$category->category_name}}</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                        <div class="col-lg-3 col-md-4 portfolio-item    ">
+                            <div class="portfolio-content h-100">
+                                <a href="{{ asset('storage/' . $category->category_image) }}"
+                                    data-gallery="portfolio-gallery-app" class="glightbox"><img
+                                        src="{{ asset('storage/' . $category->category_image) }}" class="img-fluid"
+                                        alt=""></a>
+                                <div class="portfolio-info">
+                                    <h4><a href="/product-detail" title="More Details">{{ $category->category_name }}</a>
+                                    </h4>
+                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                </div>
                             </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
+                        </div><!-- End Portfolio Item -->
                     @endforeach
                 </div><!-- End Portfolio Container -->
 
@@ -169,18 +170,19 @@
 
                     <!-- Card Item 1 -->
                     @foreach ($products as $product)
-                    <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
-                        data-aos="zoom-in" data-aos-delay="100">
-                        <a href="/product-detail">
-                        <div class="pricing-tem">
-                            <img src="{{asset($product->product_image)}}" class="img-fluid" alt="">
-                            <div class="pricing-info">
-                                <h4>{{$product->product_name}}</h4>
-                                <p>{{$product->product_description}}</p>
-                            </div>
+                        <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
+                            data-aos="zoom-in" data-aos-delay="100">
+                            <a href="/product-detail">
+                                <div class="pricing-tem">
+                                    <img src="{{ asset('storage/' . $product->product_image) }}" class="img-fluid"
+                                        alt="">
+                                    <div class="pricing-info">
+                                        <h4>{{ $product->product_name }}</h4>
+                                        <p>{{ $product->product_description }}</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        </a>
-                    </div>
                     @endforeach
 
                 </div><!-- End pricing-carousel -->
