@@ -52,7 +52,7 @@ Route::get('/tes2', function () {
 });
 
 
-Route::get('/dashboard', [DashboardController::class])->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::resource('categories', CategoryController::class);
 Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
