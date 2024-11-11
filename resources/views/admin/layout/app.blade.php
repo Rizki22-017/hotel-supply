@@ -42,7 +42,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
-                <img src="assets/img/logo360.png" alt="360 Hotel Supply">
+                <img src="{{ asset('assets/img/logo360.png') }}" alt="360 Hotel Supply">
                 {{-- <span class="d-none d-lg-block">NiceAdmin</span> --}}
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -51,25 +51,25 @@
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
                 @auth
-                <li class="nav-item dropdown pe-3">
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
-                        data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
-                    </a>
+                    <li class="nav-item dropdown pe-3">
+                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+                            data-bs-toggle="dropdown">
+                            <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
+                        </a>
 
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <form action="/logout" method="POST">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item">Logout</button>
-                                </form>
-                            </a>
-                        </li>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <form action="/logout" method="POST">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Logout</button>
+                                    </form>
+                                </a>
+                            </li>
 
-                    </ul><!-- End Profile Dropdown Items -->
-                </li><!-- End Profile Nav -->
+                        </ul><!-- End Profile Dropdown Items -->
+                    </li><!-- End Profile Nav -->
                 @endauth
 
             </ul>
@@ -173,17 +173,17 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="{{asset('assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
-    <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{asset('assets/vendor/chart.js/chart.umd.js') }}"></script>
-    <script src="{{asset('assets/vendor/echarts/echarts.min.js') }}"></script>
-    <script src="{{asset('assets/vendor/quill/quill.js') }}"></script>
-    <script src="{{asset('assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
-    <script src="{{asset('assets/vendor/tinymce/tinymce.min.js') }}"></script>
-    <script src="{{asset('assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/chart.js/chart.umd.js') }}"></script>
+    <script src="{{ asset('assets/vendor/echarts/echarts.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/quill/quill.js') }}"></script>
+    <script src="{{ asset('assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
+    <script src="{{ asset('assets/vendor/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
 
     <!-- Template Main JS File -->
-    <script src="{{asset('assets/js/admin.js') }}"></script>
+    <script src="{{ asset('assets/js/admin.js') }}"></script>
 
 </body>
 
