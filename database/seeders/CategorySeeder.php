@@ -17,22 +17,22 @@ class CategorySeeder extends Seeder
             [
                'category_name' => 'Kategori 1',
                'category_description' => '1st Cateogry is a good product with a good quality',
-               'category_image' => 'categories/about.jpg'
+               'category_image' => 'assets/img/about.jpg'
             ],
             [
                 'category_name' => 'Kategori 2',
                 'category_description' => '2nd Cateogry is a good product with a good quality',
-                'category_image' => 'categories/departments-1.jpg'
+                'category_image' => 'assets/img/departments-1.jpg'
             ],
             [
                 'category_name' => 'Kategori 3',
                 'category_description' => '3rd Cateogry is a good product with a good quality',
-                'category_image' => 'categories/departments-2.jpg'
+                'category_image' => 'assets/img/departments-2.jpg'
             ],
             [
                 'category_name' => 'Kategori 4',
                 'category_description' => '4th Cateogry is a good product with a good quality',
-                'category_image' => 'categories/about.jpg'
+                'category_image' => 'assets/img/about.jpg'
             ],
         ];
 

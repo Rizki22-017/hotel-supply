@@ -108,19 +108,17 @@
 
                 <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($categories as $category)
-                        <div class="col-lg-3 col-md-4 portfolio-item    ">
-                            <div class="portfolio-content h-100">
-                                <a href="{{ asset('storage/' . $category->category_image) }}"
-                                    data-gallery="portfolio-gallery-app" class="glightbox"><img
-                                        src="{{ asset('storage/' . $category->category_image) }}" class="img-fluid"
-                                        alt=""></a>
-                                <div class="portfolio-info">
-                                    <h4><a href="/product-detail" title="More Details">{{ $category->category_name }}</a>
-                                    </h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                </div>
+                    <div class="col-lg-3 col-md-4 portfolio-item    ">
+                        <div class="portfolio-content h-100">
+                            <a href="{{asset($category->category_image)}}" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="{{asset($category->category_image)}}" class="img-fluid"
+                                    alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="/product-detail" title="More Details">{{$category->category_name}}</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
                             </div>
-                        </div><!-- End Portfolio Item -->
+                        </div>
+                    </div><!-- End Portfolio Item -->
                     @endforeach
                 </div><!-- End Portfolio Container -->
 
@@ -171,19 +169,18 @@
 
                     <!-- Card Item 1 -->
                     @foreach ($products as $product)
-                        <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
-                            data-aos="zoom-in" data-aos-delay="100">
-                            <a href="/product-detail">
-                                <div class="pricing-tem">
-                                    <img src="{{ asset('storage/' . $product->product_image) }}" class="img-fluid"
-                                        alt="">
-                                    <div class="pricing-info">
-                                        <h4>{{ $product->product_name }}</h4>
-                                        <p>{{ $product->product_description }}</p>
-                                    </div>
-                                </div>
-                            </a>
+                    <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <a href="/product-detail">
+                        <div class="pricing-tem">
+                            <img src="{{asset($product->product_image)}}" class="img-fluid" alt="">
+                            <div class="pricing-info">
+                                <h4>{{$product->product_name}}</h4>
+                                <p>{{$product->product_description}}</p>
+                            </div>
                         </div>
+                        </a>
+                    </div>
                     @endforeach
 
                 </div><!-- End pricing-carousel -->
