@@ -36,6 +36,9 @@ Route::get('/testimonials', function () {
 //cari
 Route::get('/search', [ProductpageController::class, 'search'])->name('search');
 
+//filter
+Route::get('/filter', [ProductpageController::class, 'filter'])->name('filter');
+
 
 //login-logout
 Route::get('admin', [LoginController::class, 'showLoginForm'])->name('login');

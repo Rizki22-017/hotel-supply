@@ -39,4 +39,13 @@ class ProductpageController extends Controller
         return view('content.product', compact('products', 'categories'));
     }
 
+    // filter
+    public function filter(Request $request)
+    {
+    $categoryId = $request->input('category_id');
+    $category = Category::find($categoryId);
+    $products = Product::where('product_category_id', $categoryId)->get(); // Ambil data berdasarkan category_id
+    return view('content.result', compact('products', 'category'));
+    }
+
 }

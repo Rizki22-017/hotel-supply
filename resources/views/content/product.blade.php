@@ -22,14 +22,15 @@
                 @foreach ($categories as $category)
                 <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
                     data-aos="zoom-in" data-aos-delay="100">
+                    <a href="{{ route('filter', ['category_id' => $category->id]) }}">
                     <div class="pricing-tem">
                         <img src="{{asset('storage/' . $category->category_image)}}" class="img-fluid" alt="">
                         <div class="pricing-info">
                             <h4>{{$category->category_name}}</h4>
                             <p>{{$category->category_description}}</p>
-
                         </div>
                     </div>
+                    </a>
                 </div>
                 @endforeach
 
