@@ -32,7 +32,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Your email do not match our records, please try again.',
+            'email' => 'Your input do not match our records, please try again.',
             'password' => 'Incorrect password, please try again.'
         ]);
     }
