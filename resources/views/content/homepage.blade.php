@@ -34,11 +34,11 @@
 
             <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
                 <div class="row justify-content-center">
-                  <div class="col-lg-8">
-                    <h2>Welcome to 360 Hotel Supply</h2>
-                    <p>We are team of talented hotel suppliers</p>
-                    <a href="#about" class="btn-get-started">Get Started</a>
-                  </div>
+                    <div class="col-lg-8">
+                        <h2>Welcome to 360 Hotel Supply</h2>
+                        <p>We are team of talented hotel suppliers</p>
+                        <a href="#about" class="btn-get-started">Get Started</a>
+                    </div>
                 </div>
             </div>
 
@@ -108,17 +108,19 @@
 
                 <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($categories as $category)
-                    <div class="col-lg-3 col-md-4 portfolio-item    ">
-                        <div class="portfolio-content h-100">
-                            <a href="{{asset('storage/' . $category->category_image)}}" data-gallery="portfolio-gallery-app"
-                                class="glightbox"><img src="{{asset('storage/' . $category->category_image)}}" class="img-fluid"
-                                    alt=""></a>
-                            <div class="portfolio-info">
-                                <h4><a href="/product-detail" title="More Details">{{$category->category_name}}</a></h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                        <div class="col-lg-3 col-md-4 portfolio-item    ">
+                            <div class="portfolio-content h-100">
+                                <a href="{{ asset('storage/' . $category->category_image) }}"
+                                    data-gallery="portfolio-gallery-app" class="glightbox"><img
+                                        src="{{ asset('storage/' . $category->category_image) }}" class="img-fluid"
+                                        alt=""></a>
+                                <div class="portfolio-info">
+                                    <h4><a href="/product-detail" title="More Details">{{ $category->category_name }}</a>
+                                    </h4>
+                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                </div>
                             </div>
-                        </div>
-                    </div><!-- End Portfolio Item -->
+                        </div><!-- End Portfolio Item -->
                     @endforeach
                 </div><!-- End Portfolio Container -->
 
@@ -138,7 +140,7 @@
                 <div class="col-xl-10">
                     <div class="text-center">
                         <h3>Discover what you need with us</h3>
-                        <p>{{$about->highlight}}</p>
+                        <p>{{ $about->highlight }}</p>
                         <a class="cta-btn" href="/#about">Browse more!</a>
                     </div>
                 </div>
@@ -169,18 +171,19 @@
 
                     <!-- Card Item 1 -->
                     @foreach ($products as $product)
-                    <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
-                        data-aos="zoom-in" data-aos-delay="100">
-                        <a href="/product-detail">
-                        <div class="pricing-tem">
-                            <img src="{{asset('storage/' . $product->product_image)}}" class="img-fluid" alt="">
-                            <div class="pricing-info">
-                                <h4>{{$product->product_name}}</h4>
-                                <p>{{$product->product_description}}</p>
-                            </div>
+                        <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
+                            data-aos="zoom-in" data-aos-delay="100">
+                            <a href="/product-detail">
+                                <div class="pricing-tem">
+                                    <img src="{{ asset('storage/' . $product->product_image) }}" class="img-fluid"
+                                        alt="">
+                                    <div class="pricing-info">
+                                        <h4>{{ $product->product_name }}</h4>
+                                        <p>{{ $product->product_description }}</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        </a>
-                    </div>
                     @endforeach
 
                 </div><!-- End pricing-carousel -->
@@ -282,7 +285,7 @@
                 <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
                     <span class="about-meta">MORE ABOUT US</span>
                     <h2 class="about-title">360 Hotel Supply</h2>
-                    <p class="about-description">"{{$about->about_desc}}"</p>
+                    <p class="about-description">"{{ $about->about_desc }}"</p>
 
                     <div class="row feature-list-wrapper">
                         <div class="col-md-6">
@@ -305,9 +308,10 @@
                         <div class="row gy-4">
                             <div class="col-lg-5">
                                 <div class="profile d-flex align-items-center gap-3">
-                                    <img src="{{asset('storage/' . $about->leader_pict)}}" alt="CEO Profile" class="profile-image">
+                                    <img src="{{ asset('storage/' . $about->leader_pict) }}" alt="CEO Profile"
+                                        class="profile-image">
                                     <div>
-                                        <h4 class="profile-name">{{$about->leader_name}}</h4>
+                                        <h4 class="profile-name">{{ $about->leader_name }}</h4>
                                         <p class="profile-position">CEO &amp; Founder</p>
                                     </div>
                                 </div>
@@ -317,7 +321,7 @@
                                     <i class="bi bi-telephone-fill"></i>
                                     <div>
                                         <p class="contact-label">Call us anytime</p>
-                                        <p class="contact-number">{{$about->phone}}</p>
+                                        <p class="contact-number">{{ $about->phone }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -362,7 +366,7 @@
                     data-aos-delay="200">
                     <h3>We work for you</h3>
                     <p>
-                        {{$about->history}}
+                        {{ $about->history }}
                     </p>
                     <ul>
                         <li>
@@ -402,7 +406,7 @@
 
         <div class="container">
             <!-- Section Title -->
-            <div class="container section-title" >
+            <div class="container section-title">
                 <h2>Client</h2>
                 <p>We provide a wide range of customized linen and towel products with various specification and
                     requirements.<br></p>
@@ -443,14 +447,22 @@
                 }
                 </script>
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid"
+                            alt=""></div>
                 </div>
             </div>
             <div class="swiper init-swiper">
@@ -488,14 +500,22 @@
                 }
                 </script>
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid"
+                            alt=""></div>
                 </div>
             </div>
             <div class="swiper init-swiper">
@@ -533,14 +553,22 @@
                 }
                 </script>
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid"
+                            alt=""></div>
                 </div>
             </div>
             <div class="swiper init-swiper">
@@ -578,14 +606,22 @@
                 }
                 </script>
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid"
+                            alt=""></div>
                 </div>
             </div>
         </div>
@@ -597,12 +633,12 @@
     <section id="testimonials" class="testimonials section light-background">
 
         <!-- Section Title -->
-        <div class="container section-title" >
+        <div class="container section-title">
             <h2>Testimonials</h2>
             <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
         </div><!-- End Section Title -->
 
-        <div class="container" >
+        <div class="container">
 
             <div class="swiper init-swiper">
                 <script type="application/json" class="swiper-config">
@@ -632,25 +668,25 @@
             </script>
                 <div class="swiper-wrapper">
                     @foreach ($testimonials as $testimonial)
-                    <div class="swiper-slide">
+                        <div class="swiper-slide">
 
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i>
+                            <div class="testimonial-item">
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    {{ $testimonial->customer_review }}
+                                </p>
+                                <div class="profile mt-auto">
+                                    <img src="{{ asset('storage/' . $testimonial->customer_logo) }}"
+                                        class="testimonial-img" alt="">
+                                    <h3>{{ $testimonial->customer_name }}</h3>
+                                    {{-- <h4>Designer</h4> --}}
+                                </div>
                             </div>
-                            <p>
-                                {{$testimonial->customer_review}}
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="{{asset('storage/' . $testimonial->customer_logo)}}" class="testimonial-img"
-                                    alt="">
-                                <h3>{{$testimonial->customer_name}}</h3>
-                                {{-- <h4>Designer</h4> --}}
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
+                        </div><!-- End testimonial item -->
                     @endforeach
 
                 </div>
@@ -665,14 +701,14 @@
     <section id="contact" class="contact section" data-aos="fade-up">
 
         <!-- Section Title -->
-        <div class="container section-title" >
+        <div class="container section-title">
             <h2>Contact</h2>
             <p>Get in touch with us</p>
         </div><!-- End Section Title -->
 
-        <div class="container" >
+        <div class="container">
 
-            <div class="mb-4" >
+            <div class="mb-4">
                 <iframe style="border:0; width: 100%; height: 270px;"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d848.8060930852565!2d100.35448614208599!3d-0.9602719585945575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b99172a0656d%3A0xb37fc6694d5be585!2s360%20Hotel%20Supply!5e0!3m2!1sid!2sid!4v1730566115705!5m2!1sid!2sid"
                     frameborder="0" allowfullscreen="" loading="lazy"
@@ -681,35 +717,35 @@
 
             <div class="row gy-4">
                 <div class="col-lg-4">
-                    <div class="info-item d-flex" >
+                    <div class="info-item d-flex">
                         <i class="bi bi-geo-alt flex-shrink-0"></i>
                         <div>
                             <h3>Address</h3>
-                            <p>{{$about->address}}</p>
+                            <p>{{ $about->address }}</p>
                         </div>
                     </div><!-- End Info Item -->
 
-                    <div class="info-item d-flex" >
+                    <div class="info-item d-flex">
                         <i class="bi bi-telephone flex-shrink-0"></i>
                         <div>
                             <h3>Call Us on WhatsApp</h3>
-                            <p>Sumatera : {{$about->wa_sumatera}}</p>
-                            <p>Jawa & Bali : {{$about->wa_jawa}}</p>
+                            <p>Sumatera : {{ $about->wa_sumatera }}</p>
+                            <p>Jawa & Bali : {{ $about->wa_jawa }}</p>
                         </div>
                     </div><!-- End Info Item -->
 
-                    <div class="info-item d-flex" >
+                    <div class="info-item d-flex">
                         <i class="bi bi-envelope flex-shrink-0"></i>
                         <div>
                             <h3>Email Us</h3>
-                            <p>{{$about->email}}</p>
+                            <p>{{ $about->email }}</p>
                         </div>
                     </div><!-- End Info Item -->
 
                 </div>
 
                 <div class="col-lg-8">
-                    <form action="forms/contact.php" method="post" class="php-email-form" >
+                    <form action="forms/contact.php" method="post" class="php-email-form">
                         <div class="row gy-4">
 
                             <div class="col-md-6">
