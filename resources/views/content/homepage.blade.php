@@ -289,16 +289,16 @@
                     <div class="row feature-list-wrapper">
                         <div class="col-md-6">
                             <ul class="feature-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Diverse Product Range </li>
-                                <li><i class="bi bi-check-circle-fill"></i> Laundry Equipment </li>
-                                <li><i class="bi bi-check-circle-fill"></i> Bedroom Electronics </li>
+                                @foreach (json_decode($about->about_poin1) as $point1)
+                                    <li><i class="bi bi-check-circle-fill"></i> {{ $point1 }}</li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="col-md-6">
                             <ul class="feature-list">
-                                <li><i class="bi bi-check-circle-fill"></i> Bathroom Fixtures </li>
-                                <li><i class="bi bi-check-circle-fill"></i> Furniture Supply </li>
-                                <li><i class="bi bi-check-circle-fill"></i> Industry-Specific Solutions </li>
+                                @foreach (json_decode($about->about_poin2) as $point2)
+                                    <li><i class="bi bi-check-circle-fill"></i> {{ $point2 }}</li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -368,29 +368,15 @@
                         {{ $about->history }}
                     </p>
                     <ul>
-                        <li>
-                            <i class="bi bi-diagram-3"></i>
-                            <div>
-                                <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                                <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="bi bi-fullscreen-exit"></i>
-                            <div>
-                                <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                                <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="bi bi-broadcast"></i>
-                            <div>
-                                <h5>Voluptatem et qui exercitationem</h5>
-                                <p>Et velit et eos maiores est tempora et quos dolorem autem tempora incidunt maxime veniam
-                                </p>
-                            </div>
-                        </li>
+                        @foreach (json_decode($about->brand) as $brand)
+                            <li>
+                                <i class="bi bi-diagram-3"></i>
+                                <div>
+                                    <h5>{{ $brand }}</h5>
+                                    <p>deskripsi</p>
+                                </div>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
 
