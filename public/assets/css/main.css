@@ -925,6 +925,7 @@ section,
 
 
 
+
   /* Konten dalam hero untuk z-index yang lebih tinggi */
   .hero .container {
     position: relative;
@@ -1022,7 +1023,10 @@ section,
     color: #8c5e35;
     font-size: 14px;
     text-align: center;
-    pointer-events: none;
+  }
+
+  .label a {
+    color: #8c5e35;
   }
 
   /* Kotak luar dengan border putih */

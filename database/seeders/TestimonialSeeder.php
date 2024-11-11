@@ -16,17 +16,17 @@ class TestimonialSeeder extends Seeder
         $testimonials = [
             [
                 'customer_name' => 'Ini Hotel',
-                'customer_logo' => 'assets/img/clients/client-1.png',
+                'customer_logo' => 'testimonials/client-1.png',
                 'customer_review' => 'Good quality, my guests feel so comfort to stay in our hotel',
             ],
             [
                 'customer_name' => 'Halo Hotel',
-                'customer_logo' => 'assets/img/clients/client-2.png',
+                'customer_logo' => 'testimonials/client-2.png',
                 'customer_review' => 'This product was very awesome',
             ],
             [
                 'customer_name' => 'Wkwk Hotel',
-                'customer_logo' => 'assets/img/clients/client-3.png',
+                'customer_logo' => 'testimonials/client-3.png',
                 'customer_review' => 'Trusted store, their product was amazing',
             ],
         ];

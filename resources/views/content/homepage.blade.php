@@ -8,28 +8,37 @@
             <img src="assets/img/tes1.jpg" alt="" data-aos="fade-in">
 
             <!-- Label untuk setiap elemen -->
+
             <div class="label pillow">
-                <div class="label-box">
-                    <div class="label-text">Pillow</div>
-                </div>
+                <a href="#">
+                    <div class="label-box">
+                        <div class="label-text"><b>Pillow</b></div>
+                    </div>
+                </a>
             </div>
 
             <div class="label duvet-cover">
-                <div class="label-box">
-                    <div class="label-text">Duvet Cover</div>
-                </div>
+                <a href="#">
+                    <div class="label-box">
+                        <div class="label-text"><b>Duvet Cover</b></div>
+                    </div>
+                </a>
             </div>
 
             <div class="label blanket">
-                <div class="label-box">
-                    <div class="label-text">Blanket</div>
-                </div>
+                <a href="#">
+                    <div class="label-box">
+                        <div class="label-text"><b>Blanket</b></div>
+                    </div>
+                </a>
             </div>
 
             <div class="label natural-linen-blanket">
-                <div class="label-box">
-                    <div class="label-text">Natural Linen Blanket</div>
-                </div>
+                <a href="#">
+                    <div class="label-box">
+                        <div class="label-text"><b>Natural Linen</b></div>
+                    </div>
+                </a>
             </div>
 
             <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
@@ -432,23 +441,20 @@
                 }
                 </script>
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid"
-                            alt=""></div>
+                    @foreach ($clients as $client)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage/' . $client->logo) }}" class="img-fluid" alt="">
+                        </div>
+                    @endforeach
+
+                    <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
+                    @for ($i = 0; $i < (8 - count($clients)); $i++)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
+                        </div>
+                    @endfor
                 </div>
+
             </div>
             <div class="swiper init-swiper">
                 <script type="application/json" class="swiper-config">
@@ -485,22 +491,18 @@
                 }
                 </script>
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid"
-                            alt=""></div>
+                    @foreach ($clients as $client)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage/' . $client->logo) }}" class="img-fluid" alt="">
+                        </div>
+                    @endforeach
+
+                    <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
+                    @for ($i = 0; $i < (8 - count($clients)); $i++)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
+                        </div>
+                    @endfor
                 </div>
             </div>
             <div class="swiper init-swiper">
@@ -538,22 +540,18 @@
                 }
                 </script>
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid"
-                            alt=""></div>
+                    @foreach ($clients as $client)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage/' . $client->logo) }}" class="img-fluid" alt="">
+                        </div>
+                    @endforeach
+
+                    <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
+                    @for ($i = 0; $i < (8 - count($clients)); $i++)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
+                        </div>
+                    @endfor
                 </div>
             </div>
             <div class="swiper init-swiper">
@@ -591,22 +589,18 @@
                 }
                 </script>
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid"
-                            alt=""></div>
+                    @foreach ($clients as $client)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage/' . $client->logo) }}" class="img-fluid" alt="">
+                        </div>
+                    @endforeach
+
+                    <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
+                    @for ($i = 0; $i < (8 - count($clients)); $i++)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
+                        </div>
+                    @endfor
                 </div>
             </div>
         </div>

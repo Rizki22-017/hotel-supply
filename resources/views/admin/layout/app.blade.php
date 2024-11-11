@@ -122,6 +122,14 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed{{ str_contains(request()->path(), 'clients') ? 'active' : '' }}"
+                    href="/clients">
+                    <i class="bi bi-plus"></i>
+                    <span>Add Client</span>
+                </a>
+            </li>
+
             {{-- <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-menu-button-wide"></i><span>Data Kategori</span><i
@@ -152,6 +160,7 @@
         @yield('products')
         @yield('testimonials')
         @yield('about')
+        @yield('client')
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
