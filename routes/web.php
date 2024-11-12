@@ -68,7 +68,7 @@ Route::resource('products', ProductController::class)->middleware('auth');
 Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
 
-Route::get('abouts', [AboutController::class, 'index'])->middleware('auth');
+Route::get('abouts', [AboutController::class, 'index'])->name('abouts.index')->middleware('auth');
 Route::get('abouts/create', [AboutController::class, 'create'])->name('abouts.create');
 Route::post('abouts', [AboutController::class, 'store'])->name('abouts.store');
 Route::get('abouts/edit', [AboutController::class, 'edit'])->name('abouts.edit'); // tanpa {about}
