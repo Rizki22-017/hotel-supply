@@ -10,7 +10,7 @@
             <!-- Label untuk setiap elemen -->
 
             <div class="label pillow">
-                <a href="#">
+                <a href="#portfolio">
                     <div class="label-box">
                         <div class="label-text"><b>Pillow</b></div>
                     </div>
@@ -18,7 +18,7 @@
             </div>
 
             <div class="label duvet-cover">
-                <a href="#">
+                <a href="#portfolio">
                     <div class="label-box">
                         <div class="label-text"><b>Duvet Cover</b></div>
                     </div>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="label blanket">
-                <a href="#">
+                <a href="#portfolio">
                     <div class="label-box">
                         <div class="label-text"><b>Blanket</b></div>
                     </div>
@@ -34,7 +34,7 @@
             </div>
 
             <div class="label natural-linen-blanket">
-                <a href="#">
+                <a href="#portfolio">
                     <div class="label-box">
                         <div class="label-text"><b>Natural Linen</b></div>
                     </div>
@@ -382,7 +382,7 @@
                                 <i class="bi bi-diagram-3"></i>
                                 <div>
                                     <h5>{{ $brand }}</h5>
-                                    <p>deskripsi</p>
+                                    
                                 </div>
                             </li>
                         @endforeach
@@ -614,37 +614,37 @@
         <!-- Section Title -->
         <div class="container section-title">
             <h2>Testimonials</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <p>What people say about us</p>
         </div><!-- End Section Title -->
 
         <div class="container">
 
             <div class="swiper init-swiper">
                 <script type="application/json" class="swiper-config">
-              {
-                "loop": true,
-                "speed": 600,
-                "autoplay": {
-                  "delay": 5000
-                },
-                "slidesPerView": "auto",
-                "pagination": {
-                  "el": ".swiper-pagination",
-                  "type": "bullets",
-                  "clickable": true
-                },
-                "breakpoints": {
-                  "320": {
-                    "slidesPerView": 1,
-                    "spaceBetween": 40
-                  },
-                  "1200": {
-                    "slidesPerView": 3,
-                    "spaceBetween": 1
-                  }
+                {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": {
+                    "delay": 5000
+                    },
+                    "slidesPerView": "auto",
+                    "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                    },
+                    "breakpoints": {
+                    "320": {
+                        "slidesPerView": 1,
+                        "spaceBetween": 40
+                    },
+                    "1200": {
+                        "slidesPerView": 3,
+                        "spaceBetween": 1
+                    }
+                    }
                 }
-              }
-            </script>
+                </script>
                 <div class="swiper-wrapper">
                     @foreach ($testimonials as $testimonial)
                         <div class="swiper-slide">
@@ -659,8 +659,6 @@
                                     {{ $testimonial->customer_review }}
                                 </p>
                                 <div class="profile mt-auto">
-                                    <img src="{{ asset('storage/' . $testimonial->customer_logo) }}"
-                                        class="testimonial-img" alt="">
                                     <h3>{{ $testimonial->customer_name }}</h3>
                                     {{-- <h4>Designer</h4> --}}
                                 </div>

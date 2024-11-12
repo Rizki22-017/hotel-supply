@@ -35,7 +35,7 @@
 
 <body class="index-page">
 
-    <header id="header" class="header sticky-top">
+    <header id="header" class="header sticky-top light-background">
         <div class="branding2">
             <!-- Tempatkan Google Translate di Kanan -->
             <div class="google-translate">
