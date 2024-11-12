@@ -144,9 +144,9 @@
                                 <div class="portfolio-content h-100">
                                     <img src="{{ asset('storage/' . $category->category_image) }}" class="img-fluid"
                                         alt="">
-                                    <div class="portfolio-info">
+                                    <div class="portfolio-info w-100">
                                         <h4>{{ $category->category_name }}</h4>
-                                        <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                        <p>{{ substr($category->category_description, 0, 50) }}...</p>
                                     </div>
                                 </div>
                             </a>
@@ -396,14 +396,14 @@
                     data-aos-delay="200">
                     <h3>We work for you</h3>
                     <p>
-                        {{ $about->history }}
+                        {{ $about->vision }}
                     </p>
                     <ul>
-                        @foreach (json_decode($about->brand) as $brand)
+                        @foreach (json_decode($about->mission) as $mission)
                             <li>
                                 <i class="bi bi-diagram-3"></i>
                                 <div>
-                                    <h5>{{ $brand }}</h5>
+                                    <h5>{{ $mission }}</h5>
 
                                 </div>
                             </li>
