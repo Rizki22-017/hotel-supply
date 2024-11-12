@@ -43,15 +43,11 @@
                             <tbody>
                                 <tr>
                                     <th>Available colors</th>
-                                    <td>{{$product->product_color}}</td>
+                                    <td colspan="3">{{$product->product_color}}</td>
                                 </tr>
                                 <tr>
                                     <th>Dimension</th>
                                     <td colspan="3">{{$product->product_size_chart}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Description</th>
-                                    <td colspan="3">{{$product->product_description}}</td>
                                 </tr>
                                 <tr>
                                     <th>Materials</th>
@@ -72,7 +68,9 @@
 
                         <!-- Order Now and Share buttons -->
                         <div class="d-flex align-items-center mt-3">
-                            <button class="btn btn-primary me-2" style="border-radius: 12px">Order Now</button>
+                            <a href="https://wa.me/6280000" target="_blank">
+                                <button class="btn btn-primary me-2" style="border-radius: 12px">Order Now</button>
+                            </a>
                             <button class="btn me-2" onclick="toggleShare()">Share</button>
                             <div id="share-icons" class="d-none">
                                 <button class="btn btn-light"><i class="fab fa-whatsapp"></i></button>
