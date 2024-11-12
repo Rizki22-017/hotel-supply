@@ -76,7 +76,7 @@ Route::delete('abouts', [AboutController::class, 'destroy'])->name('abouts.destr
 
 Route::resource('testimonials', TestimonialController::class)->middleware('auth');
 
-Route::get('clients', [ClientController::class, 'index'])->middleware('auth');
+Route::get('clients', [ClientController::class, 'index'])->name('clients.index')->middleware('auth');
 Route::get('clients/create', [ClientController::class, 'create'])->name('clients.create');
 Route::post('clients', [ClientController::class, 'store'])->name('clients.store');
 Route::delete('clients/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');

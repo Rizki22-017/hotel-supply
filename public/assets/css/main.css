@@ -225,8 +225,8 @@ h6 {
   color: var(--default-color);
   transition: all 0.5s;
   z-index: 997;
-  /* background-color: var(--background-color);*/
-  background-color: #2e3336;
+  background-color: var(--background-color);
+  /* background-color: #2e3336; */
 }
 
 .header .topbar {
@@ -284,7 +284,7 @@ h6 {
 .header .branding2 {
   min-height: 40px;
   padding: 10px 0;
-  background: linear-gradient(to right, #78c7c4 50%, #24a8a7 100%);
+  background: linear-gradient(to right, #24a8a7 10%, #2e3336 100%);
 
 }
 
@@ -295,6 +295,7 @@ h6 {
 .header .logo img {
   max-height: 36px;
   margin-right: 8px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .header .logo h1 {
@@ -379,8 +380,8 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    /* color: var(--nav-color); */
-    color: #fff;
+    color: var(--nav-color);
+    /* color: #fff; */
     font-size: 15px;
     padding: 0 2px;
     font-family: var(--nav-font);
@@ -614,10 +615,10 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .footer {
-  /* color: var(--default-color); */
-  color: white;
-  /* background-color: var(--background-color); */
-  background-color: #2e3336;
+  color: var(--default-color);
+  /* color: white; */
+  background-color: var(--background-color);
+  /* background-color: #2e3336; */
   border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 75%);
   font-size: 14px;
   position: relative;
@@ -638,8 +639,8 @@ h6 {
 }
 
 .footer .footer-about .logo span {
-  /* color: var(--heading-color); */
-  color: white;
+  color: var(--heading-color);
+  /* color: white; */
   font-family: var(--heading-font);
   font-size: 26px;
   font-weight: 700;
@@ -660,8 +661,8 @@ h6 {
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
   font-size: 16px;
-  /* color: color-mix(in srgb, var(--default-color), transparent 20%);*/
-  color: color-mix(in srgb, #ffffff, transparent 20%);
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  /* color: color-mix(in srgb, #ffffff, transparent 20%); */
   margin-right: 10px;
   transition: 0.3s;
 }
@@ -705,8 +706,8 @@ h6 {
 }
 
 .footer .footer-links ul a {
-  /* color: color-mix(in srgb, var(--default-color), transparent 30%); */
-  color: color-mix(in srgb, #ffffff, transparent 30%);
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  /* color: color-mix(in srgb, #ffffff, transparent 30%); */
 
   display: inline-block;
   line-height: 1;
