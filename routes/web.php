@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductpageController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/product', [ProductpageController::class, 'home_product'])->name('home_product');
@@ -80,3 +81,9 @@ Route::get('clients', [ClientController::class, 'index'])->name('clients.index')
 Route::get('clients/create', [ClientController::class, 'create'])->name('clients.create');
 Route::post('clients', [ClientController::class, 'store'])->name('clients.store');
 Route::delete('clients/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');
+
+// Rute untuk menampilkan form
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+
+// Rute untuk mengirim email
+Route::post('/send-email', [ContactController::class, 'sendEmail'])->name('send.email');
