@@ -9,8 +9,8 @@
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="assets/img/logo.png" rel="icon">
-    <link href="assets/img/logo.png" rel="360-hotelsupply">
+    <link href="{{asset('assets/img/logo.png')}}" rel="icon">
+    <link href="{{asset('assets/img/logo.png')}}" rel="360-hotelsupply">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">

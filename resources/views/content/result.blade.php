@@ -29,6 +29,7 @@
                         <div class="portfolio-content h-100">
                            <img src="{{asset('storage/' . $product->product_image)}}" class="img-fluid" alt="">
                             <div class="portfolio-info">
+                                <h4>{{ $product->product_name }}</h4>
                                 <p>{{$product->product_description}}</p>
                             </div>
                         </div>

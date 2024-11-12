@@ -117,17 +117,17 @@
                 <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($categories as $category)
                         <div class="col-lg-3 col-md-4 portfolio-item    ">
+                            <a href="{{ route('filter', ['category_id' => $category->id]) }}">
                             <div class="portfolio-content h-100">
-                                <a href="{{ asset('storage/' . $category->category_image) }}"
-                                    data-gallery="portfolio-gallery-app" class="glightbox"><img
+                                <img
                                         src="{{ asset('storage/' . $category->category_image) }}" class="img-fluid"
-                                        alt=""></a>
+                                        alt="">
                                 <div class="portfolio-info">
-                                    <h4><a href="/product-detail" title="More Details">{{ $category->category_name }}</a>
-                                    </h4>
+                                    <h4>{{ $category->category_name }}</h4>
                                     <p>Lorem ipsum, dolor sit amet consectetur</p>
                                 </div>
                             </div>
+                            </a>
                         </div><!-- End Portfolio Item -->
                     @endforeach
                 </div><!-- End Portfolio Container -->
