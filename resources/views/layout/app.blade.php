@@ -53,10 +53,9 @@
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
-                        <li><a href="/"
-                                class="{{ str_contains(request()->path(), '/') ? 'active' : '' }}">Home<br></a></li>
+                        <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home<br></a></li>
                         <li><a href="/product"
-                                class="{{ str_contains(request()->path(), 'product') ? 'active' : '' }}">Products</a>
+                            class="{{ request()->is('product') || request()->is('product-detail/*') ? 'active' : '' }}">Products</a>
                         </li>
                         <li><a href="/#about">About</a></li>
                         <li><a href="/#clients">Our Client</a></li>
