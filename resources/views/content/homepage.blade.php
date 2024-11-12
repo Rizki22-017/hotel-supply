@@ -170,7 +170,7 @@
                 <div class="col-xl-10">
                     <div class="text-center">
                         <h3>Discover what you need with us</h3>
-                        <p>{{ $about->history }}</p>
+                        <p>{{ $about->highlight }}</p>
                         <a class="cta-btn" href="/#about">Browse more!</a>
                     </div>
                 </div>
@@ -396,14 +396,15 @@
                     data-aos-delay="200">
                     <h3>We work for you</h3>
                     <p>
-                        {{ $about->vision }}
+                        {{ $about->history }}
                     </p>
                     <ul>
-                        @foreach (json_decode($about->mission) as $mission)
+                        @foreach (json_decode($about->brand) as $brand)
                             <li>
                                 <i class="bi bi-diagram-3"></i>
                                 <div>
-                                    {{ $mission }}
+                                    <h5>{{ $brand }}</h5>
+
                                 </div>
                             </li>
                         @endforeach

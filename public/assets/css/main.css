@@ -2279,6 +2279,7 @@ section,
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
+
 .clients {
     padding: 25px 0;
   }
@@ -2727,3 +2728,8 @@ section,
     opacity: 1;
     bottom: 20px;
   }
+
+  .carousel-image {
+    object-fit: cover; /* Menyesuaikan gambar dengan rasio yang tepat */
+    height: 400px; /* Atur tinggi gambar sesuai kebutuhan */
+}

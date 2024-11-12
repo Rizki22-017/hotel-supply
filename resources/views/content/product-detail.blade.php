@@ -6,17 +6,26 @@
             <div class="col-lg-4">
                 <div id="productGalleryCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="assets/img/departments-1.jpg" class="d-block w-100" alt="Image 1">
-                        </div>
-                        <!-- Example Static Images -->
-                        <div class="carousel-item">
-                            <img src="assets/img/departments-2.jpg" class="d-block w-100" alt="Image 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/img/departments-3.jpg" class="d-block w-100" alt="Image 3">
-                        </div>
+                        @php
+                            // Decode JSON gallery menjadi array
+                            $galleryImages = json_decode($product->product_gallery, true);
+                        @endphp
+
+                        @if (!empty($galleryImages) && is_array($galleryImages))
+                            @foreach ($galleryImages as $index => $galleryImage)
+                                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                    <img src="{{ asset('storage/' . $galleryImage) }}" class="d-block w-100 carousel-image"
+                                        alt="Gallery Image {{ $index + 1 }}">
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="carousel-item active">
+                                <img src="assets/img/default-image.jpg" class="d-block w-100 carousel-image"
+                                    alt="Default Image">
+                            </div>
+                        @endif
                     </div>
+
                     <button class="carousel-control-prev" type="button" data-bs-target="#productGalleryCarousel"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -30,37 +39,42 @@
                 </div>
             </div>
 
+
             <!-- Product Details (2/3 of the section) -->
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title"><b>{{$product->product_name}}</b></h4>
-                        <p style="padding-bottom:15px">{{$product->product_description}}</p>
+                        <h4 class="card-title"><b>{{ $product->product_name }}</b></h4>
+                        <p style="padding-bottom:15px">{{ $product->product_description }}</p>
 
                         <!-- Table with stripped rows -->
                         <table class="table table-striped" style="width: 100%; table-layout: fixed;">
                             <tbody>
                                 <tr>
                                     <th>Available colors</th>
-                                    <td colspan="3">{{$product->product_color}}</td>
+                                    <td colspan="3">{{ $product->product_color }}</td>
                                 </tr>
                                 <tr>
                                     <th>Dimension</th>
-                                    <td colspan="3">{{$product->product_size_chart}}</td>
+                                    <td colspan="3">{{ $product->product_size_chart }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <td colspan="3">{{ $product->product_description }}</td>
                                 </tr>
                                 <tr>
                                     <th>Materials</th>
                                     <td colspan="3">
                                         <ul style="list-style-type: none; padding-left: 0;">
-                                            <li>{{$product->product_material}}</li>
+                                            <li>{{ $product->product_material }}</li>
                                         </ul>
                                     </td>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                     <th>MOQ</th>
                                     <td colspan="3">Can be ordered without MOQ</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                         <!-- End Table with stripped rows -->
@@ -96,15 +110,16 @@
         <div class="container">
             <div class="row gy-4" data-layout="masonry" data-sort="original-order" data-aos="fade-up" data-aos-delay="200">
                 @foreach ($randomProducts as $randomProduct)
-                <div class="col-lg-3 col-md-4 portfolio-item">
-                    <div class="portfolio-content h-100">
-                        <img src="{{asset('storage/' . $randomProduct->product_image)}}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4><a href="/product-detail">{{$randomProduct->product_name}}</a></h4>
-                            <p>{{$randomProduct->product_description}}</p>
+                    <div class="col-lg-3 col-md-4 portfolio-item">
+                        <div class="portfolio-content h-100">
+                            <img src="{{ asset('storage/' . $randomProduct->product_image) }}" class="img-fluid"
+                                alt="">
+                            <div class="portfolio-info">
+                                <h4><a href="/product-detail">{{ $randomProduct->product_name }}</a></h4>
+                                <p>{{ $randomProduct->product_description }}</p>
+                            </div>
                         </div>
-                    </div>
-                </div><!-- End Portfolio Item -->
+                    </div><!-- End Portfolio Item -->
                 @endforeach
             </div><!-- End Portfolio Container -->
         </div>

@@ -24,15 +24,16 @@
             <table class="table datatable">
                 <thead>
                     <tr>
-                        <th style="width: 6%;">No</th>
-                        <th style="width: 13%;">Name</th>
-                        <th style="width: 12%;">Category</th>
-                        <th style="width: 10%;">Color</th>
+                        <th style="width: 10%;">No</th>
+                        <th style="width: 20%;">Name</th>
+                        <th style="width: 18%;">Category</th>
+                        {{-- <th style="width: 10%;">Color</th>
                         <th style="width: 11%;">Material</th>
                         <th style="width: 27%;">Description</th>
-                        <th style="width: 10%;">Size Chart</th>
-                        <th style="width: 10%;">Image</th>
-                        <th style="width: 10%;">Action</th>
+                        <th style="width: 10%;">Size Chart</th> --}}
+                        <th style="width: 18%;">Image</th>
+                        {{-- <th style="width: 10%;">Gallery</th> --}}
+                        <th style="width: 18%;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,10 +42,10 @@
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $product->product_name }}</td>
                             <td>{{ $product->category->category_name }}</td>
-                            <td>{{ $product->product_color }}</td>
+                            {{-- <td>{{ $product->product_color }}</td>
                             <td>{{ $product->product_material }}</td>
                             <td class="scrollable">{{ $product->product_description }}</td>
-                            <td>{{ $product->product_size_chart }}</td>
+                            <td>{{ $product->product_size_chart }}</td> --}}
                             <td>
                                 @if ($product->product_image)
                                     <img src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image"
@@ -53,10 +54,28 @@
                                     <span>No Image</span>
                                 @endif
                             </td>
+                            {{-- <td>
+                                @php
+
+                                    $galleryImages = json_decode($product->product_gallery, true);
+                                @endphp
+
+                                @if (!empty($galleryImages) && is_array($galleryImages))
+                                    @foreach ($galleryImages as $galleryImage)
+                                        <img src="{{ asset('storage/' . $galleryImage) }}" alt="Gallery Image"
+                                            class="responsive-img" style="width: 50px; height: 50px;">
+                                    @endforeach
+                                @else
+                                    <span>No Images</span>
+                                @endif
+                            </td> --}}
+
                             <td>
+                                <a href="javascript:void(0)" class="btn btn-primary mb-2" data-bs-toggle="modal"
+                                    data-bs-target="#productDetailModal-{{ $product->id }}">Detail</a>
                                 <a href="javascript:void(0)" class="btn btn-warning mb-2"
                                     data-product="{{ json_encode($product) }}">Edit</a>
-                                <button type="button" class="btn btn-danger"
+                                <button type="button" class="btn btn-danger mb-2"
                                     onclick="confirmDeleteProduct({{ $product->id }})">Delete</button>
 
                                 <form id="delete-form-{{ $product->id }}"
@@ -67,6 +86,50 @@
                                 </form>
                             </td>
                         </tr>
+                        <!-- Modal untuk detail produk -->
+                        <div class="modal fade" id="productDetailModal-{{ $product->id }}" tabindex="-1"
+                            aria-labelledby="productDetailModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="productDetailModalLabel">Product Details</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><strong>Name:</strong> {{ $product->product_name }}</p>
+                                        <p><strong>Category:</strong> {{ $product->category->category_name }}</p>
+                                        <p><strong>Color:</strong> {{ $product->product_color }}</p>
+                                        <p><strong>Material:</strong> {{ $product->product_material }}</p>
+                                        <p><strong>Description:</strong> {{ $product->product_description }}</p>
+                                        <p><strong>Size Chart:</strong> {{ $product->product_size_chart }}</p>
+                                        <p><strong>Main Image:</strong></p>
+                                        @if ($product->product_image)
+                                            <img src="{{ asset('storage/' . $product->product_image) }}"
+                                                alt="Product Image" style="width: 100px; height: auto;">
+                                        @else
+                                            <span>No Image</span>
+                                        @endif
+                                        <p><strong>Gallery:</strong></p>
+                                        @php
+                                            $galleryImages = json_decode($product->product_gallery, true);
+                                        @endphp
+                                        @if (!empty($galleryImages) && is_array($galleryImages))
+                                            @foreach ($galleryImages as $galleryImage)
+                                                <img src="{{ asset('storage/' . $galleryImage) }}" alt="Gallery Image"
+                                                    style="width: 50px; height: 50px;">
+                                            @endforeach
+                                        @else
+                                            <span>No Images</span>
+                                        @endif
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </tbody>
             </table>
@@ -113,11 +176,17 @@
                         </div>
                         <div class="mb-3">
                             <label for="productSize" class="form-label">Size Chart</label>
-                            <input type="text" class="form-control" id="productSize" name="product_size_chart" required>
+                            <input type="text" class="form-control" id="productSize" name="product_size_chart"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="productImage" class="form-label">Image</label>
                             <input type="file" class="form-control" id="productImage" name="product_image" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productGallery" class="form-label">Product Gallery</label>
+                            <input type="file" class="form-control" id="productGallery" name="product_gallery[]"
+                                multiple>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -181,6 +250,12 @@
                             <label for="editProductImage" class="form-label">Image</label>
                             <input type="file" class="form-control" id="editProductImage" name="product_image">
                         </div>
+                        <div class="mb-3">
+                            <label for="editProductGallery" class="form-label">Product Gallery</label>
+                            <input type="file" class="form-control" id="editProductGallery" name="product_gallery[]"
+                                multiple>
+                            <small class="text-muted">Existing Images will be replaced by new uploads.</small>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -190,34 +265,69 @@
             </div>
         </div>
     </div>
+
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const editProductModal = new bootstrap.Modal(document.getElementById('editProductModal'));
 
             document.querySelectorAll('.btn-warning').forEach(button => {
                 button.addEventListener('click', function() {
-                    const product = JSON.parse(this.getAttribute('data-product'));
+                    try {
+                        const product = JSON.parse(this.getAttribute('data-product'));
 
-                    // Set form action dynamically
-                    document.getElementById('editProductForm').action = `/products/${product.id}`;
+                        // Set form action dynamically
+                        document.getElementById('editProductForm').action =
+                            `/products/${product.id}`;
 
-                    // Populate form fields
-                    document.getElementById('editProductId').value = product.id;
-                    document.getElementById('editProductCategory').value = product
-                        .product_category_id;
-                    document.getElementById('editProductName').value = product.product_name;
-                    document.getElementById('editProductColor').value = product.product_color;
-                    document.getElementById('editProductMaterial').value = product.product_material;
-                    document.getElementById('editProductDescription').value = product
-                        .product_description;
-                    document.getElementById('editProductSize').value = product.product_size_chart;
+                        // Populate form fields
+                        document.getElementById('editProductId').value = product.id;
+                        document.getElementById('editProductCategory').value = product
+                            .product_category_id;
+                        document.getElementById('editProductName').value = product.product_name;
+                        document.getElementById('editProductColor').value = product.product_color;
+                        document.getElementById('editProductMaterial').value = product
+                            .product_material;
+                        document.getElementById('editProductDescription').value = product
+                            .product_description;
+                        document.getElementById('editProductSize').value = product
+                            .product_size_chart;
 
-                    // Show the modal
-                    editProductModal.show();
+                        // Populate gallery images if available
+                        const galleryContainer = document.getElementById('editProductGallery');
+                        galleryContainer.innerHTML = ''; // Clear previous images
+                        if (Array.isArray(product.product_gallery) && product.product_gallery
+                            .length > 0) {
+                            product.product_gallery.forEach(image => {
+                                const imgElement = document.createElement('img');
+                                imgElement.src = `/storage/${image}`;
+                                imgElement.classList.add('gallery-image', 'img-thumbnail');
+                                imgElement.style.width = '100px';
+                                imgElement.style.marginRight = '5px';
+                                galleryContainer.appendChild(imgElement);
+                            });
+                        } else {
+                            console.warn("Product gallery is not an array or is empty");
+                        }
+
+
+                        // Show the modal
+                        editProductModal.show();
+                    } catch (error) {
+                        console.error("Error loading product data:", error);
+                    }
                 });
+            });
+
+            // Clear modal fields on close
+            document.getElementById('editProductModal').addEventListener('hidden.bs.modal', function() {
+                document.getElementById('editProductForm').reset();
+                document.getElementById('editProductGallery').innerHTML = ''; // Clear gallery images
             });
         });
     </script>
+
     <script>
         function confirmDeleteProduct(productId) {
             Swal.fire({

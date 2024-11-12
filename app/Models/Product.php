@@ -17,6 +17,10 @@ class Product extends Model
         'product_description',
         'product_size_chart',
         'product_image',
+        'product_gallery',
+    ];
+    protected $casts = [
+        'product_gallery' => 'array',
     ];
 
     public function category()

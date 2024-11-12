@@ -42,12 +42,13 @@ class ProductController extends Controller
     {
         $request->validate([
             'product_name' => 'required|string|max:255',
-            'product_category_id' => 'required|exists:categories,id', // Validasi kategori
+            'product_category_id' => 'required|exists:categories,id',
             'product_color' => 'nullable|string',
             'product_material' => 'nullable|string',
             'product_description' => 'required|string',
             'product_size_chart' => 'nullable|string',
             'product_image' => 'nullable|image',
+            'product_gallery.*' => 'nullable|image' // Validasi untuk galeri
         ]);
 
         $product = new Product();
@@ -58,15 +59,29 @@ class ProductController extends Controller
         $product->product_description = $request->product_description;
         $product->product_size_chart = $request->product_size_chart;
 
+        // Simpan gambar utama produk
         if ($request->hasFile('product_image')) {
             $imagePath = $request->file('product_image')->store('products', 'public');
             $product->product_image = $imagePath;
         }
 
+        // Simpan galeri produk
+        if ($request->hasFile('product_gallery')) {
+            $galleryPaths = [];
+            foreach ($request->file('product_gallery') as $galleryImage) {
+                $path = $galleryImage->store('product_galleries', 'public');
+                $galleryPaths[] = $path;
+            }
+            // Konversi array paths menjadi JSON dan simpan ke database
+            $product->product_gallery = json_encode($galleryPaths);
+        }
+
+
         $product->save();
 
         return redirect()->route('products.index')->with('success', 'Product added successfully.');
     }
+
 
 
     /**
@@ -94,7 +109,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Validasi data yang diinput
         $request->validate([
             'product_name' => 'required|string|max:255',
             'product_category_id' => 'required|exists:categories,id',
@@ -102,13 +116,12 @@ class ProductController extends Controller
             'product_material' => 'nullable|string',
             'product_description' => 'required|string',
             'product_size_chart' => 'nullable|string',
-            'product_image' => 'nullable|image', // Validasi untuk gambar
+            'product_image' => 'nullable|image',
+            'product_gallery.*' => 'nullable|image'
         ]);
 
-        // Cari produk berdasarkan ID
         $product = Product::findOrFail($id);
 
-        // Update data produk
         $product->product_name = $request->product_name;
         $product->product_category_id = $request->product_category_id;
         $product->product_color = $request->product_color;
@@ -116,20 +129,30 @@ class ProductController extends Controller
         $product->product_description = $request->product_description;
         $product->product_size_chart = $request->product_size_chart;
 
-        // Jika ada file gambar yang diupload, update gambar
         if ($request->hasFile('product_image')) {
-            // Hapus gambar lama jika ada
             if ($product->product_image) {
-                Storage::delete($product->product_image);
+                Storage::disk('public')->delete($product->product_image);
             }
-            // Simpan gambar baru dan perbarui path gambar di database
             $product->product_image = $request->file('product_image')->store('products', 'public');
         }
 
-        // Simpan perubahan
+        if ($request->hasFile('product_gallery')) {
+            $oldGallery = json_decode($product->product_gallery);
+            if ($oldGallery) {
+                foreach ($oldGallery as $oldImage) {
+                    Storage::disk('public')->delete($oldImage);
+                }
+            }
+            $galleryPaths = [];
+            foreach ($request->file('product_gallery') as $galleryImage) {
+                $path = $galleryImage->store('product_galleries', 'public');
+                $galleryPaths[] = $path;
+            }
+            $product->product_gallery = json_encode($galleryPaths);
+        }
+
         $product->save();
 
-        // Redirect kembali ke halaman produk dengan pesan sukses
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
 
@@ -139,16 +162,18 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        // Cek apakah produk memiliki gambar yang tersimpan
         if ($product->product_image) {
-            // Hapus gambar dari storage
             Storage::disk('public')->delete($product->product_image);
         }
 
-        // Hapus produk dari database
+        if ($product->product_gallery) {
+            foreach (json_decode($product->product_gallery) as $galleryImage) {
+                Storage::disk('public')->delete($galleryImage);
+            }
+        }
+
         $product->delete();
 
-        // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 }

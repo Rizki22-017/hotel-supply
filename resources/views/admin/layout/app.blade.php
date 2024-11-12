@@ -125,8 +125,8 @@
             <li class="nav-item">
                 <a class="nav-link collapsed{{ str_contains(request()->path(), 'clients') ? 'active' : '' }}"
                     href="/clients">
-                    <i class="bi bi-plus"></i>
-                    <span>Add Client</span>
+                    <i class="bi bi-file-earmark-person"></i>
+                    <span>Add Client Logo</span>
                 </a>
             </li>
 

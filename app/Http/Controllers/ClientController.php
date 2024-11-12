@@ -37,7 +37,7 @@ class ClientController extends Controller
         ]);
 
         $client = new Client();
-        if ($request->hasFile('logo')){
+        if ($request->hasFile('logo')) {
             $imagePath = $request->file('logo')->store('clients', 'public');
             $client->logo = $imagePath;
         }
@@ -77,7 +77,7 @@ class ClientController extends Controller
     public function destroy(string $id)
     {
         $client = Client::findOrFail($id);
-        if ($client->logo){
+        if ($client->logo) {
             Storage::disk('public')->delete($client->logo);
         }
 
