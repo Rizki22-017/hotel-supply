@@ -12,7 +12,8 @@ class ProductpageController extends Controller
     {
         // Ambil data dari berbagai model
         $categories = Category::all();
-        $products = Product::all();
+
+        $products = Product::paginate(15);
 
         // Kirim data ke view
         return view('content.product', compact('categories', 'products'));
@@ -34,7 +35,7 @@ class ProductpageController extends Controller
         $categories = Category::all();
 
         $query = $request->input('query');
-        $products = Product::where('product_name', 'LIKE', "%$query%")->get(); // Misalkan Anda mencari produk berdasarkan nama
+        $products = Product::where('product_name', 'LIKE', "%$query%")->paginate(15); // 30 produk per halaman
 
         return view('content.product', compact('products', 'categories'));
     }
@@ -44,7 +45,7 @@ class ProductpageController extends Controller
     {
     $categoryId = $request->input('category_id');
     $category = Category::find($categoryId);
-    $products = Product::where('product_category_id', $categoryId)->get(); // Ambil data berdasarkan category_id
+    $products = Product::where('product_category_id', $categoryId)->paginate(15); // 30 produk per halaman
     return view('content.result', compact('products', 'category'));
     }
 
