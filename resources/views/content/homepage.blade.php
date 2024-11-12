@@ -382,7 +382,7 @@
                                 <i class="bi bi-diagram-3"></i>
                                 <div>
                                     <h5>{{ $brand }}</h5>
-                                    
+
                                 </div>
                             </li>
                         @endforeach
@@ -448,10 +448,9 @@
                     @endforeach
 
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < 8 - count($clients); $i++)
+                    @for ($i = 0; $i < (8 - count($clients)); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
-                                alt="">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
                         </div>
                     @endfor
                 </div>
@@ -499,10 +498,9 @@
                     @endforeach
 
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < 8 - count($clients); $i++)
+                    @for ($i = 0; $i < (8 - count($clients)); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
-                                alt="">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
                         </div>
                     @endfor
                 </div>
@@ -549,10 +547,9 @@
                     @endforeach
 
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < 8 - count($clients); $i++)
+                    @for ($i = 0; $i < (8 - count($clients)); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
-                                alt="">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
                         </div>
                     @endfor
                 </div>
@@ -599,10 +596,9 @@
                     @endforeach
 
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < 8 - count($clients); $i++)
+                    @for ($i = 0; $i < (8 - count($clients)); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
-                                alt="">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
                         </div>
                     @endfor
                 </div>
@@ -626,50 +622,62 @@
             <div class="swiper init-swiper">
                 <script type="application/json" class="swiper-config">
                 {
-                    "loop": true,
+                    "loop": {{ count($testimonials) >= 4 ? 'true' : 'false' }},
                     "speed": 600,
                     "autoplay": {
-                    "delay": 5000
+                        "delay": 5000,
+                        "disableOnInteraction": false
                     },
                     "slidesPerView": "auto",
                     "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
+                        "el": ".swiper-pagination",
+                        "type": "bullets",
+                        "clickable": true
                     },
                     "breakpoints": {
-                    "320": {
-                        "slidesPerView": 1,
-                        "spaceBetween": 40
-                    },
-                    "1200": {
-                        "slidesPerView": 3,
-                        "spaceBetween": 1
-                    }
+                        "320": {
+                            "slidesPerView": 1,
+                            "spaceBetween": 40
+                        },
+                        "1200": {
+                            "slidesPerView": 3,
+                            "spaceBetween": 1
+                        }
                     }
                 }
                 </script>
+
                 <div class="swiper-wrapper">
                     @foreach ($testimonials as $testimonial)
                         <div class="swiper-slide">
-
                             <div class="testimonial-item">
                                 <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                 </div>
-                                <p>
-                                    {{ $testimonial->customer_review }}
-                                </p>
+                                <p>{{ $testimonial->customer_review }}</p>
                                 <div class="profile mt-auto">
                                     <h3>{{ $testimonial->customer_name }}</h3>
-                                    {{-- <h4>Designer</h4> --}}
                                 </div>
                             </div>
                         </div><!-- End testimonial item -->
                     @endforeach
 
+                    <!-- Repeat testimonials if count < 3 -->
+                    @if(count($testimonials) < 3)
+                        @for ($i = 0; $i < 3 - count($testimonials); $i++)
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p>{{ $testimonials[$i % count($testimonials)]->customer_review }}</p>
+                                    <div class="profile mt-auto">
+                                        <h3>{{ $testimonials[$i % count($testimonials)]->customer_name }}</h3>
+                                    </div>
+                                </div>
+                            </div><!-- End testimonial item -->
+                        @endfor
+                    @endif
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
@@ -677,6 +685,7 @@
         </div>
 
     </section><!-- /Testimonials Section -->
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact section" data-aos="fade-up">
@@ -726,31 +735,38 @@
                 </div>
 
                 <div class="col-lg-8">
-                    <form action="{{ route('send.email') }}" method="POST" class="php-email-form">
-                        @csrf
+                    <form action="forms/contact.php" method="post" class="php-email-form">
                         <div class="row gy-4">
-                            <!-- Input fields -->
+
                             <div class="col-md-6">
                                 <input type="text" name="name" class="form-control" placeholder="Your Name"
                                     required="">
                             </div>
-                            <div class="col-md-6">
+
+                            <div class="col-md-6 ">
                                 <input type="email" class="form-control" name="email" placeholder="Your Email"
                                     required="">
                             </div>
+
                             <div class="col-md-12">
                                 <input type="text" class="form-control" name="subject" placeholder="Subject"
                                     required="">
                             </div>
+
                             <div class="col-md-12">
                                 <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
                             </div>
+
                             <div class="col-md-12 text-center">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+
                                 <button type="submit">Send Message</button>
                             </div>
+
                         </div>
                     </form>
-
                 </div><!-- End Contact Form -->
 
             </div>
