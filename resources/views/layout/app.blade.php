@@ -9,8 +9,8 @@
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="{{asset('assets/img/logo.png')}}" rel="icon">
-    <link href="{{asset('assets/img/logo.png')}}" rel="360-hotelsupply">
+    <link href="{{ asset('assets/img/logo.png') }}" rel="icon">
+    <link href="{{ asset('assets/img/logo.png') }}" rel="360-hotelsupply">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -30,6 +30,10 @@
 
     <!-- Main CSS File -->
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </head>
 
@@ -55,7 +59,7 @@
                     <ul>
                         <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home<br></a></li>
                         <li><a href="/product"
-                            class="{{ request()->is('product') || request()->is('product-detail/*') ? 'active' : '' }}">Products</a>
+                                class="{{ request()->is('product') || request()->is('product-detail/*') ? 'active' : '' }}">Products</a>
                         </li>
                         <li><a href="/#about">About</a></li>
                         <li><a href="/#clients">Our Client</a></li>

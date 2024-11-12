@@ -17,6 +17,7 @@ class ContactController extends Controller
     // Fungsi untuk mengirimkan email
     public function sendEmail(Request $request)
     {
+        // Validasi data form
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -24,10 +25,15 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        // Kirim email menggunakan Mail facade
-        Mail::to('nobodyloveme369@gmail.com')->send(new ContactMail($validated));
+        try {
+            // Kirim email (jika menggunakan Mailables)
+            Mail::to('nobodyloveme369@gmail.com')->send(new ContactMail($request));
 
-        // Redirect kembali dengan pesan sukses
-        return back()->with('success', 'Your message has been sent successfully!');
+            // Menambahkan pesan sukses ke session
+            return back()->with('success', 'Message sent successfully!');
+        } catch (\Exception $e) {
+            // Jika email gagal, kirim pesan error
+            return back()->with('error', 'Failed to send message.');
+        }
     }
 }
