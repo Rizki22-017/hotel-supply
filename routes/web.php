@@ -82,6 +82,8 @@ Route::get('clients/create', [ClientController::class, 'create'])->name('clients
 Route::post('clients', [ClientController::class, 'store'])->name('clients.store');
 Route::delete('clients/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');
 
+
+
 // Rute untuk menampilkan form
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
 

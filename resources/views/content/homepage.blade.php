@@ -1,5 +1,28 @@
 @extends('layout.app')
 @section('content')
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "{{ session('error') }}",
+                showConfirmButton: true
+            });
+        </script>
+    @endif
+
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
@@ -118,15 +141,14 @@
                     @foreach ($categories as $category)
                         <div class="col-lg-3 col-md-4 portfolio-item    ">
                             <a href="{{ route('filter', ['category_id' => $category->id]) }}">
-                            <div class="portfolio-content h-100">
-                                <img
-                                        src="{{ asset('storage/' . $category->category_image) }}" class="img-fluid"
+                                <div class="portfolio-content h-100">
+                                    <img src="{{ asset('storage/' . $category->category_image) }}" class="img-fluid"
                                         alt="">
-                                <div class="portfolio-info">
-                                    <h4>{{ $category->category_name }}</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                    <div class="portfolio-info">
+                                        <h4>{{ $category->category_name }}</h4>
+                                        <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                    </div>
                                 </div>
-                            </div>
                             </a>
                         </div><!-- End Portfolio Item -->
                     @endforeach
@@ -447,9 +469,10 @@
                     @endforeach
 
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < (8 - count($clients)); $i++)
+                    @for ($i = 0; $i < 8 - count($clients); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
+                                alt="">
                         </div>
                     @endfor
                 </div>
@@ -497,9 +520,10 @@
                     @endforeach
 
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < (8 - count($clients)); $i++)
+                    @for ($i = 0; $i < 8 - count($clients); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
+                                alt="">
                         </div>
                     @endfor
                 </div>
@@ -546,9 +570,10 @@
                     @endforeach
 
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < (8 - count($clients)); $i++)
+                    @for ($i = 0; $i < 8 - count($clients); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
+                                alt="">
                         </div>
                     @endfor
                 </div>
@@ -595,9 +620,10 @@
                     @endforeach
 
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < (8 - count($clients)); $i++)
+                    @for ($i = 0; $i < 8 - count($clients); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
+                                alt="">
                         </div>
                     @endfor
                 </div>
@@ -651,7 +677,9 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                        class="bi bi-star-fill"></i>
                                 </div>
                                 <p>{{ $testimonial->customer_review }}</p>
                                 <div class="profile mt-auto">
@@ -662,12 +690,14 @@
                     @endforeach
 
                     <!-- Repeat testimonials if count < 3 -->
-                    @if(count($testimonials) < 3)
+                    @if (count($testimonials) < 3)
                         @for ($i = 0; $i < 3 - count($testimonials); $i++)
                             <div class="swiper-slide">
                                 <div class="testimonial-item">
                                     <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                            class="bi bi-star-fill"></i>
                                     </div>
                                     <p>{{ $testimonials[$i % count($testimonials)]->customer_review }}</p>
                                     <div class="profile mt-auto">
@@ -734,43 +764,61 @@
                 </div>
 
                 <div class="col-lg-8">
-                    <form action="forms/contact.php" method="post" class="php-email-form">
-                        <div class="row gy-4">
+                    <form action="{{ route('send.email') }}" method="POST" class="php-email-form">
+                        @csrf
+                        <div class="loading d-none">Loading...</div> <!-- Loading message -->
+                        <div class="error-message d-none"></div> <!-- Error message -->
+                        <div class="sent-message d-none">Your message has been sent successfully!</div>
+                        <!-- Sent message -->
 
+                        <!-- Form fields -->
+                        <div class="row gy-4">
                             <div class="col-md-6">
                                 <input type="text" name="name" class="form-control" placeholder="Your Name"
-                                    required="">
+                                    required>
                             </div>
-
-                            <div class="col-md-6 ">
+                            <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" placeholder="Your Email"
-                                    required="">
+                                    required>
                             </div>
-
                             <div class="col-md-12">
                                 <input type="text" class="form-control" name="subject" placeholder="Subject"
-                                    required="">
+                                    required>
                             </div>
-
                             <div class="col-md-12">
-                                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
                             </div>
-
                             <div class="col-md-12 text-center">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-
                                 <button type="submit">Send Message</button>
                             </div>
-
                         </div>
                     </form>
+
                 </div><!-- End Contact Form -->
+
 
             </div>
 
         </div>
 
     </section><!-- /Contact Section -->
+    <script src="path/to/validate.js"></script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            var name = document.querySelector('input[name="name"]').value;
+            var email = document.querySelector('input[name="email"]').value;
+            var message = document.querySelector('textarea[name="message"]').value;
+
+            if (!name || !email || !message) {
+                e.preventDefault(); // Mencegah form dikirimkan
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill in all fields!'
+                });
+            }
+        });
+    </script>
+
+
 @endsection
