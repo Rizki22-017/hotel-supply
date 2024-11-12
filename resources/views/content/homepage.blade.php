@@ -765,7 +765,7 @@
                 </div>
 
                 <div class="col-lg-8">
-                    <form action="{{ route('send.email') }}" method="POST" class="php-email-form">
+                    <form id="contactForm" action="{{ route('send.email') }}" method="POST" class="php-email-form">
                         @csrf
                         <div class="loading d-none">Loading...</div> <!-- Loading message -->
                         <div class="error-message d-none"></div> <!-- Error message -->
@@ -803,21 +803,48 @@
         </div>
 
     </section><!-- /Contact Section -->
-    <script src="path/to/validate.js"></script>
-    <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            var name = document.querySelector('input[name="name"]').value;
-            var email = document.querySelector('input[name="email"]').value;
-            var message = document.querySelector('textarea[name="message"]').value;
+    <!-- Include jQuery and SweetAlert2 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-            if (!name || !email || !message) {
-                e.preventDefault(); // Mencegah form dikirimkan
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Please fill in all fields!'
+    <script>
+        $(document).ready(function() {
+            $('#contactForm').on('submit', function(e) {
+                e.preventDefault(); // Prevent the default form submission
+                $('.loading').removeClass('d-none'); // Show loading message
+
+                $.ajax({
+                    url: $(this).attr('action'), // Form action URL
+                    method: $(this).attr('method'), // Form method (POST)
+                    data: $(this).serialize(), // Serialize form data
+                    success: function(response) {
+                        $('.loading').addClass('d-none');
+                        $('.error-message').addClass('d-none');
+                        $('.sent-message').removeClass('d-none');
+                        $('#contactForm')[0].reset();
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: 'Your message has been sent successfully!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    },
+                    error: function(xhr) {
+                        $('.loading').addClass('d-none'); // Hide loading message
+                        $('.error-message').removeClass('d-none').text(
+                            'There was an error. Please try again.');
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'There was an error. Please try again!',
+                            showConfirmButton: true
+                        });
+                    }
                 });
-            }
+            });
         });
     </script>
 
