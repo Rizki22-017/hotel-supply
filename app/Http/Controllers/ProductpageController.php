@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -12,21 +13,21 @@ class ProductpageController extends Controller
     {
         // Ambil data dari berbagai model
         $categories = Category::all();
-
+        $about = About::first();
         $products = Product::paginate(15);
 
         // Kirim data ke view
-        return view('content.product', compact('categories', 'products'));
+        return view('content.product', compact('categories', 'products', 'about'));
     }
 
     public function detail_product($id)
     {
         $product = Product::find($id);
-
+        $about = About::first();
         $randomProducts = Product::inRandomOrder()->take(4)->get();
 
         // Kirim data ke view
-        return view('content.product-detail', compact('product', 'randomProducts'));
+        return view('content.product-detail', compact('product', 'randomProducts', 'about'));
     }
 
     //search cari
@@ -43,10 +44,9 @@ class ProductpageController extends Controller
     // filter
     public function filter(Request $request)
     {
-    $categoryId = $request->input('category_id');
-    $category = Category::find($categoryId);
-    $products = Product::where('product_category_id', $categoryId)->get(); // 30 produk per halaman
-    return view('content.result', compact('products', 'category'));
+        $categoryId = $request->input('category_id');
+        $category = Category::find($categoryId);
+        $products = Product::where('product_category_id', $categoryId)->get(); // 30 produk per halaman
+        return view('content.result', compact('products', 'category'));
     }
-
 }
