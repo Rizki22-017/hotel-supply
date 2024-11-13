@@ -147,13 +147,15 @@
                                     <div class="portfolio-info w-100 p-3">
                                         <h4 class="category-name">{{ $category->category_name }}</h4>
                                         <p class="category-description">
-                                            {{ \Illuminate\Support\Str::limit($category->category_description, 50) }}...</p>
+                                            {{ strlen($category->category_description) > 75 ? \Illuminate\Support\Str::limit($category->category_description, 75) . '...' : $category->category_description }}
+                                        </p>
                                     </div>
                                 </div>
                             </a>
                         </div><!-- End Portfolio Item -->
                     @endforeach
                 </div>
+
                 <!-- End Portfolio Container -->
 
             </div>
@@ -172,7 +174,7 @@
                 <div class="col-xl-10">
                     <div class="text-center">
                         <h3>Discover what you need with us</h3>
-                        <p>{{ $about->highlight }}</p>
+                        <p>{{ $about->highlight ?? 'Data Not Available' }}</p>
                         <a class="cta-btn" href="/#about">Browse more!</a>
                     </div>
                 </div>
@@ -317,19 +319,19 @@
                 <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
                     <span class="about-meta">MORE ABOUT US</span>
                     <h2 class="about-title">360 Hotel Supply</h2>
-                    <p class="about-description">"{{ $about->about_desc }}"</p>
+                    <p class="about-description">"{{ $about->about_desc ?? 'Data Not Available' }}"</p>
 
                     <div class="row feature-list-wrapper">
                         <div class="col-md-6">
                             <ul class="feature-list">
-                                @foreach (json_decode($about->about_poin1) as $point1)
+                                @foreach (json_decode($about->about_poin1 ?? '[]') as $point1)
                                     <li><i class="bi bi-check-circle-fill"></i> {{ $point1 }}</li>
                                 @endforeach
                             </ul>
                         </div>
                         <div class="col-md-6">
                             <ul class="feature-list">
-                                @foreach (json_decode($about->about_poin2) as $point2)
+                                @foreach (json_decode($about->about_poin2 ?? '[]') as $point2)
                                     <li><i class="bi bi-check-circle-fill"></i> {{ $point2 }}</li>
                                 @endforeach
                             </ul>
@@ -340,10 +342,11 @@
                         <div class="row gy-4">
                             <div class="col-lg-5">
                                 <div class="profile d-flex align-items-center gap-3">
-                                    <img src="{{ asset('storage/' . $about->leader_pict) }}" alt="CEO Profile"
-                                        class="profile-image">
+                                    <img src="{{ asset('storage/' . ($about?->leader_pict ?? 'default-logo.svg')) }}"
+                                        alt="CEO Profile" class="profile-image">
+
                                     <div>
-                                        <h4 class="profile-name">{{ $about->leader_name }}</h4>
+                                        <h4 class="profile-name">{{ $about->leader_name ?? 'Data Not Available' }}</h4>
                                         <p class="profile-position">CEO &amp; Founder</p>
                                     </div>
                                 </div>
@@ -353,7 +356,7 @@
                                     <i class="bi bi-telephone-fill"></i>
                                     <div>
                                         <p class="contact-label">Call us anytime</p>
-                                        <p class="contact-number">{{ $about->phone }}</p>
+                                        <p class="contact-number">{{ $about->phone ?? 'Data Not Available' }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -398,10 +401,10 @@
                     data-aos-delay="200">
                     <h3>We work for you</h3>
                     <p>
-                        {{ $about->vision }}
+                        {{ $about->vision ?? 'Data Not Available' }}
                     </p>
                     <ul>
-                        @foreach (json_decode($about->mission) as $mission)
+                        @foreach (json_decode($about->mission ?? '[]') as $mission)
                             <li>
                                 <i class="bi bi-diagram-3"></i>
                                 <div>
@@ -474,8 +477,9 @@
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
                     @for ($i = 0; $i < 8 - count($clients); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
-                                alt="">
+                            <img src="{{ asset('storage/' . (count($clients) > 0 ? $clients[$i % count($clients)]->logo : 'default-logo.svg')) }}"
+                                class="img-fluid" alt="">
+
                         </div>
                     @endfor
                 </div>
@@ -525,8 +529,9 @@
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
                     @for ($i = 0; $i < 8 - count($clients); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
-                                alt="">
+                            <img src="{{ asset('storage/' . (count($clients) > 0 ? $clients[$i % count($clients)]->logo : 'default-logo.svg')) }}"
+                                class="img-fluid" alt="">
+
                         </div>
                     @endfor
                 </div>
@@ -575,8 +580,8 @@
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
                     @for ($i = 0; $i < 8 - count($clients); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
-                                alt="">
+                            <img src="{{ asset('storage/' . (count($clients) > 0 ? $clients[$i % count($clients)]->logo : 'default-logo.png')) }}"
+                                class="img-fluid" alt="">
                         </div>
                     @endfor
                 </div>
@@ -625,8 +630,8 @@
                     <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
                     @for ($i = 0; $i < 8 - count($clients); $i++)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $clients[$i % count($clients)]->logo) }}" class="img-fluid"
-                                alt="">
+                            <img src="{{ asset('storage/' . (count($clients) > 0 ? $clients[$i % count($clients)]->logo : 'default-logo.png')) }}"
+                                class="img-fluid" alt="">
                         </div>
                     @endfor
                 </div>
@@ -637,86 +642,61 @@
 
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
+    <section id="testimonials" class="testimonials section">
 
         <!-- Section Title -->
-        <div class="container section-title">
+        <div class="container section-title" data-aos="fade-up">
             <h2>Testimonials</h2>
-            <p>What people say about us</p>
         </div><!-- End Section Title -->
 
-        <div class="container">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
             <div class="swiper init-swiper">
                 <script type="application/json" class="swiper-config">
-                {
-                    "loop": {{ count($testimonials) >= 4 ? 'true' : 'false' }},
-                    "speed": 600,
-                    "autoplay": {
-                        "delay": 5000,
-                        "disableOnInteraction": false
-                    },
-                    "slidesPerView": "auto",
-                    "pagination": {
-                        "el": ".swiper-pagination",
-                        "type": "bullets",
-                        "clickable": true
-                    },
-                    "breakpoints": {
-                        "320": {
-                            "slidesPerView": 1,
-                            "spaceBetween": 40
-                        },
-                        "1200": {
-                            "slidesPerView": 3,
-                            "spaceBetween": 1
-                        }
-                    }
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
                 }
-                </script>
-
+              }
+            </script>
                 <div class="swiper-wrapper">
                     @foreach ($testimonials as $testimonial)
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                {{-- <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
+                                    alt=""> --}}
+                                {{-- <h4>Ceo &amp; Founder</h4>
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                                         class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                                         class="bi bi-star-fill"></i>
-                                </div>
-                                <p>{{ $testimonial->customer_review }}</p>
-                                <div class="profile mt-auto">
-                                    <h3>{{ $testimonial->customer_name }}</h3>
-                                </div>
+                                    </div> --}}
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>{{ $testimonial->customer_review }}</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                                <h4>{{ $testimonial->customer_name }}</h4>
                             </div>
                         </div><!-- End testimonial item -->
                     @endforeach
 
-                    <!-- Repeat testimonials if count < 3 -->
-                    @if (count($testimonials) < 3)
-                        @for ($i = 0; $i < 3 - count($testimonials); $i++)
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="stars">
-                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                            class="bi bi-star-fill"></i>
-                                    </div>
-                                    <p>{{ $testimonials[$i % count($testimonials)]->customer_review }}</p>
-                                    <div class="profile mt-auto">
-                                        <h3>{{ $testimonials[$i % count($testimonials)]->customer_name }}</h3>
-                                    </div>
-                                </div>
-                            </div><!-- End testimonial item -->
-                        @endfor
-                    @endif
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
 
         </div>
 
-    </section><!-- /Testimonials Section -->
+    </section>
+    <!-- /Testimonials Section -->
 
 
     <!-- Contact Section -->
@@ -743,7 +723,7 @@
                         <i class="bi bi-geo-alt flex-shrink-0"></i>
                         <div>
                             <h3>Address</h3>
-                            <p>{{ $about->address }}</p>
+                            <p>{{ $about->address ?? 'Data Not Available' }}</p>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -751,8 +731,8 @@
                         <i class="bi bi-telephone flex-shrink-0"></i>
                         <div>
                             <h3>Call Us on WhatsApp</h3>
-                            <p>Sumatera : {{ $about->wa_sumatera }}</p>
-                            <p>Jawa & Bali : {{ $about->wa_jawa }}</p>
+                            <p>Sumatera : {{ $about->wa_sumatera ?? 'Data Not Available' }}</p>
+                            <p>Jawa & Bali : {{ $about->wa_jawa ?? 'Data Not Available' }}</p>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -760,7 +740,7 @@
                         <i class="bi bi-envelope flex-shrink-0"></i>
                         <div>
                             <h3>Email Us</h3>
-                            <p>{{ $about->email }}</p>
+                            <p>{{ $about->email ?? 'Data Not Available' }}</p>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -849,6 +829,4 @@
             });
         });
     </script>
-
-
 @endsection

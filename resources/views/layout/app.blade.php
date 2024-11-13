@@ -71,8 +71,9 @@
 
 
 
-                <a class="cta-btn d-none d-sm-block" href="https://wa.me/{{ $about->wa_sumatera }}"
-                    target="_blank">Order Now</a>
+                <a class="cta-btn d-none d-sm-block"
+                    href="https://wa.me/{{ $about->wa_sumatera ?? 'Data Not Available' }}" target="_blank">Order
+                    Now</a>
 
             </div>
 
@@ -105,10 +106,11 @@
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Contact</h4>
                     <p class="mt-3"><strong>Phone:</strong> <br>
-                        <span>Sumatera : +1 5589 55488 55</span><br>
-                        <span>Jawa & Bali : +1 5589 55488 55</span>
+                        <span>Sumatera : {{ $about?->wa_sumatera ?? 'Data Not Available' }}</span><br>
+                        <span>Jawa & Bali : {{ $about->wa_jawa ?? 'Data Not Available' }}</span>
                     </p>
-                    <p class="mt-3"><strong>Email:</strong> <span>info@example.com</span></p>
+                    <p class="mt-3"><strong>Email:</strong> <span>{{ $about->email ?? 'Data Not Available' }}</span>
+                    </p>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
@@ -155,7 +157,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <div class="whatsapp-float">
-        <a href="https://wa.me/{{ $about->wa_sumatera }}" target="_blank">
+        <a href="https://wa.me/{{ $about->wa_sumatera ?? 'Data Not Available' }}" target="_blank">
             <i class="bi bi-whatsapp"></i>
         </a>
     </div>

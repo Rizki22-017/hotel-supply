@@ -33,7 +33,7 @@ class TestimonialController extends Controller
     {
         $request->validate([
             'customer_name' => 'required|string|max:255',
-            'customer_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'customer_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'customer_review' => 'required|string',
         ]);
 
@@ -42,10 +42,10 @@ class TestimonialController extends Controller
         $testimonials->customer_review = $request->customer_review;
 
         // Handle image upload
-        if ($request->hasFile('customer_logo')) {
-            $imagePath = $request->file('customer_logo')->store('testimonials', 'public');
-            $testimonials->customer_logo = $imagePath;
-        }
+        // if ($request->hasFile('customer_logo')) {
+        //     $imagePath = $request->file('customer_logo')->store('testimonials', 'public');
+        //     $testimonials->customer_logo = $imagePath;
+        // }
 
         $testimonials->save();
 
@@ -76,7 +76,7 @@ class TestimonialController extends Controller
     {
         $request->validate([
             'customer_name' => 'required|string|max:255',
-            'customer_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'customer_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'customer_review' => 'required|string',
         ]);
 
@@ -85,10 +85,10 @@ class TestimonialController extends Controller
         $testimonials->customer_review = $request->customer_review;
 
         // update jika ada foto baru
-        if ($request->hasFile('customer_logo')) {
-            $imagePath = $request->file('customer_logo')->store('testimonials', 'public');
-            $testimonials->customer_logo = $imagePath;
-        }
+        // if ($request->hasFile('customer_logo')) {
+        //     $imagePath = $request->file('customer_logo')->store('testimonials', 'public');
+        //     $testimonials->customer_logo = $imagePath;
+        // }
 
         $testimonials->save();
         return redirect()->route('testimonials.index')->with('success', 'Testimnials updates successfully.');
@@ -102,9 +102,9 @@ class TestimonialController extends Controller
         $testimonials = Testimonial::findOrFail($id);
 
         // Hapus gambar dari storage jika ada
-        if ($testimonials->customer_logo) {
-            Storage::disk('public')->delete($testimonials->customer_logo);
-        }
+        // if ($testimonials->customer_logo) {
+        //     Storage::disk('public')->delete($testimonials->customer_logo);
+        // }
 
         $testimonials->delete();
         return redirect()->route('testimonials.index')->with('success', 'Testimonials deleted successfully.');

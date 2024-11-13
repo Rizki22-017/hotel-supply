@@ -25,7 +25,7 @@
                     <tr>
                         <th style="width: 7%;">No</th>
                         <th style="width: 15%;">Name</th>
-                        <th style="width: 20%;">Logo</th>
+                        {{-- <th style="width: 20%;">Logo</th> --}}
                         <th style="width: 43%;">Review</th>
                         <th style="width: 15%;">Action</th>
                     </tr>
@@ -35,14 +35,14 @@
                         <tr>
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $testimoni->customer_name }}</td>
-                            <td>
+                            {{-- <td>
                                 @if ($testimoni->customer_logo)
                                     <img src="{{ asset('storage/' . $testimoni->customer_logo) }}" alt="Customer Image"
                                         class="responsive-img">
                                 @else
                                     <span>No Image</span>
                                 @endif
-                            </td>
+                            </td> --}}
                             <td class="scrollable"> {{ $testimoni->customer_review }}</td>
                             <td>
                                 <button class="btn btn-warning" onclick="editTestimonial({{ $testimoni }})"
@@ -83,10 +83,10 @@
                             <label for="testimonialName" class="form-label">Name</label>
                             <input type="text" class="form-control" id="testimonialName" name="customer_name" required>
                         </div>
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="testimonialLogo" class="form-label">Logo</label>
                             <input type="file" class="form-control" id="testimonialLogo" name="customer_logo">
-                        </div>
+                        </div> --}}
                         <div class="mb-3">
                             <label for="testimonialReview" class="form-label">Review</label>
                             <textarea class="form-control" id="testimonialReview" name="customer_review" rows="3" required></textarea>
@@ -119,10 +119,10 @@
                             <input type="text" class="form-control" id="editTestimonialName" name="customer_name"
                                 required>
                         </div>
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="editTestimonialLogo" class="form-label">Logo</label>
                             <input type="file" class="form-control" id="editTestimonialLogo" name="customer_logo">
-                        </div>
+                        </div> --}}
                         <div class="mb-3">
                             <label for="editTestimonialReview" class="form-label">Review</label>
                             <textarea class="form-control" id="editTestimonialReview" name="customer_review" rows="3" required></textarea>
@@ -147,9 +147,9 @@
             document.getElementById('editTestimonialReview').value = testimonial.customer_review;
 
             // Check if logo exists
-            if (testimonial.customer_logo) {
-                document.getElementById('editTestimonialLogo').required = false;
-            }
+            // if (testimonial.customer_logo) {
+            //     document.getElementById('editTestimonialLogo').required = false;
+            // }
         }
     </script>
     <script>
