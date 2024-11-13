@@ -87,12 +87,23 @@
                             </a>
                             <button class="btn me-2" onclick="toggleShare()">Share</button>
                             <div id="share-icons" class="d-none">
-                                <button class="btn btn-light"><i class="fab fa-whatsapp"></i></button>
-                                <button class="btn btn-light"><i class="fab fa-instagram"></i></button>
-                                <button class="btn btn-light"><i class="fab fa-twitter"></i></button>
-                                <button class="btn btn-light"><i class="fab fa-facebook"></i></button>
-                                <button class="btn btn-light"><i class="fas fa-link"></i></button>
+                                <button class="btn btn-light" onclick="window.open('https://wa.me/?text={{ urlencode(request()->fullUrl()) }}', '_blank')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn btn-light" onclick="navigator.clipboard.writeText('{{ request()->fullUrl() }}'); alert('Link copied! Open Instagram and paste it in a DM.');">
+                                    <i class="fab fa-instagram"></i>
+                                </button>
+                                <button class="btn btn-light" onclick="window.open('https://twitter.com/intent/tweet?url={{ urlencode(request()->fullUrl()) }}', '_blank')">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+                                <button class="btn btn-light" onclick="window.open('https://facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}', '_blank')">
+                                    <i class="fab fa-facebook"></i>
+                                </button>
+                                <button class="btn btn-light" onclick="navigator.clipboard.writeText('{{ request()->fullUrl() }}'); alert('Link copied to clipboard!');">
+                                    <i class="fas fa-link"></i>
+                                </button>
                             </div>
+
                         </div>
                     </div>
                 </div>
