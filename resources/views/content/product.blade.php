@@ -140,33 +140,27 @@
                 </form>
             </div>
 
-
-
-            <div class=" " data-layout="masonry" data-sort="original-order">
-
-                <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
+            @if ($products->isEmpty())
+                <p class="text-center">Sorry, we can't find what are you looking for.</p>
+            @else
+                <div class="row gy-4 container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($products as $product)
-                    <div class="col-lg-3 col-md-4 portfolio-item">
-                        <a href="{{ route('detail.product', $product->id) }}">
-                        <div class="portfolio-content h-100">
-                           <img src="{{asset('storage/' . $product->product_image)}}" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>{{$product->product_name}}</h4>
-                                <p>{{$product->product_description}}</p>
-                            </div>
-                        </div>
-                        </a>
-                    </div><!-- End Portfolio Item -->
+                        <div class="col-lg-3 col-md-4 portfolio-item">
+                            <a href="{{ route('detail.product', $product->id) }}">
+                                <div class="portfolio-content h-100">
+                                    <img src="{{ asset('storage/' . $product->product_image) }}" class="img-fluid" alt="">
+                                    <div class="portfolio-info">
+                                        <h4>{{ $product->product_name }}</h4>
+                                        <p>{{ $product->product_description }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div><!-- End Portfolio Item -->
                     @endforeach
                 </div><!-- End Portfolio Container -->
-
-
-            </div>
-
-            <div class="d-flex justify-content-center mt-4">
-                {{ $products->links('pagination::bootstrap-4') }}
-            </div>
+            @endif
         </div>
+
 
     </section><!-- /Portfolio Section -->
 @endsection
