@@ -115,6 +115,13 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed{{ str_contains(request()->path(), 'clients') ? 'active' : '' }}"
+                    href="/clients">
+                    <i class="bi bi-file-earmark-person"></i>
+                    <span>Add Client Logo</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed{{ str_contains(request()->path(), 'abouts') ? 'active' : '' }}"
                     href="/abouts">
                     <i class="bi bi-info-circle"></i>
@@ -122,13 +129,6 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed{{ str_contains(request()->path(), 'clients') ? 'active' : '' }}"
-                    href="/clients">
-                    <i class="bi bi-file-earmark-person"></i>
-                    <span>Add Client Logo</span>
-                </a>
-            </li>
 
             {{-- <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">

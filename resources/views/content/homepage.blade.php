@@ -156,6 +156,7 @@
                     @endforeach
                 </div>
 
+
                 <!-- End Portfolio Container -->
 
             </div>
@@ -213,7 +214,10 @@
                                         alt="">
                                     <div class="pricing-info">
                                         <h4>{{ $product->product_name }}</h4>
-                                        <p>{{ $product->product_description }}</p>
+                                        {{-- <p>{{ $product->product_description }}</p> --}}
+                                        <p class="category-description">
+                                            {{ strlen($product->product_description) > 75 ? \Illuminate\Support\Str::limit($product->product_description, 75) . '...' : $product->product_description }}
+                                        </p>
                                     </div>
                                 </div>
                             </a>
@@ -423,8 +427,12 @@
     </section><!-- /More Section -->
 
     <!-- Clients Section -->
-    <section id="clients" class="clients section light-background" data-aos="fade-up">
+    @php
+        $shuffledClients = $clients->shuffle();
+        $displayClients = $shuffledClients->concat($shuffledClients)->take(8);
+    @endphp
 
+    <section id="clients" class="clients section light-background" data-aos="fade-up">
         <div class="container">
             <!-- Section Title -->
             <div class="container section-title">
@@ -435,209 +443,50 @@
 
             <div class="swiper init-swiper">
                 <script type="application/json" class="swiper-config">
-                {
-                    "loop": true,
-                    "speed": 600,
-                    "autoplay": {
-                    "delay": 5000
-                    },
-                    "slidesPerView": "auto",
-                    "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                    },
-                    "breakpoints": {
-                    "320": {
-                        "slidesPerView": 2,
-                        "spaceBetween": 40
-                    },
-                    "480": {
-                        "slidesPerView": 3,
-                        "spaceBetween": 60
-                    },
-                    "640": {
-                        "slidesPerView": 4,
-                        "spaceBetween": 80
-                    },
-                    "992": {
-                        "slidesPerView": 6,
-                        "spaceBetween": 120
-                    }
-                    }
+            {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+                },
+                "breakpoints": {
+                "320": {
+                    "slidesPerView": 2,
+                    "spaceBetween": 40
+                },
+                "480": {
+                    "slidesPerView": 3,
+                    "spaceBetween": 60
+                },
+                "640": {
+                    "slidesPerView": 4,
+                    "spaceBetween": 80
+                },
+                "992": {
+                    "slidesPerView": 6,
+                    "spaceBetween": 120
                 }
-                </script>
+                }
+            }
+            </script>
                 <div class="swiper-wrapper align-items-center">
-                    @foreach ($clients as $client)
+                    @foreach ($displayClients as $client)
                         <div class="swiper-slide">
                             <img src="{{ asset('storage/' . $client->logo) }}" class="img-fluid" alt="">
                         </div>
                     @endforeach
-
-                    <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < 8 - count($clients); $i++)
-                        <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . (count($clients) > 0 ? $clients[$i % count($clients)]->logo : 'default-logo.svg')) }}"
-                                class="img-fluid" alt="">
-
-                        </div>
-                    @endfor
-                </div>
-
-            </div>
-            <div class="swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                {
-                    "loop": true,
-                    "speed": 700,
-                    "autoplay": {
-                    "delay": 6000
-                    },
-                    "slidesPerView": "auto",
-                    "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                    },
-                    "breakpoints": {
-                    "320": {
-                        "slidesPerView": 2,
-                        "spaceBetween": 40
-                    },
-                    "480": {
-                        "slidesPerView": 3,
-                        "spaceBetween": 60
-                    },
-                    "640": {
-                        "slidesPerView": 4,
-                        "spaceBetween": 80
-                    },
-                    "992": {
-                        "slidesPerView": 6,
-                        "spaceBetween": 120
-                    }
-                    }
-                }
-                </script>
-                <div class="swiper-wrapper align-items-center">
-                    @foreach ($clients as $client)
-                        <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $client->logo) }}" class="img-fluid" alt="">
-                        </div>
-                    @endforeach
-
-                    <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < 8 - count($clients); $i++)
-                        <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . (count($clients) > 0 ? $clients[$i % count($clients)]->logo : 'default-logo.svg')) }}"
-                                class="img-fluid" alt="">
-
-                        </div>
-                    @endfor
-                </div>
-            </div>
-            <div class="swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                {
-                    "loop": true,
-                    "speed": 800,
-                    "autoplay": {
-                    "delay": 7000
-                    },
-                    "slidesPerView": "auto",
-                    "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                    },
-                    "breakpoints": {
-                    "320": {
-                        "slidesPerView": 2,
-                        "spaceBetween": 40
-                    },
-                    "480": {
-                        "slidesPerView": 3,
-                        "spaceBetween": 60
-                    },
-                    "640": {
-                        "slidesPerView": 4,
-                        "spaceBetween": 80
-                    },
-                    "992": {
-                        "slidesPerView": 6,
-                        "spaceBetween": 120
-                    }
-                    }
-                }
-                </script>
-                <div class="swiper-wrapper align-items-center">
-                    @foreach ($clients as $client)
-                        <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $client->logo) }}" class="img-fluid" alt="">
-                        </div>
-                    @endforeach
-
-                    <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < 8 - count($clients); $i++)
-                        <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . (count($clients) > 0 ? $clients[$i % count($clients)]->logo : 'default-logo.png')) }}"
-                                class="img-fluid" alt="">
-                        </div>
-                    @endfor
-                </div>
-            </div>
-            <div class="swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                {
-                    "loop": true,
-                    "speed": 900,
-                    "autoplay": {
-                    "delay": 8000
-                    },
-                    "slidesPerView": "auto",
-                    "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                    },
-                    "breakpoints": {
-                    "320": {
-                        "slidesPerView": 2,
-                        "spaceBetween": 40
-                    },
-                    "480": {
-                        "slidesPerView": 3,
-                        "spaceBetween": 60
-                    },
-                    "640": {
-                        "slidesPerView": 4,
-                        "spaceBetween": 80
-                    },
-                    "992": {
-                        "slidesPerView": 6,
-                        "spaceBetween": 120
-                    }
-                    }
-                }
-                </script>
-                <div class="swiper-wrapper align-items-center">
-                    @foreach ($clients as $client)
-                        <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $client->logo) }}" class="img-fluid" alt="">
-                        </div>
-                    @endforeach
-
-                    <!-- Ulangi data jika jumlah testimonial lebih sedikit dari 6 -->
-                    @for ($i = 0; $i < 8 - count($clients); $i++)
-                        <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . (count($clients) > 0 ? $clients[$i % count($clients)]->logo : 'default-logo.png')) }}"
-                                class="img-fluid" alt="">
-                        </div>
-                    @endfor
                 </div>
             </div>
         </div>
-    </section><!-- /Clients Section -->
+    </section>
+
+    <!-- /Clients Section -->
 
 
 

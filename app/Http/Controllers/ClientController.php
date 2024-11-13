@@ -37,6 +37,7 @@ class ClientController extends Controller
         ]);
 
         $client = new Client();
+        $client->name = $request->input('name');  // Menyimpan data name dari input form
         if ($request->hasFile('logo')) {
             $imagePath = $request->file('logo')->store('clients', 'public');
             $client->logo = $imagePath;

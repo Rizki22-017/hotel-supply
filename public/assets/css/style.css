@@ -1261,4 +1261,5 @@ h6 {
     max-height: 100px;  /* Atur tinggi maksimum gambar */
     width: auto;        /* Sesuaikan lebar gambar sesuai proporsinya */
     height: auto;       /* Sesuaikan tinggi gambar sesuai proporsinya */
+    object-fit: cover;
 }

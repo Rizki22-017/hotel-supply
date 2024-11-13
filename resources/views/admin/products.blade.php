@@ -187,6 +187,7 @@
                             <label for="productGallery" class="form-label">Product Gallery</label>
                             <input type="file" class="form-control" id="productGallery" name="product_gallery[]"
                                 multiple>
+                            <small class="text-muted">Can input more than 1 photo</small>
                         </div>
                     </div>
                     <div class="modal-footer">

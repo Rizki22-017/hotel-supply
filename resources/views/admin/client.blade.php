@@ -37,7 +37,8 @@
                             <td>{{ $client->name }}</td>
                             <td>
                                 @if ($client->logo)
-                                    <img src="{{ asset('storage/' . $client->logo) }}" alt="Client's Logo" class="responsive-img">
+                                    <img src="{{ asset('storage/' . $client->logo) }}" alt="Client's Logo"
+                                        class="responsive-img">
                                 @else
                                     <span>No Image</span>
                                 @endif
@@ -46,7 +47,9 @@
                                 <button type="button" class="btn btn-danger"
                                     onclick="confirmDelete({{ $client->id }})">Delete</button>
 
-                                <form id="delete-form-{{ $client->id }}" action="{{ route('clients.destroy', $client->id) }}" method="POST" style="display: none;">
+                                <form id="delete-form-{{ $client->id }}"
+                                    action="{{ route('clients.destroy', $client->id) }}" method="POST"
+                                    style="display: none;">
                                     @csrf
                                     @method('DELETE')
                                 </form>
@@ -72,7 +75,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="clientName" class="form-label">Client's Name</label>
-                            <input type="text" class="form-control" id="clientName" name="client_name" required>
+                            <input type="text" class="form-control" id="clientName" name="name" required>
                         </div>
 
                         <div class="mb-3">

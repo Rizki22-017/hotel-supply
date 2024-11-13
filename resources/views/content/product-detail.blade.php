@@ -82,7 +82,7 @@
 
                         <!-- Order Now and Share buttons -->
                         <div class="d-flex align-items-center mt-3">
-                            <a href="https://wa.me/{{ $about->wa_sumatera }}" target="_blank">
+                            <a href="https://wa.me/{{ $about->wa_sumatera ?? 'Data Not Available' }}" target="_blank">
                                 <button class="btn btn-primary me-2" style="border-radius: 12px">Order Now</button>
                             </a>
                             <button class="btn me-2" onclick="toggleShare()">Share</button>
@@ -132,7 +132,10 @@
                                 alt="">
                             <div class="portfolio-info">
                                 <h4><a href="/product-detail">{{ $randomProduct->product_name }}</a></h4>
-                                <p>{{ $randomProduct->product_description }}</p>
+                                {{-- <p>{{ $randomProduct->product_description }}</p> --}}
+                                <p class="category-description">
+                                    {{ strlen($randomProduct->product_description) > 75 ? \Illuminate\Support\Str::limit($product->product_description, 75) . '...' : $product->product_description }}
+                                </p>
                             </div>
                         </div>
                     </div><!-- End Portfolio Item -->
