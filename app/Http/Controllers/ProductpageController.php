@@ -35,7 +35,7 @@ class ProductpageController extends Controller
         $categories = Category::all();
 
         $query = $request->input('query');
-        $products = Product::where('product_name', 'LIKE', "%$query%")->paginate(15); // 30 produk per halaman
+        $products = Product::where('product_name', 'LIKE', "%$query%")->get();
 
         return view('content.product', compact('products', 'categories'));
     }
