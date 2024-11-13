@@ -205,7 +205,7 @@
                     @foreach ($products as $product)
                         <div class="pricing-item" data-index="0" style="flex: 0 0 25%; box-sizing: border-box;"
                             data-aos="zoom-in" data-aos-delay="100">
-                            <a href="/product-detail">
+                            <a href="{{ route('detail.product', $product->id) }}">
                                 <div class="pricing-tem">
                                     <img src="{{ asset('storage/' . $product->product_image) }}" class="img-fluid"
                                         alt="">
