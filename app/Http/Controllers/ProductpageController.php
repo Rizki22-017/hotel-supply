@@ -45,7 +45,7 @@ class ProductpageController extends Controller
     {
     $categoryId = $request->input('category_id');
     $category = Category::find($categoryId);
-    $products = Product::where('product_category_id', $categoryId)->paginate(15); // 30 produk per halaman
+    $products = Product::where('product_category_id', $categoryId)->get(); // 30 produk per halaman
     return view('content.result', compact('products', 'category'));
     }
 
