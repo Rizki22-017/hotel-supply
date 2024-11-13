@@ -21,7 +21,7 @@ class ProductSeeder extends Seeder
                 'product_material' => 'Linen',
                 'product_description' => 'Pillow is for sleeping for supporting your lovely chilling time',
                 'product_size_chart' => '30x30',
-                'product_image' => 'products/departments-4.jpg',
+                'product_image' => 'products/Atu4I309XF5RkC8zLJjm8WsA5bFuRBsDfZJ4HmnE.webp',
             ],
             [
                 'product_name' => 'Bed Cover',
@@ -30,7 +30,7 @@ class ProductSeeder extends Seeder
                 'product_material' => 'Linen',
                 'product_description' => 'Pillow is for sleeping for supporting your lovely chilling time',
                 'product_size_chart' => '30x30',
-                'product_image' => 'products/departments-5.jpg',
+                'product_image' => 'products/Atu4I309XF5RkC8zLJjm8WsA5bFuRBsDfZJ4HmnE.webp',
             ],
             [
                 'product_name' => 'Blanket',
@@ -39,7 +39,7 @@ class ProductSeeder extends Seeder
                 'product_material' => 'Linen',
                 'product_description' => 'Pillow is for sleeping for supporting your lovely chilling time',
                 'product_size_chart' => '30x30',
-                'product_image' => 'products/departments-4.jpg',
+                'product_image' => 'products/Atu4I309XF5RkC8zLJjm8WsA5bFuRBsDfZJ4HmnE.webp',
             ],
             [
                 'product_name' => 'Blanket',
@@ -48,7 +48,7 @@ class ProductSeeder extends Seeder
                 'product_material' => 'Linen',
                 'product_description' => 'Pillow is for sleeping for supporting your lovely chilling time',
                 'product_size_chart' => '30x30',
-                'product_image' => 'products/departments-5.jpg',
+                'product_image' => 'products/Atu4I309XF5RkC8zLJjm8WsA5bFuRBsDfZJ4HmnE.webp',
             ],
         ];
 
