@@ -23,4 +23,13 @@ class HomeController extends Controller
         // Kirim data ke view
         return view('content.homepage', compact('categories', 'products', 'about', 'testimonials', 'clients'));
     }
+
+    public function layout()
+    {
+
+        $about = About::first();  // Asumsi hanya ada satu record About
+
+        // Kirim data ke view
+        return view('layout.app', compact('about'));
+    }
 }
