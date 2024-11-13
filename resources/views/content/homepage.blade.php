@@ -137,22 +137,24 @@
 
             <div class=" " data-layout="masonry" data-sort="original-order">
 
-                <div class="row gy-4  container" data-aos="fade-up" data-aos-delay="200">
+                <div class="row gy-4 container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($categories as $category)
-                        <div class="col-lg-3 col-md-4 portfolio-item    ">
-                            <a href="{{ route('filter', ['category_id' => $category->id]) }}">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-12 portfolio-item">
+                            <a href="{{ route('filter', ['category_id' => $category->id]) }}" class="portfolio-link">
                                 <div class="portfolio-content h-100">
                                     <img src="{{ asset('storage/' . $category->category_image) }}" class="img-fluid"
-                                        alt="">
-                                    <div class="portfolio-info w-100">
-                                        <h4>{{ $category->category_name }}</h4>
-                                        <p>{{ substr($category->category_description, 0, 50) }}...</p>
+                                        alt="{{ $category->category_name }} image">
+                                    <div class="portfolio-info w-100 p-3">
+                                        <h4 class="category-name">{{ $category->category_name }}</h4>
+                                        <p class="category-description">
+                                            {{ \Illuminate\Support\Str::limit($category->category_description, 50) }}...</p>
                                     </div>
                                 </div>
                             </a>
                         </div><!-- End Portfolio Item -->
                     @endforeach
-                </div><!-- End Portfolio Container -->
+                </div>
+                <!-- End Portfolio Container -->
 
             </div>
 
