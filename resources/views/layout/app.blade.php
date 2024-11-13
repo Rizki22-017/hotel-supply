@@ -71,7 +71,7 @@
 
 
 
-                <a class="cta-btn d-none d-sm-block" href="https://wa.me/{{ $about->wa_sumatera }}"
+                <a class="cta-btn d-none d-sm-block" href="https://wa.me/"
                     target="_blank">Order Now</a>
 
             </div>
@@ -155,7 +155,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <div class="whatsapp-float">
-        <a href="https://wa.me/{{ $about->wa_sumatera }}" target="_blank">
+        <a href="https://wa.me/" target="_blank">
             <i class="bi bi-whatsapp"></i>
         </a>
     </div>
