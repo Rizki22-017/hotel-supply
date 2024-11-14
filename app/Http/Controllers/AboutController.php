@@ -116,7 +116,25 @@ class AboutController extends Controller
             'linkedin' => 'required|string',
         ]);
 
-        $about = About::firstOrFail();
+        $about = About::first();
+
+        // Update data About
+        $about->highlight = $request->highlight;
+        $about->about_desc = $request->about_desc;
+        $about->about_poin1 = json_encode($request->about_poin1);
+        $about->about_poin2 = json_encode($request->about_poin2);
+        $about->leader_name = $request->leader_name;
+        $about->phone = $request->phone;
+        $about->vision = $request->vision;
+        $about->mission = json_encode($request->mission);
+        $about->address = $request->address;
+        $about->wa_sumatera = $request->wa_sumatera;
+        $about->wa_jawa = $request->wa_jawa;
+        $about->email = $request->email;
+        $about->twitter = $request->twitter;
+        $about->facebook = $request->facebook;
+        $about->instagram = $request->instagram;
+        $about->linkedin = $request->linkedin;
 
         if ($request->hasFile('leader_pict')) {
             if ($about->leader_pict) {
@@ -127,28 +145,30 @@ class AboutController extends Controller
             $leader_img_path = $about->leader_pict;
         }
 
-        $about->update([
-            'highlight' => $request->highlight,
-            'about_desc' => $request->about_desc,
-            'about_poin1' => json_encode($request->about_poin1),
-            'about_poin2' => json_encode($request->about_poin2),
-            'leader_pict' => $leader_img_path,
-            'leader_name' => $request->leader_name,
-            'phone' => $request->phone,
-            // 'history' => $request->history,
-            'vision' => $request->vision,
-            'mission' => json_encode($request->mission),
-            // 'brand' => json_encode($request->brand),
-            'address' => $request->address,
-            'wa_sumatera' => $request->wa_sumatera,
-            'wa_jawa' => $request->wa_jawa,
-            'email' => $request->email,
-            // 'operational' => $request->operational,
-            'twitter' => $request->twitter,
-            'facebook' => $request->facebook,
-            'instagram' => $request->instagram,
-            'linkedin' => $request->linkedin,
-        ]);
+        $about->save();
+
+        // $about->update([
+        //     'highlight' => $request->highlight,
+        //     'about_desc' => $request->about_desc,
+        //     'about_poin1' => json_encode($request->about_poin1),
+        //     'about_poin2' => json_encode($request->about_poin2),
+        //     'leader_pict' => $leader_img_path,
+        //     'leader_name' => $request->leader_name,
+        //     'phone' => $request->phone,
+        //     // 'history' => $request->history,
+        //     'vision' => $request->vision,
+        //     'mission' => json_encode($request->mission),
+        //     // 'brand' => json_encode($request->brand),
+        //     'address' => $request->address,
+        //     'wa_sumatera' => $request->wa_sumatera,
+        //     'wa_jawa' => $request->wa_jawa,
+        //     'email' => $request->email,
+        //     // 'operational' => $request->operational,
+        //     'twitter' => $request->twitter,
+        //     'facebook' => $request->facebook,
+        //     'instagram' => $request->instagram,
+        //     'linkedin' => $request->linkedin,
+        // ]);
 
         return redirect()->route('abouts.index')->with('success', 'Data About berhasil diperbarui.');
     }
