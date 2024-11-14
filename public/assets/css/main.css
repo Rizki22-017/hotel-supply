@@ -1671,13 +1671,6 @@ section,
     margin-right: 0;
 }
 
-@media (max-width: 575px) {
-    .portfolio .portfolio-filters li {
-        font-size: 14px;
-        margin: 0 5px;
-    }
-}
-
 /* Portfolio Content */
 .portfolio .portfolio-content {
     background-color: var(--surface-color);
@@ -1690,13 +1683,20 @@ section,
 }
 
 .portfolio .portfolio-content img {
-    transition: 0.3s;
-    position: relative;
-    z-index: 1;
-    object-fit: cover;
     width: 100%;
-    height: 200px; /* Menentukan tinggi gambar */
+    min-height: 200px;
+    height: 200px; /* Menentukan tinggi gambar agar seragam */
+    object-fit: cover;
+    object-position: center;
+    transition: 0.3s;
+    z-index: 1;
 }
+/* Membuat kolom responsif */
+.portfolio .portfolio-item {
+    flex: 1 1 100%; /* Mengisi lebar penuh untuk layar kecil */
+    max-width: 100%;
+}
+
 
 .portfolio .portfolio-content .portfolio-info {
     background-color: var(--background-color);
@@ -1741,24 +1741,17 @@ section,
     transform: scale(1.1);
 }
 
-/* Responsif pada ukuran layar kecil */
-@media (max-width: 768px) {
-    .portfolio .portfolio-content img {
-        width: 100%;
-        height: auto;
-        object-fit: contain; /* Sesuaikan agar seluruh gambar terlihat pada layar kecil */
+@media (max-width: 575px) {
+    .portfolio .portfolio-filters li {
+        font-size: 14px;
+        margin: 0 5px;
     }
+}
 
-    .portfolio .portfolio-content .portfolio-info {
-        padding: 15px 15px; /* Mengurangi padding pada perangkat kecil */
-    }
-
-    .portfolio .portfolio-content .portfolio-info h4 {
-        font-size: 16px; /* Ukuran font yang lebih kecil pada perangkat kecil */
-    }
-
-    .portfolio .portfolio-content .portfolio-info p {
-        font-size: 12px; /* Ukuran font yang lebih kecil pada perangkat kecil */
+@media (min-width: 576px) {
+    .portfolio .portfolio-item {
+        flex: 0 0 50%; /* Setengah layar untuk medium */
+        max-width: 50%;
     }
 }
 
@@ -1775,6 +1768,54 @@ section,
         font-size: 12px; /* Ukuran font deskripsi lebih kecil */
     }
 }
+
+/* Responsif pada ukuran layar kecil */
+@media (max-width: 768px) {
+
+    .portfolio .portfolio-item {
+        flex: 0 0 33.33%; /* Sepertiga layar untuk tablet */
+        max-width: 33.33%;
+    }
+    .portfolio .portfolio-content img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover; /* Sesuaikan agar seluruh gambar terlihat pada layar kecil */
+    }
+
+    .portfolio .portfolio-content .portfolio-info {
+        padding: 15px 15px; /* Mengurangi padding pada perangkat kecil */
+    }
+
+    .portfolio .portfolio-content .portfolio-info h4 {
+        font-size: 16px; /* Ukuran font yang lebih kecil pada perangkat kecil */
+    }
+
+    .portfolio .portfolio-content .portfolio-info p {
+        font-size: 12px; /* Ukuran font yang lebih kecil pada perangkat kecil */
+    }
+}
+@media (min-width: 992px) {
+    .portfolio .portfolio-item {
+        flex: 0 0 25%; /* Seperempat layar untuk desktop */
+        max-width: 25%;
+    }
+}
+/* Responsif untuk teks */
+.portfolio .portfolio-info h4, .portfolio .portfolio-info p {
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .portfolio .portfolio-info h4 {
+        font-size: 16px;
+    }
+    .portfolio .portfolio-info p {
+        font-size: 12px;
+    }
+}
+
+
 
 /*--------------------------------------------------------------
 # Call To Action Section
