@@ -393,8 +393,9 @@
                         <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
                             <img src="assets/img/room-1.jpg" alt="Business Meeting"
                                 class="img-fluid main-image rounded-4">
-                            <img src="assets/img/logo-dark.jpg" alt="Team Discussion"
-                                class="img-fluid small-image rounded-4">
+                            <img src="assets/img/Amenities.jpg" alt="Team Discussion"
+                                class="img-fluid small-image rounded-4" style="width: 300px; height: 300px;">
+
                         </div>
                         <div class="experience-badge floating">
                             <h3>{{ $totalProducts > 0 ? $totalProducts . '+' : '0' }} <span>Supplies</span></h3>
@@ -418,7 +419,7 @@
             <div class="row gy-4">
 
                 <div class="col-lg-6 position-relative" data-aos="fade-up" data-aos-delay="100">
-                    <img src="assets/img/room-2.jpg" class="img-fluid" alt="">
+                    <img src="assets/img/room-2.jpg" class="img-fluid" style="border-radius: 20px" alt="">
 
                 </div>
 
