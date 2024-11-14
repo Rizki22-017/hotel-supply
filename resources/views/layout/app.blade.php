@@ -121,10 +121,18 @@
                     </p>
 
                     <div class="social-links d-flex mt-4">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+                        <a href="{{ $about->twitter }}" target="_blank" rel="noopener">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="{{ $about->facebook }}" target="_blank" rel="noopener">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="{{ $about->instagram }}" target="_blank" rel="noopener">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="{{ $about->linkedin }}" target="_blank" rel="noopener">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -132,8 +140,8 @@
                     <h4>Useful Links</h4>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li><a href="#about">About us</a></li>
+                        <li><a href="/product">Services</a></li>
                         <li><a href="#">Terms of service</a></li>
                         <li><a href="#">Privacy policy</a></li>
                     </ul>
@@ -183,7 +191,7 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en', // Bahasa sumber website Anda (ubah jika perlu)
-                includedLanguages: 'en,id,es,fr,de,it', // Bahasa target yang didukung, tambahkan bahasa lain jika perlu
+                includedLanguages: 'en,id,pt,ru,ja,zh,hi,ar,es,fr,de', // Bahasa target yang didukung, tambahkan bahasa lain jika perlu
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
         }
