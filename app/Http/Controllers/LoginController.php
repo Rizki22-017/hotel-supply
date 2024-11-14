@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,8 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('login.login');
+        $about = About::first();
+        return view('login.login', compact('about'));
     }
 
     /**

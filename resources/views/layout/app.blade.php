@@ -121,16 +121,16 @@
                     </p>
 
                     <div class="social-links d-flex mt-4">
-                        <a href="{{ $about->twitter }}" target="_blank" rel="noopener">
+                        <a href="{{ $about->twitter ?? 'Data Not Available' }}" target="_blank" rel="noopener">
                             <i class="bi bi-twitter-x"></i>
                         </a>
-                        <a href="{{ $about->facebook }}" target="_blank" rel="noopener">
+                        <a href="{{ $about->facebook ?? 'Data Not Available' }}" target="_blank" rel="noopener">
                             <i class="bi bi-facebook"></i>
                         </a>
-                        <a href="{{ $about->instagram }}" target="_blank" rel="noopener">
+                        <a href="{{ $about->instagram ?? 'Data Not Available' }}" target="_blank" rel="noopener">
                             <i class="bi bi-instagram"></i>
                         </a>
-                        <a href="{{ $about->linkedin }}" target="_blank" rel="noopener">
+                        <a href="{{ $about->linkedin ?? 'Data Not Available' }}" target="_blank" rel="noopener">
                             <i class="bi bi-linkedin"></i>
                         </a>
                     </div>
