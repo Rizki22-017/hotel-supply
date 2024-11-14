@@ -9,8 +9,8 @@ class About extends Model
     protected $fillable =  [
         'highlight',
         'about_desc',
-        'about_poin1' => 'array',
-        'about_poin2' => 'array',
+        'about_poin1',
+        'about_poin2',
         'leader_pict',
         'leader_name',
         'phone',

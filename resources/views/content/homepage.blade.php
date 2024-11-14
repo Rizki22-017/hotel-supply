@@ -89,10 +89,25 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="stats-item">
-                        <h2><strong>2</strong> <span class="small-text">YEARS</span></h2>
+                        <h2><strong id="years-in-business">2</strong> <span class="small-text">YEARS</span></h2>
                         <p>Established since 2022</p>
                     </div>
                 </div>
+
+                <script>
+                    // Tahun berdirinya perusahaan
+                    const yearFounded = 2022;
+
+                    // Mendapatkan tahun saat ini
+                    const currentYear = new Date().getFullYear();
+
+                    // Menghitung jumlah tahun yang sudah berlalu
+                    const yearsInBusiness = currentYear - yearFounded;
+
+                    // Menampilkan hasil perhitungan di elemen dengan id "years-in-business"
+                    document.getElementById('years-in-business').textContent = yearsInBusiness;
+                </script>
+
 
                 <div class="col-lg-3 col-md-6">
                     <div class="stats-item">
@@ -329,15 +344,20 @@
                         <div class="col-md-6">
                             <ul class="feature-list">
                                 @foreach (json_decode($about->about_poin1 ?? '[]') as $point1)
-                                    <li><i class="bi bi-check-circle-fill"></i> {{ $point1 }}</li>
+                                    @if (!empty($point1))
+                                        <li><i class="bi bi-check-circle-fill"></i> {{ $point1 }}</li>
+                                    @endif
                                 @endforeach
                             </ul>
                         </div>
                         <div class="col-md-6">
                             <ul class="feature-list">
                                 @foreach (json_decode($about->about_poin2 ?? '[]') as $point2)
-                                    <li><i class="bi bi-check-circle-fill"></i> {{ $point2 }}</li>
+                                    @if (!empty($point2))
+                                        <li><i class="bi bi-check-circle-fill"></i> {{ $point2 }}</li>
+                                    @endif
                                 @endforeach
+
                             </ul>
                         </div>
                     </div>
@@ -371,15 +391,16 @@
                 <div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="image-wrapper">
                         <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
-                            <img src="assets/img/about-5.webp" alt="Business Meeting"
+                            <img src="assets/img/room-1.jpg" alt="Business Meeting"
                                 class="img-fluid main-image rounded-4">
-                            <img src="assets/img/about-2.webp" alt="Team Discussion"
+                            <img src="assets/img/logo-dark.jpg" alt="Team Discussion"
                                 class="img-fluid small-image rounded-4">
                         </div>
                         <div class="experience-badge floating">
-                            <h3>50+<span>Supplies</span></h3>
+                            <h3>{{ $totalProducts > 0 ? $totalProducts . '+' : '0' }} <span>Supplies</span></h3>
                             <p>are waiting for you</p>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -397,26 +418,29 @@
             <div class="row gy-4">
 
                 <div class="col-lg-6 position-relative" data-aos="fade-up" data-aos-delay="100">
-                    <img src="assets/img/about.jpg" class="img-fluid" alt="">
+                    <img src="assets/img/room-2.jpg" class="img-fluid" alt="">
 
                 </div>
 
                 <div class="col-lg-6 ps-lg-4 content d-flex flex-column justify-content-center" data-aos="fade-up"
                     data-aos-delay="200">
-                    <h3>We work for you</h3>
+                    <h3>Our Mission</h3>
                     <p>
                         {{ $about->vision ?? 'Data Not Available' }}
                     </p>
                     <ul>
                         @foreach (json_decode($about->mission ?? '[]') as $mission)
-                            <li>
-                                <i class="bi bi-diagram-3"></i>
-                                <div>
-                                    <h5>{{ $mission }}</h5>
-
-                                </div>
-                            </li>
+                            @if (!empty($mission))
+                                <!-- Cek jika $mission tidak kosong -->
+                                <li>
+                                    <i class="bi bi-check-circle"></i>
+                                    <div>
+                                        <h5>{{ $mission }}</h5>
+                                    </div>
+                                </li>
+                            @endif
                         @endforeach
+
                     </ul>
                 </div>
 

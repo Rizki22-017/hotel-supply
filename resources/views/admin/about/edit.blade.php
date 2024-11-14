@@ -37,18 +37,18 @@
             </div>
 
             <div class="col-12 mb-3">
-                <label class="col-sm-2 col-form-label">About Points</label>
+                <label class="col-sm-2 col-form-label">Core Value</label>
                 <div class="row">
                     <div class="col-6" for="about_poin1">
                         @for ($i = 0; $i < 3; $i++)
                             <input type="text" class="form-control mb-2" name="about_poin1[]"
-                                value="{{ old('about_poin1.' . $i, json_decode($about->about_poin1)[$i] ?? '') }}" required>
+                                value="{{ old('about_poin1.' . $i, json_decode($about->about_poin1)[$i] ?? '') }}">
                         @endfor
                     </div>
                     <div class="col-6" for="about_poin2">
                         @for ($i = 0; $i < 3; $i++)
                             <input type="text" class="form-control mb-2" name="about_poin2[]"
-                                value="{{ old('about_poin2.' . $i, json_decode($about->about_poin2)[$i] ?? '') }}" required>
+                                value="{{ old('about_poin2.' . $i, json_decode($about->about_poin2)[$i] ?? '') }}">
                         @endfor
                     </div>
                 </div>
@@ -59,8 +59,9 @@
                 <label for="leader_pict" class="col-sm-2 col-form-label">CEO's Photo</label>
                 <div class="col-sm-10">
                     <input class="form-control" type="file" id="formFile" name="leader_pict">
-                    <small class="form-text text-muted">Current photo: <img src="{{ asset($about->leader_pict) }}"
-                            alt="CEO's Photo" style="max-width: 100px;"></small>
+                    <small class="form-text text-muted">Current photo: <img
+                            src="{{ asset('storage/' . $about->leader_pict) }}" alt="Product Image" class="responsive-img">
+                    </small>
                 </div>
             </div>
 
@@ -72,7 +73,7 @@
             </div>
 
             <div class="col-12 mb-3">
-                <label for="phone" class="col-sm-2 col-form-label">Nomor Telepon Kantor</label>
+                <label for="phone" class="col-sm-2 col-form-label">Office Phone Number</label>
                 <div class="col-12">
                     <input type="tel" class="form-control" name="phone" value="{{ old('phone', $about->phone) }}"
                         placeholder="Masukkan nomor telepon" required>
@@ -107,9 +108,9 @@
             <div class="col-12 mb-3">
                 <label for="mission" class="col-sm-2 col-form-label">Mission</label>
                 <div class="col-12">
-                    @for ($i = 0; $i < 3; $i++)
+                    @for ($i = 0; $i < 5; $i++)
                         <input type="text" class="form-control mb-2" name="mission[]"
-                            value="{{ old('mission.' . $i, json_decode($about->mission)[$i] ?? '') }}" required>
+                            value="{{ old('mission.' . $i, json_decode($about->mission)[$i] ?? '') }}">
                     @endfor
                 </div>
             </div>
@@ -122,22 +123,22 @@
             </div>
 
             <div class="col-12 mb-3">
-                <label for="wa_sumatera" class="col-sm-2 col-form-label">Nomor WhatsApp Sumatera</label>
+                <label for="wa_sumatera" class="col-sm-2 col-form-label">Sumatra WhatsApp Number</label>
                 <div class="col-12">
                     <input type="tel" class="form-control" name="wa_sumatera"
                         value="{{ old('wa_sumatera', $about->wa_sumatera) }}" placeholder="Masukkan nomor WhatsApp"
                         required pattern="^\+?[0-9]{10,15}$">
-                    <small class="form-text text-muted">Contoh: +6281234567890</small>
+                    <small class="form-text text-muted">Ex: +6281234567890</small>
                 </div>
             </div>
 
             <div class="col-12 mb-3">
-                <label for="wa_jawa" class="col-sm-2 col-form-label">Nomor WhatsApp Jawa & Bali</label>
+                <label for="wa_jawa" class="col-sm-2 col-form-label">Jawa & Bali WhatsApp Numbers</label>
                 <div class="col-12">
                     <input type="tel" class="form-control" name="wa_jawa"
                         value="{{ old('wa_jawa', $about->wa_jawa) }}" placeholder="Masukkan nomor WhatsApp" required
                         pattern="^\+?[0-9]{10,15}$">
-                    <small class="form-text text-muted">Contoh: +6281234567890</small>
+                    <small class="form-text text-muted">Ex: +6281234567890</small>
                 </div>
             </div>
 
@@ -146,7 +147,7 @@
                 <div class="col-12">
                     <input type="email" class="form-control" name="email" value="{{ old('email', $about->email) }}"
                         placeholder="Masukkan email" required>
-                    <small class="form-text text-muted">Contoh: example@gmail.com</small>
+                    <small class="form-text text-muted">Ex: example@gmail.com</small>
                 </div>
             </div>
 
@@ -195,7 +196,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary">Update Data</button>
         </form>
     </div>
 

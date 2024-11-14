@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('highlight'); // Perbaiki 'highligt' menjadi 'highlight'
             $table->text('about_desc'); // Ubah jika 'about_desc' adalah teks
-            $table->json('about_poin1'); // Menggunakan tipe json untuk menyimpan array
-            $table->json('about_poin2'); // Menggunakan tipe json untuk menyimpan array
+            $table->json('about_poin1')->nullable(); // Menggunakan tipe json untuk menyimpan array
+            $table->json('about_poin2')->nullable(); // Menggunakan tipe json untuk menyimpan array
             $table->string('leader_pict'); // Pastikan untuk menentukan tipe data yang sesuai
             $table->string('leader_name'); // Pastikan untuk menentukan tipe data yang sesuai
             $table->string('phone'); // Pastikan untuk menentukan tipe data yang sesuai

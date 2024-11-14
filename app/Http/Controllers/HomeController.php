@@ -19,9 +19,10 @@ class HomeController extends Controller
         $about = About::first();  // Asumsi hanya ada satu record About
         $testimonials = Testimonial::all();
         $clients = Client::all();
+        $totalProducts = Product::count();
 
         // Kirim data ke view
-        return view('content.homepage', compact('categories', 'products', 'about', 'testimonials', 'clients'));
+        return view('content.homepage', compact('categories', 'products', 'about', 'testimonials', 'clients', 'totalProducts'));
     }
 
     public function layout()

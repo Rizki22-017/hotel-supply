@@ -69,7 +69,7 @@
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                About Description
+                                Description
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
@@ -82,7 +82,7 @@
                         <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                About Points
+                                Core Value
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
@@ -91,14 +91,15 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <p>Left</p>
-                                            @foreach (json_decode($about->about_poin1) as $point1)
+                                            @foreach (json_decode($about->about_poin1) ?? [] as $point1)
                                                 <li>{{ $point1 }}</li>
                                             @endforeach
+
 
                                         </div>
                                         <div class="col-6">
                                             <p>Right</p>
-                                            @foreach (json_decode($about->about_poin2) as $point2)
+                                            @foreach (json_decode($about->about_poin2) ?? [] as $point2)
                                                 <li>{{ $point2 }}</li>
                                             @endforeach
 

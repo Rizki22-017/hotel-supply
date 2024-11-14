@@ -30,10 +30,12 @@ class AboutController extends Controller
 
     public function store(Request $request)
     {
+        // Batasi hanya ada satu data About
         if (About::exists()) {
             return redirect()->back()->withErrors(['error' => 'Hanya boleh ada satu data About, silahkan pilih edit']);
         }
 
+        // Validasi input
         $request->validate([
             'highlight' => 'required|string',
             'about_desc' => 'required|string',
@@ -42,40 +44,36 @@ class AboutController extends Controller
             'leader_pict' => 'image|nullable',
             'leader_name' => 'required|string',
             'phone' => 'required|string',
-            // 'history' => 'required|string',
             'vision' => 'required|string',
             'mission' => 'required|array',
-            // 'brand' => 'required|array',
             'address' => 'required|string',
             'wa_sumatera' => 'required|string',
             'wa_jawa' => 'required|string',
             'email' => 'required|email',
-            // 'operational' => 'required|string',
             'twitter' => 'required|string',
             'facebook' => 'required|string',
             'instagram' => 'required|string',
             'linkedin' => 'required|string',
         ]);
 
+        // Upload gambar leader jika ada
         $leader_img_path = $request->file('leader_pict') ? $request->file('leader_pict')->store('abouts', 'public') : null;
-
+        // dd($request->all());
+        // Buat data About baru dengan konversi JSON untuk array fields
         About::create([
             'highlight' => $request->highlight,
             'about_desc' => $request->about_desc,
-            'about_poin1' => json_encode($request->about_poin1),
-            'about_poin2' => json_encode($request->about_poin2),
+            'about_poin1' => json_encode($request->about_poin1 ?? []), // Konversi ke JSON dan beri nilai default jika null
+            'about_poin2' => json_encode($request->about_poin2 ?? []), // Konversi ke JSON dan beri nilai default jika null
             'leader_pict' => $leader_img_path,
             'leader_name' => $request->leader_name,
             'phone' => $request->phone,
-            // 'history' => $request->history,
             'vision' => $request->vision,
-            'mission' => json_encode($request->mission),
-            // 'brand' => json_encode($request->brand),
+            'mission' => json_encode($request->mission ?? []), // Konversi ke JSON dan beri nilai default jika null
             'address' => $request->address,
             'wa_sumatera' => $request->wa_sumatera,
             'wa_jawa' => $request->wa_jawa,
             'email' => $request->email,
-            // 'operational' => $request->operational,
             'twitter' => $request->twitter,
             'facebook' => $request->facebook,
             'instagram' => $request->instagram,
@@ -84,6 +82,7 @@ class AboutController extends Controller
 
         return redirect()->route('abouts.index')->with('success', 'Data About berhasil disimpan.');
     }
+
 
     public function edit()
     {
