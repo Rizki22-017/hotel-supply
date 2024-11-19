@@ -14,7 +14,7 @@
                         @if (!empty($galleryImages) && is_array($galleryImages))
                             @foreach ($galleryImages as $index => $galleryImage)
                                 <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                    <img src="{{ asset('storage/' . $galleryImage) }}" class="d-block w-100 carousel-image"
+                                    <img src="{{ asset($galleryImage) }}" class="d-block w-100 carousel-image"
                                         alt="Gallery Image {{ $index + 1 }}">
                                 </div>
                             @endforeach
@@ -128,8 +128,7 @@
                 @foreach ($randomProducts as $randomProduct)
                     <div class="col-lg-3 col-md-4 portfolio-item">
                         <div class="portfolio-content h-100">
-                            <img src="{{ asset('storage/' . $randomProduct->product_image) }}" class="img-fluid"
-                                alt="">
+                            <img src="{{ asset($randomProduct->product_image) }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4><a href="/product-detail">{{ $randomProduct->product_name }}</a></h4>
                                 {{-- <p>{{ $randomProduct->product_description }}</p> --}}

@@ -48,7 +48,7 @@
                             <td>{{ $product->product_size_chart }}</td> --}}
                             <td>
                                 @if ($product->product_image)
-                                    <img src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image"
+                                    <img src="{{ asset($product->product_image) }}" alt="Product Image"
                                         class="responsive-img">
                                 @else
                                     <span>No Image</span>
@@ -105,8 +105,8 @@
                                         <p><strong>Size Chart:</strong> {{ $product->product_size_chart }}</p>
                                         <p><strong>Main Image:</strong></p>
                                         @if ($product->product_image)
-                                            <img src="{{ asset('storage/' . $product->product_image) }}"
-                                                alt="Product Image" style="width: 100px; height: auto;">
+                                            <img src="{{ asset($product->product_image) }}" alt="Product Image"
+                                                style="width: 100px; height: auto;">
                                         @else
                                             <span>No Image</span>
                                         @endif
@@ -116,7 +116,7 @@
                                         @endphp
                                         @if (!empty($galleryImages) && is_array($galleryImages))
                                             @foreach ($galleryImages as $galleryImage)
-                                                <img src="{{ asset('storage/' . $galleryImage) }}" alt="Gallery Image"
+                                                <img src="{{ asset($galleryImage) }}" alt="Gallery Image"
                                                     style="width: 50px; height: 50px;">
                                             @endforeach
                                         @else

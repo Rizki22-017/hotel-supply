@@ -120,8 +120,7 @@
                             <div class="accordion-body">
                                 {{-- {{$about->leader_pict}} --}}
                                 @if ($about->leader_pict)
-                                    <img src="{{ asset('storage/' . $about->leader_pict) }}" alt="Product Image"
-                                        class="responsive-img">
+                                    <img src="{{ asset($about->leader_pict) }}" alt="Product Image" class="responsive-img">
                                 @else
                                     <span>No Image</span>
                                 @endif

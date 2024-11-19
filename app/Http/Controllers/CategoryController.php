@@ -50,8 +50,22 @@ class CategoryController extends Controller
 
         // Handle image upload
         if ($request->hasFile('category_image')) {
-            $imagePath = $request->file('category_image')->store('categories', 'public');
-            $category->category_image = $imagePath;
+            // Hapus file lama jika ada
+            if ($category->category_image && file_exists(public_path($category->category_image))) {
+                unlink(public_path($category->category_image));
+            }
+
+            // Tentukan lokasi penyimpanan (misalnya public/images/categories)
+            $destinationPath = public_path('images/categories');
+
+            // Buat nama unik untuk file
+            $fileName = time() . '_' . $request->file('category_image')->getClientOriginalName();
+
+            // Pindahkan file ke folder tujuan
+            $request->file('category_image')->move($destinationPath, $fileName);
+
+            // Simpan path file ke database (relatif terhadap public/)
+            $category->category_image = 'images/categories/' . $fileName;
         }
 
         $category->save();
@@ -94,8 +108,22 @@ class CategoryController extends Controller
 
         // Update image if a new one is uploaded
         if ($request->hasFile('category_image')) {
-            $imagePath = $request->file('category_image')->store('categories', 'public');
-            $category->category_image = $imagePath;
+            // Hapus file lama jika ada
+            if ($category->category_image && file_exists(public_path($category->category_image))) {
+                unlink(public_path($category->category_image));
+            }
+
+            // Tentukan lokasi penyimpanan (misalnya public/images/categories)
+            $destinationPath = public_path('images/categories');
+
+            // Buat nama unik untuk file
+            $fileName = time() . '_' . $request->file('category_image')->getClientOriginalName();
+
+            // Pindahkan file ke folder tujuan
+            $request->file('category_image')->move($destinationPath, $fileName);
+
+            // Simpan path file ke database (relatif terhadap public/)
+            $category->category_image = 'images/categories/' . $fileName;
         }
 
         $category->save();
@@ -115,7 +143,7 @@ class CategoryController extends Controller
         }
 
         // Hapus gambar dari storage jika ada
-        if ($category->category_image) {
+        if ($category->category_image && Storage::disk('public')->exists($category->category_image)) {
             Storage::disk('public')->delete($category->category_image);
         }
 

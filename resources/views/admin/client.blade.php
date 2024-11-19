@@ -37,8 +37,7 @@
                             <td>{{ $client->name }}</td>
                             <td>
                                 @if ($client->logo)
-                                    <img src="{{ asset('storage/' . $client->logo) }}" alt="Client's Logo"
-                                        class="responsive-img">
+                                    <img src="{{ asset($client->logo) }}" alt="Client's Logo" class="responsive-img">
                                 @else
                                     <span>No Image</span>
                                 @endif

@@ -157,7 +157,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12 portfolio-item">
                             <a href="{{ route('filter', ['category_id' => $category->id]) }}" class="portfolio-link">
                                 <div class="portfolio-content h-100">
-                                    <img src="{{ asset('storage/' . $category->category_image) }}" class="img-fluid"
+                                    <img src="{{ asset($category->category_image) }}" class="img-fluid"
                                         alt="{{ $category->category_name }} image">
                                     <div class="portfolio-info w-100 p-3">
                                         <h4 class="category-name">{{ $category->category_name }}</h4>
@@ -225,8 +225,7 @@
                             data-aos="zoom-in" data-aos-delay="100">
                             <a href="{{ route('detail.product', $product->id) }}">
                                 <div class="pricing-tem">
-                                    <img src="{{ asset('storage/' . $product->product_image) }}" class="img-fluid"
-                                        alt="">
+                                    <img src="{{ asset($product->product_image) }}" class="img-fluid" alt="">
                                     <div class="pricing-info">
                                         <h4>{{ $product->product_name }}</h4>
                                         {{-- <p>{{ $product->product_description }}</p> --}}
@@ -366,8 +365,8 @@
                         <div class="row gy-4">
                             <div class="col-lg-5">
                                 <div class="profile d-flex align-items-center gap-3">
-                                    <img src="{{ asset('storage/' . ($about?->leader_pict ?? 'default-logo.svg')) }}"
-                                        alt="CEO Profile" class="profile-image">
+                                    <img src="{{ asset($about?->leader_pict ?? 'default-logo.svg') }}" alt="CEO Profile"
+                                        class="profile-image">
 
                                     <div>
                                         <h4 class="profile-name">{{ $about->leader_name ?? 'Data Not Available' }}</h4>
@@ -503,7 +502,7 @@
                 <div class="swiper-wrapper align-items-center">
                     @foreach ($displayClients as $client)
                         <div class="swiper-slide">
-                            <img src="{{ asset('storage/' . $client->logo) }}" class="img-fluid" alt="">
+                            <img src="{{ asset($client->logo) }}" class="img-fluid" alt="">
                         </div>
                     @endforeach
                 </div>

@@ -59,8 +59,8 @@
                 <label for="leader_pict" class="col-sm-2 col-form-label">CEO's Photo</label>
                 <div class="col-sm-10">
                     <input class="form-control" type="file" id="formFile" name="leader_pict">
-                    <small class="form-text text-muted">Current photo: <img
-                            src="{{ asset('storage/' . $about->leader_pict) }}" alt="Product Image" class="responsive-img">
+                    <small class="form-text text-muted">Current photo: <img src="{{ asset($about->leader_pict) }}"
+                            alt="Product Image" class="responsive-img">
                     </small>
                 </div>
             </div>

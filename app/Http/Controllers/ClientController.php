@@ -39,8 +39,17 @@ class ClientController extends Controller
         $client = new Client();
         $client->name = $request->input('name');  // Menyimpan data name dari input form
         if ($request->hasFile('logo')) {
-            $imagePath = $request->file('logo')->store('clients', 'public');
-            $client->logo = $imagePath;
+            // Tentukan lokasi penyimpanan
+            $destinationPath = public_path('images/clients');
+
+            // Buat nama unik untuk file
+            $fileName = time() . '_' . $request->file('logo')->getClientOriginalName();
+
+            // Pindahkan file ke folder tujuan
+            $request->file('logo')->move($destinationPath, $fileName);
+
+            // Simpan path relatif ke database
+            $client->logo = 'images/clients/' . $fileName;
         }
 
         $client->save();
@@ -78,8 +87,9 @@ class ClientController extends Controller
     public function destroy(string $id)
     {
         $client = Client::findOrFail($id);
-        if ($client->logo) {
-            Storage::disk('public')->delete($client->logo);
+        // Hapus file logo dari folder public jika ada
+        if ($client->logo && file_exists(public_path($client->logo))) {
+            unlink(public_path($client->logo));
         }
 
         $client->delete();

@@ -96,6 +96,11 @@
                     <i class="bi bi-grid-3x3-gap-fill"></i>
                     <span>Categories</span>
                 </a>
+                {{-- <a class="nav-link collapsed{{ request()->is('categories*') ? ' active' : '' }}"
+                    href="{{ url('/categories') }}">
+                    Categories
+                </a> --}}
+
             </li>
 
             <li class="nav-item">

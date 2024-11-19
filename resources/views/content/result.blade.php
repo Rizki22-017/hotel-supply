@@ -26,8 +26,7 @@
                         <div class="col-lg-3 col-md-4 portfolio-item">
                             <a href="{{ route('detail.product', $product->id) }}">
                                 <div class="portfolio-content h-100">
-                                    <img src="{{ asset('storage/' . $product->product_image) }}" class="img-fluid"
-                                        alt="">
+                                    <img src="{{ asset($product->product_image) }}" class="img-fluid" alt="">
                                     <div class="portfolio-info">
                                         <h4>{{ $product->product_name }}</h4>
                                         {{-- <p>{{ $product->product_description }}</p> --}}

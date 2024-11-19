@@ -60,22 +60,56 @@ class ProductController extends Controller
         $product->product_size_chart = $request->product_size_chart;
 
         // Simpan gambar utama produk
+        // Simpan gambar utama produk
         if ($request->hasFile('product_image')) {
-            $imagePath = $request->file('product_image')->store('products', 'public');
-            $product->product_image = $imagePath;
+            // Hapus gambar lama jika ada
+            if ($product->product_image && file_exists(public_path($product->product_image))) {
+                unlink(public_path($product->product_image));
+            }
+
+            // Tentukan lokasi penyimpanan
+            $destinationPath = public_path('images/products');
+
+            // Buat nama unik untuk file
+            $fileName = time() . '_' . $request->file('product_image')->getClientOriginalName();
+
+            // Pindahkan file ke folder tujuan
+            $request->file('product_image')->move($destinationPath, $fileName);
+
+            // Simpan path file ke database (relatif terhadap public/)
+            $product->product_image = 'images/products/' . $fileName;
         }
 
         // Simpan galeri produk
         if ($request->hasFile('product_gallery')) {
+            // Hapus gambar galeri lama jika ada
+            if ($product->product_gallery) {
+                $existingGallery = json_decode($product->product_gallery, true);
+                foreach ($existingGallery as $oldGalleryImage) {
+                    if (file_exists(public_path($oldGalleryImage))) {
+                        unlink(public_path($oldGalleryImage));
+                    }
+                }
+            }
+
             $galleryPaths = [];
             foreach ($request->file('product_gallery') as $galleryImage) {
-                $path = $galleryImage->store('product_galleries', 'public');
-                $galleryPaths[] = $path;
+                // Tentukan lokasi penyimpanan
+                $destinationPath = public_path('images/product_galleries');
+
+                // Buat nama unik untuk file
+                $fileName = time() . '_' . $galleryImage->getClientOriginalName();
+
+                // Pindahkan file ke folder tujuan
+                $galleryImage->move($destinationPath, $fileName);
+
+                // Tambahkan path file ke array
+                $galleryPaths[] = 'images/product_galleries/' . $fileName;
             }
+
             // Konversi array paths menjadi JSON dan simpan ke database
             $product->product_gallery = json_encode($galleryPaths);
         }
-
 
         $product->save();
 
@@ -129,28 +163,58 @@ class ProductController extends Controller
         $product->product_description = $request->product_description;
         $product->product_size_chart = $request->product_size_chart;
 
+        // Update gambar utama produk
         if ($request->hasFile('product_image')) {
-            if ($product->product_image) {
-                Storage::disk('public')->delete($product->product_image);
+            // Hapus gambar lama jika ada
+            if ($product->product_image && file_exists(public_path($product->product_image))) {
+                unlink(public_path($product->product_image));
             }
-            $product->product_image = $request->file('product_image')->store('products', 'public');
+
+            // Tentukan lokasi penyimpanan
+            $destinationPath = public_path('images/products');
+
+            // Buat nama unik untuk file
+            $fileName = time() . '_' . $request->file('product_image')->getClientOriginalName();
+
+            // Pindahkan file ke folder tujuan
+            $request->file('product_image')->move($destinationPath, $fileName);
+
+            // Simpan path file baru ke database (relatif terhadap public/)
+            $product->product_image = 'images/products/' . $fileName;
         }
 
+        // Update galeri produk
         if ($request->hasFile('product_gallery')) {
-            $oldGallery = json_decode($product->product_gallery);
+            // Hapus galeri lama jika ada
+            $oldGallery = json_decode($product->product_gallery, true);
             if ($oldGallery) {
                 foreach ($oldGallery as $oldImage) {
-                    Storage::disk('public')->delete($oldImage);
+                    if (file_exists(public_path($oldImage))) {
+                        unlink(public_path($oldImage));
+                    }
                 }
             }
+
             $galleryPaths = [];
             foreach ($request->file('product_gallery') as $galleryImage) {
-                $path = $galleryImage->store('product_galleries', 'public');
-                $galleryPaths[] = $path;
+                // Tentukan lokasi penyimpanan
+                $destinationPath = public_path('images/product_galleries');
+
+                // Buat nama unik untuk file
+                $fileName = time() . '_' . $galleryImage->getClientOriginalName();
+
+                // Pindahkan file ke folder tujuan
+                $galleryImage->move($destinationPath, $fileName);
+
+                // Tambahkan path file ke array
+                $galleryPaths[] = 'images/product_galleries/' . $fileName;
             }
+
+            // Simpan path galeri baru dalam format JSON ke database
             $product->product_gallery = json_encode($galleryPaths);
         }
 
+        // Simpan perubahan ke database
         $product->save();
 
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');
@@ -162,13 +226,21 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        if ($product->product_image) {
+        // Hapus gambar utama
+        if ($product->product_image && Storage::disk('public')->exists($product->product_image)) {
             Storage::disk('public')->delete($product->product_image);
         }
 
+        // Hapus galeri produk
         if ($product->product_gallery) {
-            foreach (json_decode($product->product_gallery) as $galleryImage) {
-                Storage::disk('public')->delete($galleryImage);
+            $galleryImages = json_decode($product->product_gallery, true);
+
+            if (is_array($galleryImages)) {
+                foreach ($galleryImages as $galleryImage) {
+                    if (Storage::disk('public')->exists($galleryImage)) {
+                        Storage::disk('public')->delete($galleryImage);
+                    }
+                }
             }
         }
 

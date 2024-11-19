@@ -39,7 +39,7 @@
                             <td class="scrollable">{{ $category->category_description }}</td>
                             <td>
                                 @if ($category->category_image)
-                                    <img src="{{ asset('storage/' . $category->category_image) }}" alt="Category Image"
+                                    <img src="{{ asset($category->category_image) }}" alt="Category Image"
                                         class="responsive-img">
                                 @else
                                     <span>No Image</span>
