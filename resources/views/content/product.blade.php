@@ -27,7 +27,10 @@
                                     <img src="{{ asset($category->category_image) }}" class="img-fluid" alt="">
                                     <div class="pricing-info">
                                         <h4>{{ $category->category_name }}</h4>
-                                        <p>{{ $category->category_description }}</p>
+                                        <p>
+                                            {{-- {{ $category->category_description }} --}}
+                                            {{ strlen($category->category_description) > 75 ? \Illuminate\Support\Str::limit($category->category_description, 75) . '...' : $category->category_description }}
+                                        </p>
                                     </div>
                                 </div>
                             </a>
@@ -152,7 +155,10 @@
                                     <img src="{{ asset($product->product_image) }}" class="img-fluid" alt="">
                                     <div class="portfolio-info">
                                         <h4>{{ $product->product_name }}</h4>
-                                        <p>{{ $product->product_description }}</p>
+                                        <p>
+                                            {{-- {{ $product->product_description }} --}}
+                                            {{ strlen($product->product_description) > 75 ? \Illuminate\Support\Str::limit($product->product_description, 75) . '...' : $product->product_description }}
+                                        </p>
                                     </div>
                                 </div>
                             </a>
