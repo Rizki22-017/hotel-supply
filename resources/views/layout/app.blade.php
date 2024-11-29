@@ -68,13 +68,14 @@
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
 
+                {{-- <a class="cta-btn d-none d-sm-block"
+                    href="https://wa.me/{{ $about->wa_sumatera ?? 'Data Not Available' }}" target="_blank">
+                    Order Now
+                </a> --}}
 
-
-
-                <a class="cta-btn d-none d-sm-block"
-                    href="https://wa.me/{{ $about->wa_sumatera ?? 'Data Not Available' }}" target="_blank">Order
-                    Now</a>
-
+                <a class="cta-btn d-none d-sm-block" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer">
+                    Order Now
+                </a>
             </div>
 
         </div>
@@ -122,17 +123,43 @@
 
                     <div class="social-links d-flex mt-4">
                         <a href="{{ $about->twitter ?? 'Data Not Available' }}" target="_blank" rel="noopener">
-                            <i class="bi bi-twitter-x"></i>
+                            {{-- <i class="bi bi-twitter-x"></i> --}}
+                            <img src="{{ asset('assets/img/x.svg')}}" alt="X">
                         </a>
                         <a href="{{ $about->facebook ?? 'Data Not Available' }}" target="_blank" rel="noopener">
-                            <i class="bi bi-facebook"></i>
+                            {{-- <i class="bi bi-facebook"></i> --}}
+                            <img src="{{ asset('assets/img/facebook.svg')}}" alt="Facebook">
                         </a>
                         <a href="{{ $about->instagram ?? 'Data Not Available' }}" target="_blank" rel="noopener">
-                            <i class="bi bi-instagram"></i>
+                            {{-- <i class="bi bi-instagram"></i> --}}
+                            <img src="{{ asset('assets/img/instagram.svg')}}" alt="Instagram">
                         </a>
                         <a href="{{ $about->linkedin ?? 'Data Not Available' }}" target="_blank" rel="noopener">
-                            <i class="bi bi-linkedin"></i>
+                            {{-- <i class="bi bi-linkedin"></i> --}}
+                            <img src="{{ asset('assets/img/linkedin.svg')}}" alt="Linkedin">
                         </a>
+                        {{-- <a href="{{ $about->shopee ?? '#' }}" target="_blank" rel="noopener">
+                            <img src="{{ asset('assets/img/shopee.svg') }}" alt="Shopee Logo">
+                        </a> --}}
+                        @if (!empty($about?->shopee))
+                            <a href="{{ $about->shopee }}" target="_blank" rel="noopener">
+                                <img src="{{ asset('assets/img/shopee.svg') }}" alt="Shopee Logo">
+                            </a>
+                        @endif
+                        {{-- @if($about->shopee)
+                            <a href="{{ $about->shopee ?? 'Data Not Available' }}" target="_blank" rel="noopener">
+                                <img src="{{ asset('assets/img/shopee.svg') }}" alt="Shopee Logo">
+                            </a>
+                        @endif --}}
+
+                        {{-- @if($about && $about->shopee)
+                            <a href="{{ $about->shopee }}" target="_blank" rel="noopener">
+                                <img src="{{ asset('assets/img/shopee.svg') }}" alt="Shopee Logo">
+                            </a>
+                        @else
+                            <p></p>
+                        @endif --}}
+
                     </div>
                 </div>
 
@@ -170,6 +197,28 @@
         </a>
     </div>
 
+    <div class="email-float">
+        <a href="mailto:{{ $about->email ?? 'Data Not Available' }}" target="_blank">
+            <i class="bi bi-envelope"></i>
+        </a>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fs-5" id="exampleModalLabel">Select App to Order</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <a href="https://wa.me/{{ $about->wa_sumatera ?? 'Data Not Available' }}" target="_blank" class="btn w-100 mb-2">WhatsApp</a>
+                <a href="mailto:{{ $about->email ?? 'Data Not Available' }}" target="_blank" class="btn w-100">Email</a>
+            </div>
+
+          </div>
+        </div>
+    </div>
+
     <!-- Preloader -->
     <div id="preloader"></div>
 
@@ -191,8 +240,8 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en', // Bahasa sumber website Anda (ubah jika perlu)
-                includedLanguages: 'en,id,pt,ru,ja,zh,hi,ar,es,fr,de', // Bahasa target yang didukung, tambahkan bahasa lain jika perlu
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                includedLanguages: 'en,id,pt,ru,ja,zh-CN,zh-TW,yue,hi,ar,es,fr,de', // Bahasa target yang didukung, tambahkan bahasa lain jika perlu
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
             }, 'google_translate_element');
         }
     </script>

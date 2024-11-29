@@ -47,6 +47,14 @@ Route::get('admin', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('admin', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
+//reset password
+Route::get('/forgot-pass', [LoginController::class, 'forgot_pass'])->name('forgot-pass');
+Route::post('forgot-pass-act', [LoginController::class, 'forgot_pass_act'])->name('forgot-pass-act');
+
+
+Route::get('/val-forgot-pass/{token}', [LoginController::class, 'val_forgot_pass'])->name('val-forgot-pass');
+Route::post('/val-forgot-pass-act', [LoginController::class, 'val_forgot_pass_act'])->name('val-forgot-pass-act');
+
 
 // untuk tes
 Route::get('/tes', function () {

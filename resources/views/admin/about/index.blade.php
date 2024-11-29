@@ -328,6 +328,19 @@
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading20">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse20" aria-expanded="false" aria-controls="collapse20">
+                                Link Shopee
+                            </button>
+                        </h2>
+                        <div id="collapse20" class="accordion-collapse collapse" aria-labelledby="heading20">
+                            <div class="accordion-body">
+                                {{ $about->shopee }}
+                            </div>
+                        </div>
+                    </div>
                 </div><!-- End Default Accordion Example -->
             @endforeach
         </div>

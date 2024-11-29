@@ -279,22 +279,26 @@ h6 {
 
 .header .branding {
   min-height: 60px;
-  padding: 10px 0;
+  padding: 15px;
 }
+
 .header .branding2 {
   min-height: 40px;
-  padding: 10px 0;
+  padding-top: 10px;
+  padding-bottom: 40px;
   background: linear-gradient(to right, #24a8a7 1%, #2e3336 100%);
-
 }
 
 .header .logo {
-  line-height: 1;
+  display: inline-block;
+
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 50px;
   margin-right: 8px;
+  filter: drop-shadow(2px 4px 2px rgba(0, 0, 0, 0.5));
+  line-height: 1;
 }
 
 .header .logo h1 {
@@ -319,6 +323,11 @@ h6 {
 .header .cta-btn:focus:hover {
   color: var(--contrast-color);
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+.index-page .modal .modal-dialog .modal-body a{
+    color: var(--contrast-color);
+    background-color: var(--accent-color);
 }
 
 @media (max-width: 1200px) {
@@ -670,6 +679,12 @@ h6 {
   color: var(--accent-color);
   border-color: var(--accent-color);
 }
+
+.footer .social-links a img {
+    width: 24px;  /* Menyesuaikan ukuran gambar */
+    height: 24px; /* Menyesuaikan ukuran gambar */
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+  }
 
 .footer h4 {
   font-size: 16px;
@@ -2514,14 +2529,52 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Email Floating Icon
+--------------------------------------------------------------*/
+.email-float {
+    position: fixed;                 /* Posisi tetap di layar */
+    bottom: 85px;                   /* Jarak dari bawah */
+    right: 30px;                    /* Jarak dari kanan */
+    width: 50px;                    /* Lebar ikon */
+    height: 50px;                   /* Tinggi ikon */
+    border-radius: 50%;             /* Membuat ikon berbentuk lingkaran */
+    background-color: var(--accent-color); /* Warna latar belakang */
+    display: flex;                  /* Menggunakan flexbox */
+    align-items: center;            /* Mengatur item secara vertikal di tengah */
+    justify-content: center;        /* Mengatur item secara horizontal di tengah */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan */
+    z-index: 1000;                  /* Pastikan berada di atas konten lainnya */
+    cursor: pointer;                /* Kursor menjadi pointer saat dihover */
+    transition: transform 0.3s, box-shadow 0.3s; /* Efek transisi */
+}
+
+.email-float a {
+    display: flex;                  /* Menggunakan flexbox untuk tautan */
+    align-items: center;            /* Mengatur item secara vertikal di tengah */
+    justify-content: center;        /* Mengatur item secara horizontal di tengah */
+    width: 100%;                   /* Mengisi lebar penuh */
+    height: 100%;                  /* Mengisi tinggi penuh */
+}
+
+.email-float i {
+    font-size: 24px;                /* Ukuran ikon */
+    color: var(--contrast-color);    /* Warna ikon */
+}
+
+.email-float:hover {
+    transform: scale(1.1);          /* Memperbesar tombol saat dihover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Bayangan lebih besar saat dihover */
+}
+
+/*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
 .scroll-top {
     position: fixed;
     visibility: hidden;
     opacity: 0;
-    right: 36px;                    /* Jarak dari kanan */
-    bottom: 85px;                   /* Jarak dari bawah, pastikan ini lebih tinggi dari tombol WhatsApp */
+    right: 35px;                    /* Jarak dari kanan */
+    bottom: 155px;                   /* Jarak dari bawah, pastikan ini lebih tinggi dari tombol WhatsApp */
     z-index: 99999;
     background-color: var(--accent-color);
     width: 40px;

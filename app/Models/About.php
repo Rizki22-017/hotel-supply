@@ -27,5 +27,6 @@ class About extends Model
         'facebook',
         'instagram',
         'linkedin',
+        'shopee',
     ];
 }

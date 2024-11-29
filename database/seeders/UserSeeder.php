@@ -16,7 +16,8 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Admin',
-            'email' => 'admin@360hotelpdg.com',
+            'email' => 'business.dailymail@gmail.com',
+            // 'email' => 'admin@360hotelpdg.com',
             'password' => Hash::make('padanghotel360admin')
         ]);
     }

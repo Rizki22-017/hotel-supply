@@ -35,6 +35,7 @@ class AboutSeeder extends Seeder
             'facebook' => 'https://x.com/',
             'instagram' => 'https://x.com/',
             'linkedin' => 'https://x.com/',
+            'shopee' => '',
         ]);
     }
 }

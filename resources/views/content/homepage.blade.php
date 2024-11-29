@@ -379,7 +379,9 @@
                                     <i class="bi bi-telephone-fill"></i>
                                     <div>
                                         <p class="contact-label">Call us anytime</p>
-                                        <p class="contact-number">{{ $about->phone ?? 'Data Not Available' }}</p>
+                                        <p class="contact-number">{{ $about->phone ?? '' }} (Phone)</p>
+                                        <p class="contact-number">{{ $about->wa_sumatera ?? 'Data Not Available' }}</p>
+                                        <p class="contact-number">{{ $about->wa_jawa ?? 'Data Not Available' }}</p>
                                     </div>
                                 </div>
                             </div>

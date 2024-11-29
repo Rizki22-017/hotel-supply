@@ -43,7 +43,7 @@ class AboutController extends Controller
             'about_poin2' => 'required|array',
             'leader_pict' => 'image|nullable',
             'leader_name' => 'required|string',
-            'phone' => 'required|string',
+            'phone' => 'nullable|string',
             'vision' => 'required|string',
             'mission' => 'required|array',
             'address' => 'required|string',
@@ -54,6 +54,7 @@ class AboutController extends Controller
             'facebook' => 'required|string',
             'instagram' => 'required|string',
             'linkedin' => 'required|string',
+            'shopee' => 'nullable|string',
         ]);
 
         // Upload gambar leader jika ada
@@ -94,6 +95,7 @@ class AboutController extends Controller
             'facebook' => $request->facebook,
             'instagram' => $request->instagram,
             'linkedin' => $request->linkedin,
+            'shopee' => $request->shopee,
         ]);
 
         return redirect()->route('abouts.index')->with('success', 'Data About berhasil disimpan.');
@@ -131,7 +133,7 @@ class AboutController extends Controller
             'about_poin2' => 'required|array',
             'leader_pict' => 'image|nullable',
             'leader_name' => 'required|string',
-            'phone' => 'required|string',
+            'phone' => 'nullable|string',
             'vision' => 'required|string',
             'mission' => 'required|array',
             'address' => 'required|string',
@@ -142,6 +144,7 @@ class AboutController extends Controller
             'facebook' => 'required|string',
             'instagram' => 'required|string',
             'linkedin' => 'required|string',
+            'shopee' => 'nullable|string',
         ]);
 
         // Proses gambar baru jika ada
@@ -185,6 +188,7 @@ class AboutController extends Controller
             'facebook' => $request->facebook,
             'instagram' => $request->instagram,
             'linkedin' => $request->linkedin,
+            'shopee' => $request->shopee,
         ]);
 
         return redirect()->route('abouts.index')->with('success', 'Data About berhasil diperbarui.');

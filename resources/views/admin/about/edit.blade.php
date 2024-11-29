@@ -76,7 +76,7 @@
                 <label for="phone" class="col-sm-2 col-form-label">Office Phone Number</label>
                 <div class="col-12">
                     <input type="tel" class="form-control" name="phone" value="{{ old('phone', $about->phone) }}"
-                        placeholder="Masukkan nomor telepon" required>
+                        placeholder="Edit your office phone number">
                 </div>
             </div>
 
@@ -163,7 +163,7 @@
                 <label for="twitter" class="col-sm-2 col-form-label">Link Twitter</label>
                 <div class="col-12">
                     <input type="url" class="form-control" name="twitter"
-                        value="{{ old('twitter', $about->twitter) }}" placeholder="Masukkan URL media sosial" required>
+                        value="{{ old('twitter', $about->twitter) }}" placeholder="Insert URL Twitter" required>
                     <small class="form-text text-muted">Contoh: https://www.twitter.com/username</small>
                 </div>
             </div>
@@ -172,7 +172,7 @@
                 <label for="facebook" class="col-sm-2 col-form-label">Link Facebook</label>
                 <div class="col-12">
                     <input type="url" class="form-control" name="facebook"
-                        value="{{ old('facebook', $about->facebook) }}" placeholder="Masukkan URL media sosial" required>
+                        value="{{ old('facebook', $about->facebook) }}" placeholder="Insert URL Facebook" required>
                     <small class="form-text text-muted">Contoh: https://www.facebook.com/username</small>
                 </div>
             </div>
@@ -181,7 +181,7 @@
                 <label for="instagram" class="col-sm-2 col-form-label">Link Instagram</label>
                 <div class="col-12">
                     <input type="url" class="form-control" name="instagram"
-                        value="{{ old('instagram', $about->instagram) }}" placeholder="Masukkan URL media sosial"
+                        value="{{ old('instagram', $about->instagram) }}" placeholder="Insert URL Instagram"
                         required>
                     <small class="form-text text-muted">Contoh: https://www.instagram.com/username</small>
                 </div>
@@ -191,8 +191,17 @@
                 <label for="linkedin" class="col-sm-2 col-form-label">Link Linkedin</label>
                 <div class="col-12">
                     <input type="url" class="form-control" name="linkedin"
-                        value="{{ old('linkedin', $about->linkedin) }}" placeholder="Masukkan URL media sosial" required>
+                        value="{{ old('linkedin', $about->linkedin) }}" placeholder="Insert URL Linkedin" required>
                     <small class="form-text text-muted">Contoh: https://www.linkedin.com/username</small>
+                </div>
+            </div>
+
+            <div class="col-12 mb-3">
+                <label for="shopee" class="col-sm-12 col-form-label">Link Shopee <small>(Can be empty if it does not exists)</small></label>
+                <div class="col-12">
+                    <input type="url" class="form-control" name="shopee"
+                        value="{{ old('shopee', $about->shopee) }}" placeholder="Insert URL Shopee">
+                    <small class="form-text text-muted">Contoh: https://www.shopee.com/username</small>
                 </div>
             </div>
 

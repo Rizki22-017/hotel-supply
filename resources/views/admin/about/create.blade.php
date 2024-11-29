@@ -69,10 +69,10 @@
                 </div>
 
                 <div class="col-12 mb-3">
-                    <label for="phone" class="col-sm-2 col-form-label">Office Phone Number</label>
+                    <label for="phone" class="col-sm-12 col-form-label">Office Phone Number <small>(Can be empty if it does not exists)</small></label>
                     <div class="col-12">
                         <input type="tel" class="form-control" name="phone"
-                            placeholder="Enter your company's phone number here" required>
+                            placeholder="Enter your company's phone number here">
                     </div>
                 </div>
 
@@ -188,6 +188,16 @@
                         <input type="url" class="form-control" name="linkedin"
                             placeholder="Enter your company's linkedin URL here" required>
                         <small class="form-text text-muted">Ex: https://www.linkedin.com/username</small>
+                    </div>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label for="shopee" class="col-sm-12 col-form-label">Link Shopee <small>(Shopee's URL can be empty if it does not exists)</small></label>
+                    <div class="col-12">
+                        <input type="url" class="form-control" name="shopee"
+                            placeholder="Enter your company's shopee URL here">
+                        <small class="form-text text-muted">Ex: https://www.shopee.com/username</small>
+                        <br>
                     </div>
                 </div>
                 <div class="col-12 mb-3">
