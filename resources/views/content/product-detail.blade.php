@@ -127,16 +127,18 @@
             <div class="row gy-4" data-layout="masonry" data-sort="original-order" data-aos="fade-up" data-aos-delay="200">
                 @foreach ($randomProducts as $randomProduct)
                     <div class="col-lg-3 col-md-4 portfolio-item">
+                        <a href="{{ route('detail.product', $randomProduct->id) }}">
                         <div class="portfolio-content h-100">
                             <img src="{{ asset($randomProduct->product_image) }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <h4><a href="/product-detail">{{ $randomProduct->product_name }}</a></h4>
+                                <h4>{{ $randomProduct->product_name }}</h4>
                                 {{-- <p>{{ $randomProduct->product_description }}</p> --}}
                                 <p class="category-description">
                                     {{ strlen($randomProduct->product_description) > 75 ? \Illuminate\Support\Str::limit($product->product_description, 75) . '...' : $product->product_description }}
                                 </p>
                             </div>
                         </div>
+                        </a>
                     </div><!-- End Portfolio Item -->
                 @endforeach
             </div><!-- End Portfolio Container -->
