@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
+use App\Models\User;
 
 class ContactController extends Controller
 {
@@ -26,8 +27,9 @@ class ContactController extends Controller
         ]);
 
         try {
-            // Kirim email (jika menggunakan Mailables)
-            Mail::to('nobodyloveme369@gmail.com')->send(new ContactMail($request));
+          $adminEmail = User::first()->email;
+          // Kirim email (jika menggunakan Mailables)
+            Mail::to($adminEmail)->send(new ContactMail($request));
 
             // Menambahkan pesan sukses ke session
             return back()->with('success', 'Message sent successfully!');
