@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductpageController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RegisterController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/product', [ProductpageController::class, 'home_product'])->name('home_product');
@@ -46,6 +47,10 @@ Route::get('/filter', [ProductpageController::class, 'filter'])->name('filter');
 Route::get('admin', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('admin', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+//daftar
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register']);
 
 //reset password
 Route::get('/forgot-pass', [LoginController::class, 'forgot_pass'])->name('forgot-pass');
