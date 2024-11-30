@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Container\Attributes\Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -41,4 +42,20 @@ class RegisterController extends Controller
 
     return redirect()->route('login')->with('success', 'Akun berhasil dibuat. Silakan login.');
     }
+
+    public function deleteAccount(Request $request)
+    {
+        // Mengambil user yang sedang login
+        $user = Auth::user();
+
+        // Hapus akun
+        $user->delete();
+
+        // Logout setelah penghapusan akun
+        Auth::logout();
+
+        // Redirect ke halaman login setelah akun dihapus
+        return redirect()->route('register')->with('success', 'Your account has been deleted. You can register with a new account.');
+    }
+
 }

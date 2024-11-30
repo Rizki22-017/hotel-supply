@@ -56,6 +56,9 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::get('/forgot-pass', [LoginController::class, 'forgot_pass'])->name('forgot-pass');
 Route::post('forgot-pass-act', [LoginController::class, 'forgot_pass_act'])->name('forgot-pass-act');
 
+// Route untuk menghapus akun
+Route::delete('delete-account', [RegisterController::class, 'deleteAccount'])->name('deleteAccount');
+
 
 Route::get('/val-forgot-pass/{token}', [LoginController::class, 'val_forgot_pass'])->name('val-forgot-pass');
 Route::post('/val-forgot-pass-act', [LoginController::class, 'val_forgot_pass_act'])->name('val-forgot-pass-act');
