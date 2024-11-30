@@ -167,10 +167,10 @@
                     <h4>Useful Links</h4>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#about">About us</a></li>
-                        <li><a href="/product">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="/#about">About 360 Hotel Supply</a></li>
+                        <li><a href="/product">Browse Products</a></li>
+                        <li><a href="/#clients">Our Clients</a></li>
+                        <li><a href="/#contact">Contact Us</a></li>
                     </ul>
                 </div>
 
